@@ -1,0 +1,23 @@
+interval=1
+separator="|"
+
+[time]
+interval=5
+instance=%a %b %d %Y-%m-%d %H:%M (%z)
+command=/home/dstewart/i3/bar/time.pl
+
+[song]
+interval=1
+command=/home/dstewart/i3/bar/song.pl ${BLOCK_BUTTON}
+
+[volume]
+interval=1
+command=/home/dstewart/i3/bar/volume.pl ${BLOCK_BUTTON}
+
+[timeout]
+interval=once
+command=/home/dstewart/i3/bar/timeout.sh ${BLOCK_BUTTON}
+
+[buf]
+interval=once
+command=echo "$(uname -r) "

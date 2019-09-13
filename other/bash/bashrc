@@ -1,0 +1,38 @@
+# .bashrc
+
+# ===== Sourcing other files =====
+[[ -f /etc/bashrc ]] && . /etc/bashrc
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f ~/.bash_funcs ]] && . ~/.bash_funcs
+[[ -f ~/.sensible.bash ]] && . ~/.sensible.bash
+
+# ===== Settings =====
+shopt -s histverify  # Expand history before executing when using bangs
+shopt -s autocd
+shopt -s cdspell
+shopt -s direxpand dirspell
+bind '"\t":menu-complete'
+bind '"\e[Z":menu-complete-backward'
+bind 'set mark-symlinked-directories on'
+bind '"\C-h": backward-kill-word'
+bind '"\e[3;5~": kill-word'
+
+# ===== Exports =====
+# Coloured prompt
+export PS1='\[\033[38;5;14m\][\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;14m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]'
+
+localbin="$HOME/bin"
+
+export PATH="$localbin:$PATH";
+
+# Init fzf
+[[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+
+if [[ -x /usr/bin/dircolors ]]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi

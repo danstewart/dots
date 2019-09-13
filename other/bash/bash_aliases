@@ -1,0 +1,49 @@
+# DNF
+alias dnfi='sudo dnf install'
+alias dnfu='sudo dnf update'
+alias dnfr='sudo dnf remove'
+alias dnfs='sudo dnf search'
+alias dnfl='sudo dnf list'
+alias dnfcu='sudo dnf check-update'
+alias dnfca='sudo dnf clean all'
+alias dnfar='sudo dnf autoremove'
+
+# Versioning
+alias vi='vim'
+alias py2='python'
+alias py='python3'
+alias py3='python3'
+alias gpg='gpg2'
+alias more='less'
+alias diff='colordiff'
+
+# Other
+alias cl='clear'
+alias ls='ls --color=auto'
+alias la='ls -Al'
+alias rm='rm -i'
+alias mv='mv -i'
+alias sudo='sudo '
+alias perltidy='perltidy -l=0 -pt=2 -sbt=2 -bt=2 -blbs=2 -lbl=1 -bbb -mbl=2 -kbl=0 -ce'
+
+# VPN
+alias playground_vpn='sudo openvpn --config ~/Documents/playground-client.ovpn'
+alias aws_vpn='sudo openvpn --config ~/Documents/aws-client.ovpn'
+
+# Mount
+alias mount_playground='sudo ~/scripts/rmnt.sh 172.26.3.85 /home/dstewart@ldap.traveltek.net ~/playground'
+
+# cd
+alias ..='cd ..'
+alias ...='..;..'
+alias ....='..;..;..'
+alias .....='..;..;..;..'
+
+# misc
+alias ssh='ssh -Y'
+
+function hlgrep() {
+	# grep but it prints the entire input content and highlights the matches
+	grep --color -E "$1|\$" $2
+}
+
