@@ -43,6 +43,6 @@ Then run `:PlugInstall` and restart
 ## [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 ```
 mkdir ~/bin
-curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O ~/bin/diff-so-fancy
+curl -o ~/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
 chmod 755 ~/bin/diff-so-fancy
 ```
