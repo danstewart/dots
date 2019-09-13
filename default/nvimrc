@@ -63,6 +63,7 @@ set ttimeoutlen=0
 set cursorline
 set ignorecase
 set smartcase
+set clipboard+=unnamed
 set clipboard+=unnamedplus
 set showcmd
 set termguicolors
