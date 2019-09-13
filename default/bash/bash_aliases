@@ -42,7 +42,7 @@ alias ....='..;..;..'
 alias .....='..;..;..;..'
 
 #SSH
-alias ssh='ssh -Y'
+alias ssh='ssh -XY'
 
 # Functions
 function hlgrep() {
