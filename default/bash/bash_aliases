@@ -28,6 +28,13 @@ alias mv='mv -i'
 alias sudo='sudo '
 alias perltidy='perltidy -l=0 -pt=2 -sbt=2 -bt=2 -blbs=2 -lbl=1 -bbb -mbl=2 -kbl=0 -ce'
 
+# VPN
+alias playground_vpn='sudo openvpn --config ~/Documents/playground-client.ovpn'
+alias aws_vpn='sudo openvpn --config ~/Documents/aws-client.ovpn'
+
+# Mount
+alias mount_playground='sudo ~/scripts/rmnt.sh 172.26.3.85 /home/dstewart@ldap.traveltek.net ~/playground'
+
 # cd
 alias ..='cd ..'
 alias ...='..;..'
@@ -38,7 +45,7 @@ alias .....='..;..;..;..'
 alias ssh='ssh -Y'
 
 # Functions
-function grepf() {
+function hlgrep() {
 	# grep but it prints the entire input content and highlights the matches
-	grep --color -E "$1|\$"
+	grep --color -E "$1|\$" $2
 }

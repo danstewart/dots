@@ -62,7 +62,7 @@ my %links = (
 	# Other machines
 	other => {
 		%commonlinks,
-		"vim/vimrc" => "$home/.vimrc"
+		"nvimrc" => "$home/.config/nvim/init.vim",
 	},
 );
 
