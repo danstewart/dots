@@ -6,6 +6,7 @@
 "=============
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 "====================
@@ -68,6 +69,14 @@ nmap <leader>ff za
 " Works great for perl modules but not really for JS
 nmap <leader>fa zMzr
 nmap <leader>fu zR
+
+"=============
+"== Plugins ==
+"=============
+" NerdCommenter
+let g:NERDSpaceDelims=1
+let g:NERDTrimTrailingWhitespace=1
+nmap <C-c> <Plug>NERDCommenterToggle
 
 "==================
 "== Key Bindings ==
