@@ -33,7 +33,8 @@ alias playground_vpn='sudo openvpn --config ~/Documents/playground-client.ovpn'
 alias aws_vpn='sudo openvpn --config ~/Documents/aws-client.ovpn'
 
 # Mount
-alias mount_playground='sudo ~/scripts/rmnt.sh 172.26.3.85 /home/dstewart@ldap.traveltek.net ~/playground'
+alias mount_playground='~/scripts/rmnt.sh 172.26.3.85 /home/dstewart@ldap.traveltek.net ~/playground'
+alias mount_branches='~/scripts/rmnt.sh branches-1.eu1.dev.aws.traveltek.net /home/dstewart ~/branches'
 
 # cd
 alias ..='cd ..'
