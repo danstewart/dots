@@ -4,3 +4,19 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+
+
+function read_log() {
+	file=$1
+	perl -E'
+	my $file = shift;
+
+	open my $pipe, "-|", "/usr/bin/tail", "-0f", "$file" or die "Could not tail file: $!";
+	$SIG{INT} = sub { close $pipe if $pipe; exit; }; # catch ctrl-c
+	
+	while (<$pipe>) {
+		print unless /uninitialized|Prototype|mask|^\s*at|will not stay shared|Subroutine \w+ redefined|Constant subroutine|filename: /;
+	}' $file
+}
+
