@@ -2,7 +2,7 @@
 
 mount_to=$1
 quiet=$2
-[[ -z $mount_to || $mount_to =~ 'help' ]] && { echo "Usage: rmnt mount_point"; exit; }
+[[ -z $mount_to || $mount_to =~ 'help' ]] && { echo 'Usage: ./unmount.sh $mount_point'; exit; }
 
 function say() {
   string=$1
