@@ -29,3 +29,4 @@
 	amend = commit -a --amend
 	wipe = reset --hard
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cleanup = !git branch | grep "feature_*" | xargs git branch -D
