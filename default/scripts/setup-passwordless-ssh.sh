@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 server=$1
+[[ -z $server ]] && { echo "Usage: ./setup-passwordless-ssh.sh servername"; exit 1; }
+
 user=$(whoami)
 
 # Generate a key if we don't have one
