@@ -33,6 +33,12 @@ alias aws_vpn='sudo openvpn --config ~/Documents/aws-client.ovpn'
 
 # Mount
 alias mount_branches='~/scripts/rmnt.sh branches-1.eu1.dev.aws.traveltek.net /home/dstewart ~/branches'
+alias unmount='~/scripts/runmnt.sh'
+
+function ntt_mount() {
+	server=$1
+	~/scripts/rmnt.sh $server.traveltek.net /home/dstewart ~/$server
+}
 
 # cd
 alias ..='cd ..'
