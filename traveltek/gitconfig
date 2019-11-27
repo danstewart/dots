@@ -23,10 +23,21 @@
 [alias]
 	st = status
 	co = checkout
-	cod = "!git checkout -b feature_${1} develop; #"
 	cm = !git add -A && git commit -m
-	undo = reset HEAD~1 --mixed
-	amend = commit -a --amend
-	wipe = reset --hard
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	cleanup = !git branch | grep "feature_*" | xargs git branch -D
+
+	# Checkout a branch from develop
+	cod = "!git checkout -b feature_${1} develop; #"
+
+	# Undo a commit
+	undo = reset HEAD~1 --mixed
+
+	# Amend an unpushed commit message
+	amend = commit -a --amend
+
+	# Wipe out everything you've done
+	wipe = reset --hard
+
+	# Fetch branch from remote and cleanup any dead ones
+	# Then delete any local feature branches
+	cleanup = !git fetch --prune --all && git branch | grep "feature_*" | xargs --no-run-if-empty git branch -D 
