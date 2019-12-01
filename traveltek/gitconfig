@@ -26,8 +26,9 @@
 	cm = !git add -A && git commit -m
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
-	# Checkout a branch from develop
+	# Checkout a feature branch from develop/master
 	cod = "!git checkout -b feature_${1} develop; #"
+	com = "!git checkout -b feature_${1} master; #"
 
 	# Undo a commit
 	undo = reset HEAD~1 --mixed
