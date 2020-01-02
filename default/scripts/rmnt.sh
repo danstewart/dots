@@ -6,7 +6,7 @@ server=$1
 mount_point=$2
 mount_to=$3
 sudo=$4
-user=$(who | awk '{print $1}')
+user=$(who am i | awk '{print $1}')
 
 # Remove this mount if it exists
 if [[ -e $mount_to ]]; then
