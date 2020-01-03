@@ -29,7 +29,7 @@ alias sudo='sudo '
 alias perltidy='perltidy -l=0 -pt=2 -sbt=2 -bt=2 -blbs=2 -lbl=1 -bbb -mbl=2 -kbl=0 -ce'
 
 # VPN
-alias aws_vpn='sudo openvpn --config ~/Documents/aws-client.ovpn'
+alias aws_vpn='sudo openvpn --config ~/Dropbox/Traveltek/aws_client.ovpn'
 
 # Mount
 alias mount_branches='~/scripts/rmnt.sh branches-1.eu1.dev.aws.traveltek.net /home/dstewart ~/branches'
