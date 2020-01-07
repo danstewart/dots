@@ -28,6 +28,11 @@ alias mv='mv -i'
 alias sudo='sudo '
 alias perltidy='perltidy -l=0 -pt=2 -sbt=2 -bt=2 -blbs=2 -lbl=1 -bbb -mbl=2 -kbl=0 -ce'
 
+# Flatpaks
+if [[ -e '/var/lib/flatpak/exports/bin/com.visualstudio.code' ]]; then
+	alias code='/var/lib/flatpak/exports/bin/com.visualstudio.code'
+fi
+
 # VPN
 alias aws_vpn='sudo openvpn --config ~/Dropbox/Traveltek/aws_client.ovpn'
 
