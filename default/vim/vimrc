@@ -59,10 +59,10 @@ set autoindent
 " folding
 set foldmethod=syntax
 set foldlevelstart=999
-let perl_fold=1
-let javaScript_fold=1
-let xml_syntax_folding=1
-let sh_fold_enabled=1
+" let perl_fold=1
+" let javaScript_fold=1
+" let xml_syntax_folding=1
+" let sh_fold_enabled=1
 nmap <leader>ff za
 " This needs some work
 " Currently folds everything then unfolds one level
