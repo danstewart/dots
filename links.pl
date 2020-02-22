@@ -36,8 +36,9 @@ my %commonlinks = (
 	"bash/sensible.bash" => "$home/.sensible.bash",
 
 	# Misc
-	"gitconfig" => "$home/.gitconfig",
-	"dircolors" => "$home/.dircolors",
+	"gitconfig"  => "$home/.gitconfig",
+	"dircolors"  => "$home/.dircolors",
+	"ssh/config" => "$home/.ssh/config",
 
 	# scripts
 	"scripts/" => "$home/scripts"
