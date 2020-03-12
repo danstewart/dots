@@ -7,4 +7,5 @@
   "bracketSpacing": true,
   "arrowParens": "avoid",
   "printWidth": 200,
+  spaceBeforeFunctionParen": false,
 }

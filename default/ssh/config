@@ -1,7 +1,0 @@
-Host branches-1.eu1.dev.aws.traveltek.net
-    StrictHostKeyChecking no
-    UserKnownHostsFile=/dev/null
-
-Host jump.eu1.prod.aws.traveltek.net
-    StrictHostKeyChecking no
-    UserKnownHostsFile=/dev/null
