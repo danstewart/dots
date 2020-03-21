@@ -19,6 +19,7 @@ Plug 'tpope/vim-sensible'
 Plug 'alvan/vim-closetag'
 Plug 'pangloss/vim-javascript'
 Plug 'bling/vim-bufferline'
+Plug 'adelarsq/vim-matchit'
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
