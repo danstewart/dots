@@ -5,7 +5,7 @@
 	default = current
 [core]
 	filemode = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=2 -RFX
 [color]
 	ui = true
 [color "diff-highlight"]
