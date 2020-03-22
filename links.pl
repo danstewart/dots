@@ -49,7 +49,6 @@ sub setup_links {
 
 	# Go through our links hash and symlink them into the correct places
 	while (my ($file, $target) = each %links) {
-		say "$file :: $target";
 		# Use file in machine dir and fallback to default file
 		$file = find_file($machine, $file, $source) || next;
 
