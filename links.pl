@@ -17,7 +17,8 @@ use Data::Dumper;
 # List of machines this script is used for
 my @machines = (
 	'local',    # Local fedora machine
-	'remote',   # Servers
+	'remote',   # My Servers
+	'work',     # Work servers
 );
 
 # Build regex

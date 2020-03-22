@@ -1,0 +1,11 @@
+# Personal account
+Host github.com
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa
+
+# Work account
+Host github.com-work
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa-work
