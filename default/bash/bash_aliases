@@ -55,7 +55,11 @@ function ttekgit() {
 		git config user.email 'daniel@traveltek.net' >/dev/null 2>&1
 	fi
 
-	GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION $ARGS
+	if [[ "$ARGS" ]]; then
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION "$ARGS"
+	else
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION
+	fi
 }
 
 # cd

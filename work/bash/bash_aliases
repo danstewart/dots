@@ -14,8 +14,12 @@ function mygit() {
 		git config user.name 'Dan Stewart' >/dev/null 2>&1
 		git config user.email 'danielandrewstewart@gmail.com' >/dev/null 2>&1
 	fi
-
-	GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION $ARGS
+	
+	if [[ "$ARGS" ]]; then
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION "$ARGS"
+	else
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION
+	fi
 }
 
 function read_log() {
