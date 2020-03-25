@@ -96,62 +96,64 @@ sub find_file {
 	return;
 }
 
+#--------------
 
 package Links;
 
-	# Returns the links needed for a specific machine
-	sub load {
-		my ($machine, $source) = @_;
+# Returns the links needed for a specific machine
+sub load {
+	my ($machine, $source) = @_;
 
-		if ($source->{name} eq 'Dropbox') {
-			return Links::dropbox();
-		}
-
-		my %links = (
-			# Local machine
-			local => {
-				Links::common(),
-				"prettierrc" => "$home/.prettierrc",
-				"nvimrc" => "$home/.config/nvim/init.vim",
-				"redshift.conf" => "$home/.config/redshift.conf",
-			},
-
-			# Core config files to be used for servers
-			remote => {
-				Links::common(),
-				"vim/vimrc" => "$home/.vimrc"
-			},
-		);
-
-		return %{$links{$machine}};
+	if ($source->{name} eq 'Dropbox') {
+		return Links::dropbox();
 	}
 
-	# Links added to all machines
-	sub common {
-		return (
-			# Bash
-			"bash/bashrc"        => "$home/.bashrc",
-			"bash/bash_aliases"  => "$home/.bash_aliases",
-			"bash/sensible.bash" => "$home/.sensible.bash",
+	my %links = (
+		# Local machine
+		local => {
+			Links::common(),
+			"prettierrc" => "$home/.prettierrc",
+			"nvimrc" => "$home/.config/nvim/init.vim",
+			"redshift.conf" => "$home/.config/redshift.conf",
+		},
 
-			# Misc
-			"gitconfig" => "$home/.gitconfig",
-			"dircolors" => "$home/.dircolors",
+		# Core config files to be used for servers
+		remote => {
+			Links::common(),
+			"vim/vimrc" => "$home/.vimrc"
+		},
+	);
 
-			# scripts
-			"scripts/" => "$home/scripts",
-		);
-	}
+	return %{$links{$machine}};
+}
 
-	# Links that are stored in Dropbox
-	sub dropbox {
-		return (
-			"ssh/config" => "$home/.ssh/config",
-		);
-	}
+# Links added to all machines
+sub common {
+	return (
+		# Bash
+		"bash/bashrc"        => "$home/.bashrc",
+		"bash/bash_aliases"  => "$home/.bash_aliases",
+		"bash/sensible.bash" => "$home/.sensible.bash",
+
+		# Misc
+		"gitconfig" => "$home/.gitconfig",
+		"dircolors" => "$home/.dircolors",
+
+		# scripts
+		"scripts/" => "$home/scripts",
+	);
+}
+
+# Links that are stored in Dropbox
+sub dropbox {
+	return (
+		"ssh/config" => "$home/.ssh/config",
+	);
+}
 
 1;
 
+#--------------
 
 package Source;
 
