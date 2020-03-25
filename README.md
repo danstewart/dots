@@ -5,6 +5,16 @@ cd dots
 perl links.pl <machine> --force
 ```
 
+### Machines
+`fedora`
+localhost fedora machine (home or work)
+
+`remote`
+my remote servers
+
+`work`
+work remote servers
+
 ---
 
 # Fresh Install

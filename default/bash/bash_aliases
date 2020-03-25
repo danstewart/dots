@@ -45,6 +45,19 @@ function ntt_mount() {
 	~/scripts/rmnt.sh $server.traveltek.net /home/dstewart ~/$server
 }
 
+# Git wrapper for work repos
+function ttekgit() {
+	ACTION=$1 && shift
+	ARGS="$@"
+
+	if [[ $ACTION != 'clone' ]]; then
+		git config user.name 'Dan Stewart' >/dev/null 2>&1
+		git config user.email 'daniel@traveltek.net' >/dev/null 2>&1
+	fi
+
+	GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION $ARGS
+}
+
 # cd
 alias ..='cd ..'
 alias ...='..;..'
