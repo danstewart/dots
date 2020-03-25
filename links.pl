@@ -121,6 +121,10 @@ package Links;
 				Links::common(),
 				"vim/vimrc" => "$home/.vimrc"
 			},
+			work => {
+				Links::common(),
+				"vim/vimrc" => "$home/.vimrc"
+			},
 		);
 
 		return %{$links{$machine}};
