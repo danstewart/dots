@@ -9,15 +9,22 @@ alias dnfca='sudo dnf clean all'
 alias dnfar='sudo dnf autoremove'
 
 # Versioning
-alias vi='nvim'
-alias vim='nvim'
-alias view='nvim'
 alias py2='python'
 alias py='python3'
 alias py3='python3'
 alias gpg='gpg2'
 alias more='less'
 alias diff='colordiff'
+
+# Vim
+if command -v nvim >/dev/null 2>&1; then
+	alias vi='nvim'
+	alias vim='nvim'
+	alias view='nvim -R'
+else
+	alias vi='vim'
+	alias view='vim -R'
+fi
 
 # Other
 alias cl='clear'
@@ -27,6 +34,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias sudo='sudo '
 alias perltidy='perltidy -l=0 -pt=2 -sbt=2 -bt=2 -blbs=2 -lbl=1 -bbb -mbl=2 -kbl=0 -ce'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Flatpaks
 if [[ -e '/var/lib/flatpak/exports/bin/com.visualstudio.code' ]]; then
@@ -43,6 +51,21 @@ alias unmount='~/scripts/runmnt.sh'
 function ntt_mount() {
 	server=$1
 	~/scripts/rmnt.sh $server.traveltek.net /home/dstewart ~/$server
+}
+
+# cd
+alias ..='cd ..'
+alias ...='..;..'
+alias ....='..;..;..'
+alias .....='..;..;..;..'
+
+#SSH
+alias ssh='ssh -XY'
+
+# Functions
+function hlgrep() {
+	# grep but it prints the entire input content and highlights the matches
+	grep --color -E "$1|\$" $2
 }
 
 # Git wrapper for work repos
@@ -62,17 +85,20 @@ function ttekgit() {
 	fi
 }
 
-# cd
-alias ..='cd ..'
-alias ...='..;..'
-alias ....='..;..;..'
-alias .....='..;..;..;..'
+# Git wrapper for personal repos
+function mygit() {
+	ACTION=$1 && shift
+	ARGS="$@"
 
-#SSH
-alias ssh='ssh -XY'
-
-# Functions
-function hlgrep() {
-	# grep but it prints the entire input content and highlights the matches
-	grep --color -E "$1|\$" $2
+	if [[ $ACTION != 'clone' ]]; then
+		git config user.name 'Dan Stewart' >/dev/null 2>&1
+		git config user.email 'danielandrewstewart@gmail.com' >/dev/null 2>&1
+	fi
+	
+	if [[ "$ARGS" ]]; then
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION "$ARGS"
+	else
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION
+	fi
 }
+

@@ -122,6 +122,12 @@ sub load {
 			Links::common(),
 			"vim/vimrc" => "$home/.vimrc"
 		},
+
+		# Files for work machines
+		work => {
+			Links::common(),
+			"vim/vimrc" => "$home/.vimrc"
+		}
 	);
 
 	return %{$links{$machine}};
