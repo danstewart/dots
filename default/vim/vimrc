@@ -6,6 +6,7 @@
 "=============
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
+Plug 'zacanger/angr.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 call plug#end()
@@ -42,7 +43,7 @@ set splitbelow
 set splitright
 set scrolloff=10
 map <SPACE> <leader>
-colorscheme gruvbox
+colorscheme angr
 
 if &term =~ '256color'
 	set t_ut=
