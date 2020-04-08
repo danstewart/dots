@@ -9,6 +9,7 @@ Plug 'morhetz/gruvbox'
 Plug 'zacanger/angr.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "====================
@@ -20,6 +21,7 @@ set bg=dark
 set hls
 set visualbell
 set number
+set relativenumber
 set background=dark
 set hidden
 set mouse=a
@@ -129,3 +131,7 @@ nmap <silent> <S-Right> :wincmd l<CR>
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 noremap <F2> :set list!<CR>
 
+" airline
+let g:airline_theme='angr'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
