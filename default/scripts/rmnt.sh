@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
 server=$1
-[[ -z $server || $server =~ 'help' ]] && { echo 'Usage: ./rmnt.sh $server $mount_point $mount_to [$user]'; exit; }
-
 mount_point=$2
 mount_to=$3
 sudo=$4
 user=$(who am i | awk '{print $1}')
+
+if [[ -z $mount_point || -z $mount_to || $server =~ 'help' ]]; then
+	echo "Usage: ./rmnt.sh <server> <mount point> <mount to> [sudo]"
+	exit 1
+fi
 
 # Remove this mount if it exists
 if [[ -e $mount_to ]]; then

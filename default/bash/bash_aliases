@@ -48,6 +48,8 @@ alias aws_vpn='sudo openvpn --config ~/Dropbox/Traveltek/aws_client.ovpn'
 alias mount_branches='~/scripts/rmnt.sh branches-1.eu1.dev.aws.traveltek.net /home/dstewart ~/branches'
 alias unmount='~/scripts/runmnt.sh'
 
+alias mountsrvr='~/scripts/rmnt.sh danstewart.dev / ~/srvr'
+
 function ntt_mount() {
 	server=$1
 	~/scripts/rmnt.sh $server.traveltek.net /home/dstewart ~/$server
