@@ -39,7 +39,7 @@ sub create {
 		my ($src, $target, $and_then, $no_force);
 
 		if (ref $config->{$item} eq 'HASH') {
-			$src      = join '/', $self->{_dir}, ($config->{$item}->{src} || $item);
+			$src      = ($config->{$item}->{src} || join('/', $self->{_dir}, $item));
 			$target   = $config->{$item}->{target};
 			$and_then = $config->{$item}->{andThen};
 			$no_force = $config->{$item}->{noForce};
@@ -69,11 +69,18 @@ sub _make_link {
 	my ($self, $src, $target, $no_force) = @_;
 
 	# Replace any standard vars
+	$src =~ s{\$HOME}{$ENV{HOME}}g;
 	$target =~ s{\$HOME}{$ENV{HOME}}g;
 
-	if ((-e $target or -l $target) and not $no_force and not $self->force) {
-		say "WARNING: $target already exists, pass --force to overwrite";
-		return;
+	if (-e $target or -l $target) {
+		if (not $self->force) {
+			say "WARNING: $target already exists, pass --force to overwrite";
+			return;
+		}
+
+		if ($no_force) {
+			return;
+		}
 	}
 
 	my ($name, $path) = fileparse($target);
