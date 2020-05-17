@@ -4,7 +4,7 @@ server=$1
 mount_point=$2
 mount_to=$3
 sudo=$4
-user=$(who am i | awk '{print $1}')
+user=$(whoami)
 
 if [[ -z $mount_point || -z $mount_to || $server =~ 'help' ]]; then
 	echo "Usage: ./rmnt.sh <server> <mount point> <mount to> [sudo]"
