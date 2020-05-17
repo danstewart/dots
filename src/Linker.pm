@@ -55,10 +55,10 @@ sub create {
 		}
 
 		if ($src and $target) {
-			$self->_make_link($src, $target, $no_force);
+			my $res = $self->_make_link($src, $target, $no_force);
 
 			# Optional shell command to run after linking
-			if ($and_then) {
+			if ($res == 1 and $and_then) {
 				qx{$and_then};
 			}
 		}
@@ -75,11 +75,11 @@ sub _make_link {
 	if (-e $target or -l $target) {
 		if (not $self->force) {
 			say "WARNING: $target already exists, pass --force to overwrite";
-			return;
+			return 0;
 		}
 
 		if ($no_force) {
-			return;
+			return 0;
 		}
 	}
 
@@ -90,6 +90,7 @@ sub _make_link {
 	}
 
 	symlink($src, zap($target));
+	return 1;
 }
 
 sub zap {

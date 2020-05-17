@@ -43,13 +43,15 @@
       "src": "$HOME/Dropbox/Keys/ssh/id_rsa",
       "target": "$HOME/.ssh/id_rsa",
       "cond": "-e $HOME/Dropbox",
-      "noForce": true
+      "noForce": true,
+      "andThen": "chmod 600 $HOME/.ssh/id_rsa"
     },
     "sshpubkey": {
       "src": "$HOME/Dropbox/Keys/ssh/id_rsa.pub",
       "target": "$HOME/.ssh/id_rsa.pub",
       "cond": "-e $HOME/Dropbox",
-      "noForce": true
+      "noForce": true,
+      "andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
     }
   },
 
