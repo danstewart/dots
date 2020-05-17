@@ -102,6 +102,7 @@ paths=(
 	"$JAVA_HOME"
 	"$FLUTTER_ROOT"
 	"$ANDROID_HOME"
+	"$HOME/.cargo/bin"
 )
 
 # Filter non existent paths
