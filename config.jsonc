@@ -1,0 +1,69 @@
+// This file has a list of tags and the files they should link
+// The key is the source file within /config and the value is either the target to link 
+// or an object
+//
+// Tags can include other tags by having "&include": [ "otherTag" ]
+// $HOME will automatically be replaced
+//
+// If the file maps to an object then you can specify
+// - src: The path of the src file (Defaults to the key if not specified)
+// - target: The target to link to
+// - andThen: Optional shell command to run after linking
+// - cond: Optional shell condition (automatically wrapped in [])
+// - noForce: Overrides --force flag to never overwrite
+//
+// A lot of the below config is overcomplicated and unneccessary - just to use as an example
+{
+  // Base config
+  "base": {
+    "bash/bashrc": "$HOME/.bashrc",
+    "bash/bash_aliases": "$HOME/.bash_aliases",
+    "bash/sensible.bash": "$HOME/.sensible.bash",
+    "ssh/config": {
+      "target": "$HOME/.ssh/config",
+      "andThen": "chmod 600 $HOME/.ssh/config"
+    },
+    "gitconfig": "$HOME/.gitconfig"
+  },
+
+  // Extra config
+  "extra": {
+    "scripts": "$HOME/scripts",
+    "dircolor": "$HOME/.dircolors"
+  },
+
+  // Personal config includes both base and extra and defines some of it's configs too
+  "personal": {
+    "&include": [ "base", "extra" ],
+    "vim/nvimrc": "$HOME/.config/nvim/init.vim",
+    "prettierrc": "$HOME/.prettierrc",
+
+    // Copy ssh key from Dropbox
+    "sshkey": {
+      "src": "$HOME/Dropbox/Keys/ssh/id_rsa",
+      "target": "$HOME/.ssh/id_rsa",
+      "cond": "-e $HOME/Dropbox",
+      "noForce": true
+    },
+    "sshpubkey": {
+      "src": "$HOME/Dropbox/Keys/ssh/id_rsa.pub",
+      "target": "$HOME/.ssh/id_rsa.pub",
+      "cond": "-e $HOME/Dropbox",
+      "noForce": true
+    }
+  },
+
+  // Work includes both base and extra and overrides the bashrc
+  "work": {
+    "&include": [ "base", "extra" ],
+    "bash/bashrc": { "from": "/overrides/work/bashrc", "target": "$HOME/.bashrc" },
+    "bash/bash_aliases": "$HOME/.bash_aliases",
+    "bash/sensible.bash": "$HOME/.sensible.bash"
+  },
+
+  // Server includes only base and the vimrc
+  "server": {
+    "&include": [ "base" ],
+    "vim/vimrc": "$HOME/.vimrc"
+  }
+}

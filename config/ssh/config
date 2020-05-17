@@ -1,0 +1,25 @@
+Host branches-1.eu1.dev.aws.traveltek.net
+	StrictHostKeyChecking no
+	UserKnownHostsFile=/dev/null
+	HostName branches-1.eu1.dev.aws.traveltek.net
+
+Host jump.eu1.prod.aws.traveltek.net
+	StrictHostKeyChecking no
+	UserKnownHostsFile=/dev/null
+
+# Personal account
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa
+
+# Work account
+# Allows cloning from git@github.com-traveltek and using a different key than git@github.com
+Host github.com-traveltek
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_traveltek
+
+Host danstewart.dev
+	HostName danstewart.dev
+	User dstewart

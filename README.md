@@ -2,18 +2,27 @@
 ```
 git clone git@github.com:danstewart/dots.git
 cd dots
-perl links.pl <machine> --force
+perl links.pl --tag1 --tag2 [--force]
 ```
 
-### Machines
-`fedora`
-localhost fedora machine (home or work)
+Tags are defined in `config.jsonc`
 
-`remote`
-my remote servers
+---
 
-`work`
-work remote servers
+## config.jsonc
+
+This file has a list of tags and the files they should link.  
+The key is the source file within /config and the value is either the target to link or an object.  
+
+Tags can include other tags by having "&include": [ "otherTag" ]  
+$HOME will automatically be replaced  
+
+If the file maps to an object then you can specify  
+- `src`: The path of the src file (Defaults to the key if not specified)
+- `target`: The target to link to
+- `andThen`: Optional shell command to run after linking
+- `cond`: Optional shell condition (automatically wrapped in [])
+- `noForce`: Overrides --force flag to never overwrite
 
 ---
 
