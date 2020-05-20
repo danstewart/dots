@@ -39,7 +39,15 @@ sub create {
 		my ($src, $target, $and_then, $no_force);
 
 		if (ref $config->{$item} eq 'HASH') {
-			$src      = join('/', $self->{_dir}, ($config->{$item}->{src} || $item));
+			# If src path is absolute
+			if ($config->{$item}->{src} && $config->{$item}->{src} =~ m{^/}) {
+				$src = $config->{$item}->{src};
+
+			# Else relative or unset
+			} else {
+				$src = join('/', $self->{_dir}, ($config->{$item}->{src} || $item));
+			}
+
 			$target   = $config->{$item}->{target};
 			$and_then = $config->{$item}->{andThen};
 			$no_force = $config->{$item}->{noForce};
