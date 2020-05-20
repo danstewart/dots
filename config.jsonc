@@ -29,7 +29,7 @@
   // Extra config
   "extra": {
     "scripts": "$HOME/scripts",
-    "dircolor": "$HOME/.dircolors"
+    "dircolors": "$HOME/.dircolors"
   },
 
   // Personal config includes both base and extra and defines some of it's configs too
@@ -60,7 +60,8 @@
     "&include": [ "base", "extra" ],
     "bash/bashrc": { "from": "/overrides/work/bashrc", "target": "$HOME/.bashrc" },
     "bash/bash_aliases": "$HOME/.bash_aliases",
-    "bash/sensible.bash": "$HOME/.sensible.bash"
+    "bash/sensible.bash": "$HOME/.sensible.bash",
+    "vim/vimrc": "$HOME/.vimrc"
   },
 
   // Server includes only base and the vimrc
