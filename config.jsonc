@@ -58,9 +58,8 @@
   // Work includes both base and extra and overrides the bashrc
   "work": {
     "&include": [ "base", "extra" ],
-    "bash/bashrc": { "from": "/overrides/work/bashrc", "target": "$HOME/.bashrc" },
-    "bash/bash_aliases": "$HOME/.bash_aliases",
-    "bash/sensible.bash": "$HOME/.sensible.bash",
+    "bash/bashrc": { "src": "/overrides/work/bash/bashrc", "target": "$HOME/.bashrc" },
+    "gitconfig": { "src": "/overrides/work/gitconfig", "target": "$HOME/.bashrc" },
     "vim/vimrc": "$HOME/.vimrc"
   },
 

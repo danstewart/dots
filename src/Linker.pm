@@ -39,7 +39,7 @@ sub create {
 		my ($src, $target, $and_then, $no_force);
 
 		if (ref $config->{$item} eq 'HASH') {
-			$src      = ($config->{$item}->{src} || join('/', $self->{_dir}, $item));
+			$src      = join('/', $self->{_dir}, ($config->{$item}->{src} || $item));
 			$target   = $config->{$item}->{target};
 			$and_then = $config->{$item}->{andThen};
 			$no_force = $config->{$item}->{noForce};
