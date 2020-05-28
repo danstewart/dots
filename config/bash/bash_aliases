@@ -81,7 +81,7 @@ function ttekgit() {
 	fi
 
 	if [[ "$ARGS" ]]; then
-		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION "$ARGS"
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION $ARGS
 	else
 		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION
 	fi
@@ -98,7 +98,7 @@ function mygit() {
 	fi
 	
 	if [[ "$ARGS" ]]; then
-		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION "$ARGS"
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION $ARGS
 	else
 		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION
 	fi
