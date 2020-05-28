@@ -23,7 +23,7 @@ sub new {
 sub force {
 	my ($self, $val) = @_;
 
-	if ($val) {
+	if (scalar @_ == 2) {
 		$self->{_force} = $val;
 		return $self;
 	}

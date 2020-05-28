@@ -8,6 +8,7 @@ use feature qw{say};
 use Linker;
 use ConfigBuilder;
 use Util qw{parse_jsonc script_dir};
+use Data::Dumper;
 
 my $CONFIG_FILE = script_dir() . "/config.jsonc";
 
