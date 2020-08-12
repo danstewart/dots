@@ -23,7 +23,8 @@
       "target": "$HOME/.ssh/config",
       "andThen": "chmod 600 $HOME/.ssh/config"
     },
-    "gitconfig": "$HOME/.gitconfig"
+    "gitconfig": "$HOME/.gitconfig",
+    "tmux.conf": "$HOME/.tmux.conf"
   },
 
   // Extra config
