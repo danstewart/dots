@@ -130,8 +130,9 @@ let g:AutoClosePairs="() {} \" ' []"
 " untab
 vmap <tab> >gv
 vmap <S-tab> <gv
-nmap <tab> I<tab><esc>
-nmap <S-tab> ^i<bs><esc>
+nmap <tab> >>
+nmap <S-tab> <<
+
 
 " navigate between buffers
 " using Ctrl+Arrow
@@ -205,7 +206,7 @@ let g:bufferline_echo=0
 " deoplete
 let g:deoplete#enable_at_startup=1
 let g:deolete#enable_smart_case=1
-let g:deoplete#auto_complete_start_length=3
+"let g:deoplete#auto_complete_start_length=3
 
 " closetag
 let g:closetag_filenames='*.html,*.html.ep,*.phtml,*.xml'

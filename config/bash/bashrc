@@ -3,6 +3,11 @@
 # ===== Sourcing other files =====
 [[ -f /etc/bashrc ]] && . /etc/bashrc
 
+# tmux
+if [[ -z "$TMUX" ]]; then
+	tmux attach -t default || tmux new -s default
+fi
+
 shopt -s checkwinsize
 shopt -s histappend
 shopt -s globstar
