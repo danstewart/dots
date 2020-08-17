@@ -104,3 +104,19 @@ function mygit() {
 	fi
 }
 
+
+function perl_check() {
+	while read status filename; do
+		if [[ $filename == *.pm || $filename == *.pl ]]; then
+			echo "==> $filename"
+			perl -I local/lib/perl5/ -I modules/ -c $filename
+			echo
+		fi
+	done < <(git status --porcelain | egrep -v "^ ?D ")
+}
+
+function tail_logs() {
+	[[ -z $BRANCH ]] && BRANCH=$1
+
+	tail -n 0 -f .apache/$BRANCH/logs/error.log | grep -v --line-buffered uninitialized | grep -v --line-buffered 'has gone away' | grep -v --line-buffered 'Prototype mismatch' | egrep -v --line-buffered '^ at' | grep --line-buffered -v 'Use of uninitialized' | grep --line-buffered -v 'Constant subroutine redefined' | grep --line-buffered -v 'Prototype mismatch'
+}

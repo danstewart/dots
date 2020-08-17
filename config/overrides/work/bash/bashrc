@@ -5,7 +5,7 @@
 
 shopt -s checkwinsize
 shopt -s histappend
-shopt -s globstar
+#shopt -s globstar
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -83,6 +83,8 @@ branch=git_branch
 export PROMPT_COMMAND='color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
 
 # Exports
+VISUAL="vim"
+EDITOR="vim"
 opt="$HOME/opt"
 TEKAPPPATH="/home/dstewart/Code/apps/app-travelshops/"
 JAVA_HOME="$opt/jdk-11/bin"
