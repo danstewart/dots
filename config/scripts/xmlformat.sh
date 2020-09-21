@@ -10,7 +10,7 @@
 # Trims leading hyphens and formats XML documents
 # The 2nd argument will print the output instead of updating the file.
 
-gedit=$2
+#gedit=$2
 
 while [[ $1 ]]; do
   tidied=$(perl -p -e 's/^(-|\s)//g' $1 | tidy -xml -i -q -w 0)
