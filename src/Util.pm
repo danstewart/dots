@@ -25,8 +25,8 @@ sub parse_jsonc {
 	# Strip out comments
 	$file_contents =~ s{^\s*//.*}{}gm;
 
-	require JSON::PP;
-	my $config = JSON::PP->new->decode($file_contents);
+	require JSON;
+	my $config = JSON->new->decode($file_contents);
 	return $config;
 }
 
