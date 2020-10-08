@@ -41,4 +41,4 @@
 
 	# Fetch branch from remote and cleanup any dead ones
 	# Then delete any local feature branches
-	cleanup = !git fetch --prune --all && git branch | grep "feature_*" | xargs --no-run-if-empty git branch -D 
+	cleanup = !git fetch --prune --all && git branch | grep -E '^\\s*feature_|^\\s*hotfix_' | xargs --no-run-if-empty git branch -D 
