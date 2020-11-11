@@ -1,5 +1,7 @@
 # .bashrc
 
+cd $HOME # Damn WSL
+
 # ===== Sourcing other files =====
 [[ -f /etc/bashrc ]] && . /etc/bashrc
 
@@ -122,10 +124,11 @@ export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 [[ -d $rbenvpath ]] && eval "$(rbenv init -)"
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# SSH
+eval $(ssh-agent -s) > /dev/null 2>&1
+ssh-add $HOME/.ssh/id_rsa > /dev/null 2>&1
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/dstewart/.nvm/versions/node/v11.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/dstewart/.nvm/versions/node/v11.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+for i in $HOME/.ssh/*.pem; do
+	ssh-add $i > /dev/null 2>&1
+done
+
