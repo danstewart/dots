@@ -9,6 +9,21 @@ Tags are defined in `config.jsonc`
 
 ---
 
+## Dependencies
+
+```
+# Fedora
+sudo dnf install perl-JSON
+
+# Ubuntu
+sudo apt install libjson-perl
+
+# Arch
+sudo pacman -S perl-json
+```
+
+---
+
 ## config.jsonc
 
 This file has a list of tags and the files they should link.  
