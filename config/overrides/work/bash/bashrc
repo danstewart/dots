@@ -1,5 +1,7 @@
 # .bashrc
 
+cd $HOME # Damn WSL
+
 # ===== Sourcing other files =====
 [[ -f /etc/bashrc ]] && . /etc/bashrc
 
@@ -86,7 +88,6 @@ export PROMPT_COMMAND='color=$(git_color); branch=$(git_branch); export PS1="${s
 VISUAL="vim"
 EDITOR="vim"
 opt="$HOME/opt"
-TEKAPPPATH="/home/dstewart/Code/apps/app-travelshops/"
 JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"
 ANDROID_HOME="$opt/Android/SDK"
@@ -113,7 +114,6 @@ for item in "${paths[@]}"; do [[ -e $item ]] && exists+=("$item"); done
 [[ -e $JAVA_HOME ]] && export JAVA_HOME
 [[ -e $FLUTTER_ROOT ]] && export FLUTTER_ROOT
 [[ -e $ANDROID_HOME ]] && export ANDROID_HOME
-[[ -e $TEKAPPPATH ]] && export TEKAPPPATH
 export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 
 
@@ -121,11 +121,3 @@ export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 [[ -d $plenvpath ]] && eval "$(plenv init -)"
 [[ -d $rbenvpath ]] && eval "$(rbenv init -)"
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/dstewart/.nvm/versions/node/v11.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/dstewart/.nvm/versions/node/v11.7.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
