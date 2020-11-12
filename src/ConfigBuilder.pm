@@ -11,6 +11,7 @@ sub new {
 	return bless $self, $class;
 }
 
+# Pushes data into the config
 sub push {
 	my ($self, $data, $from_inc) = @_;
 
@@ -28,6 +29,7 @@ sub push {
 	}
 }
 
+# Gets the built config
 sub get {
 	my ($self) = @_;
 	return $self->{_config};

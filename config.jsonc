@@ -14,15 +14,23 @@
 //
 // A lot of the below config is overcomplicated and unneccessary - just to use as an example
 {
-  // Base config
-  "base": {
+  // Individual groups
+  "bash": {
     "bash/bashrc": "$HOME/.bashrc",
     "bash/bash_aliases": "$HOME/.bash_aliases",
-    "bash/sensible.bash": "$HOME/.sensible.bash",
+    "bash/sensible.bash": "$HOME/.sensible.bash"
+  },
+
+  "ssh": {
     "ssh/config": {
       "target": "$HOME/.ssh/config",
       "andThen": "chmod 600 $HOME/.ssh/config"
-    },
+    }
+  },
+
+  // Base config
+  "base": {
+    "&include": [ "bash", "ssh" ],
     "gitconfig": "$HOME/.gitconfig",
     "tmux.conf": "$HOME/.tmux.conf"
   },

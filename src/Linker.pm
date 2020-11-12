@@ -20,16 +20,22 @@ sub new {
 	return bless $self, $class;
 }
 
-sub force {
-	my ($self, $val) = @_;
+sub _attr {
+	my ($self, @args) = @_;	
 
-	if (scalar @_ == 2) {
-		$self->{_force} = $val;
+	my $key = pop @args;
+	my $val = pop @args;
+
+	if (defined $val) {
+		$self->{$key} = $val;
 		return $self;
 	}
 
-	return $self->{_force};
+	return $self->{$key};
 }
+
+sub force { return _attr(@_, '_force') }
+sub test  { return _attr(@_, '_test')  }
 
 sub create {
 	my ($self) = @_;
@@ -93,11 +99,20 @@ sub _make_link {
 
 	my ($name, $path) = fileparse($target);
 	if (not -d $path) {
-		require File::Path;
-		File::Path::make_path($path);
+		if ($self->test) {
+			say "INFO: Making path '$path'";
+		} else {
+			require File::Path;
+			File::Path::make_path($path);
+		}
 	}
 
-	symlink($src, zap($target));
+	if ($self->test) {
+		say "INFO: Linking '$src' to '$target'";
+	} else {
+		symlink($src, zap($target));
+	}
+
 	return 1;
 }
 

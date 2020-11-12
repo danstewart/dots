@@ -16,7 +16,7 @@ my $args = arg_parse(@ARGV);
 my $tags = $args->{tags} || [];
 
 if (scalar @$tags == 0) {
-	say 'Usage: ./links.pl --tag1 --tag2 [--force]';
+	say 'Usage: ./links.pl --tag1 --tag2 [--force] [--test]';
 	say '--tag:   The tag(s) you want to link (from config.jsonc)';
 	say '--force: Overwrite existing files';
 
@@ -28,12 +28,32 @@ my $builder = ConfigBuilder->new;
 
 # Go through all tags we want to set up links for
 foreach my $tag (@$tags) {
-	next unless exists $config->{$tag};
+	if (not exists $config->{$tag}) {
+		say "WARNING: Tag '$tag' not found in config.jsonc";
+		next;
+	}
 
-	my $includes = delete $config->{$tag}->{'&include'};
+	# Handles includes
+	unwrap_includes($config, $tag);
 
 	# Add this section into our config builder
 	$builder->push($config->{$tag});
+}
+
+# Load the config and create the symlinks
+Linker
+	->new($builder->get)
+	->force($args->{force})
+	->test($args->{test})
+	->create;
+
+
+# Unwraps the 'include' references into the raw config
+# Takes the full $config and the current $tag
+sub unwrap_includes {
+	my ($config, $tag) = @_;
+
+	my $includes = delete $config->{$tag}->{'&include'};
 
 	# Load any &include sections
 	if ($includes) {
@@ -45,26 +65,28 @@ foreach my $tag (@$tags) {
 				next;
 			}
 
+			# Recurse to resolve nested includes
+			unwrap_includes($config, $inc);
+
+			# Add this into the config
 			$builder->push($config->{$inc}, 1);
 		}
 	}
 }
 
-# Load the config and create the symlinks
-Linker->new($builder->get)->force($args->{force})->create;
-
-
+# Parses args... shock!
 sub arg_parse {
 	my (@args) = @_;
 
-	my $force = 0;
+	my %flags = ( force => 0, test => 0);
 	my @tags  = ();
 
 	foreach my $arg (@args) {
 		$arg =~ s/^--//g;
 
-		if ($arg eq 'force') {
-			$force = 1;
+		if (exists $flags{$arg}) {
+			say "Enabling '$arg' mode";
+			$flags{$arg} = 1;
 			next;
 		}
 
@@ -72,7 +94,7 @@ sub arg_parse {
 	}
 
 	return {
-		force => $force,
-		tags  => \@tags,
+		%flags,
+		tags => \@tags,
 	};
 }
