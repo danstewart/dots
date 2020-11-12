@@ -1,7 +1,5 @@
 # .bashrc
 
-cd $HOME # Damn WSL
-
 # ===== Sourcing other files =====
 [[ -f /etc/bashrc ]] && . /etc/bashrc
 
@@ -92,6 +90,7 @@ opt="$HOME/opt"
 JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"
 ANDROID_HOME="$opt/Android/SDK"
+WINHOME=/mnt/c/Users/DanielStewart/
 plenvpath="$HOME/.plenv/bin"
 rbenvpath="$HOME/.rbenv/bin"
 
@@ -113,11 +112,11 @@ paths=(
 # Filter non existent paths
 for item in "${paths[@]}"; do [[ -e $item ]] && exists+=("$item"); done
 
+[[ -d $WINHOME ]] && export WINHOME
 [[ -e $JAVA_HOME ]] && export JAVA_HOME
 [[ -e $FLUTTER_ROOT ]] && export FLUTTER_ROOT
 [[ -e $ANDROID_HOME ]] && export ANDROID_HOME
 export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
-
 
 # Init
 [[ -d $plenvpath ]] && eval "$(plenv init -)"
