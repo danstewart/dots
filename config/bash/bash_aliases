@@ -106,7 +106,7 @@ function mygit() {
 	fi
 }
 
-
+# perl -c all edited files
 function perl_check() {
 	while read status filename; do
 		if [[ $filename == *.pm || $filename == *.pl ]]; then
@@ -117,8 +117,27 @@ function perl_check() {
 	done < <(git status --porcelain | egrep -v "^ ?D ")
 }
 
-function tail_logs() {
-	[[ -z $BRANCH ]] && BRANCH=$1
+# tail -f with a bunch of grep -v
+function clean_tail() {
+	file=$1
 
-	tail -n 0 -f .apache/$BRANCH/logs/error.log | grep -v --line-buffered uninitialized | grep -v --line-buffered 'has gone away' | grep -v --line-buffered 'Prototype mismatch' | egrep -v --line-buffered '^ at' | grep --line-buffered -v 'Use of uninitialized' | grep --line-buffered -v 'Constant subroutine redefined' | grep --line-buffered -v 'Prototype mismatch'
+	tail -n 0 -f $file | grep -v --line-buffered uninitialized | grep -v --line-buffered 'has gone away' | grep -v --line-buffered 'Prototype mismatch' | egrep -v --line-buffered '^ at' | grep --line-buffered -v 'Use of uninitialized' | grep --line-buffered -v 'Constant subroutine redefined' | grep --line-buffered -v 'Prototype mismatch'
+}
+
+# Auto activate python venv
+function cd() {
+	builtin cd "$@"
+
+	# If env folder is found then activate the virtualenv
+	if [[ -d ./venv ]] ; then
+		source ./venv/bin/activate
+	fi
+
+	# If we are no longer within our active venv then deactivate
+	if [[ -n "$VIRTUAL_ENV" ]] ; then
+		venvparent="$(dirname "$VIRTUAL_ENV")"
+		if [[ "$PWD"/ != "$venvparent"/* ]] ; then
+			deactivate
+		fi
+	fi
 }
