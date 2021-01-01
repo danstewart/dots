@@ -83,9 +83,9 @@ branch=git_branch
 export PROMPT_COMMAND='color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
 
 # Exports
-export VISUAL=vim
-export EDITOR=vim
-export SUDO_EDITOR=vim
+export VISUAL=nvim
+export EDITOR=nvim
+export SUDO_EDITOR=nvim
 opt="$HOME/opt"
 JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"
@@ -131,3 +131,4 @@ for i in $HOME/.ssh/*.pem; do
 	ssh-add $i > /dev/null 2>&1
 done
 
+source "$HOME/.cargo/env"
