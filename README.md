@@ -2,6 +2,7 @@
 ```
 git clone git@github.com:danstewart/dots.git
 cd dots
+bash init.sh
 perl links.pl --tag1 --tag2 [--force]
 ```
 
@@ -10,7 +11,8 @@ Tags are defined in `config.jsonc`
 ---
 
 ## Dependencies
-
+The only dependency that isn't already provided on most systems is the perl JSON.pm module.  
+The `init.sh` script will handle this for you on Ubuntu, Fedora and Arch.  
 ```
 # Fedora
 sudo dnf install perl-JSON
