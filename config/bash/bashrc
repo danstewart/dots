@@ -131,3 +131,4 @@ for i in $HOME/.ssh/*.pem; do
 	ssh-add $i > /dev/null 2>&1
 done
 
+source <(awless completion bash)
