@@ -80,7 +80,7 @@ function git_branch {
 standard_prompt='\[\033[38;5;14m\][\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;14m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
 color=git_color
 branch=git_branch
-export PROMPT_COMMAND='color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
+export PROMPT_COMMAND='history -a; history -r; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
 
 # Exports
 export VISUAL=nvim
@@ -121,7 +121,13 @@ export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 # Initialise some stuff
 [[ -d $plenvpath ]] && eval "$(plenv init -)"
 [[ -d $rbenvpath ]] && eval "$(rbenv init -)"
+
+# fzf
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+if [[ -d /usr/share/doc/fzf/ ]]; then
+	source /usr/share/doc/fzf/examples/key-bindings.bash
+	source /usr/share/doc/fzf/examples/completion.bash
+fi
 
 # SSH
 eval $(ssh-agent -s) > /dev/null 2>&1
@@ -148,3 +154,4 @@ if [[ -n $WSLENV ]]; then
 	export DISPLAY=$(ipconfig.exe | awk -v a=$WSL_ip_line '{if (NR==a) print $NF":0.0"}' | tr -d "\r")
 	export LIBGL_ALWAYS_INDIRECT=1
 fi
+

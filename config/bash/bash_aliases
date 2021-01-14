@@ -15,8 +15,11 @@ alias py3='python3'
 alias gpg='gpg2'
 alias more='less'
 alias diff='colordiff'
-alias docker='podman'
-alias docker-compose='podman-compose'
+
+if [[ $(type -P podman) && ! $(type -P docker) ]]; then
+	alias docker='podman'
+	alias docker-compose='podman-compose'
+fi
 
 # Vim
 if command -v nvim >/dev/null 2>&1; then
@@ -29,6 +32,7 @@ else
 fi
 
 # Other
+alias h='history'
 alias cl='clear'
 alias ls='ls --color=auto'
 alias la='ls -Al'
@@ -37,25 +41,12 @@ alias mv='mv -i'
 alias sudo='sudo '
 alias perltidy='perltidy -l=0 -pt=2 -sbt=2 -bt=2 -blbs=2 -lbl=1 -bbb -mbl=2 -kbl=0 -et=4 -ce'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias mountsrvr='~/scripts/rmnt.sh danstewart.dev / ~/srvr'
 
 # Flatpaks
 if [[ -e '/var/lib/flatpak/exports/bin/com.visualstudio.code' ]]; then
 	alias code='/var/lib/flatpak/exports/bin/com.visualstudio.code'
 fi
-
-# VPN
-alias aws_vpn='sudo openvpn --config ~/Dropbox/Traveltek/aws_client.ovpn'
-
-# Mount
-alias mount_branches='~/scripts/rmnt.sh branches-1.eu1.dev.aws.traveltek.net /home/dstewart ~/branches'
-alias unmount='~/scripts/runmnt.sh'
-
-alias mountsrvr='~/scripts/rmnt.sh danstewart.dev / ~/srvr'
-
-function ntt_mount() {
-	server=$1
-	~/scripts/rmnt.sh $server.traveltek.net /home/dstewart ~/$server
-}
 
 # cd
 alias ..='cd ..'
