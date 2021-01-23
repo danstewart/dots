@@ -1,6 +1,6 @@
 [user]
 	name = Dan Stewart
-	email = github@mail.danstewart.dev
+	email = git@mail.danstewart.dev
 [push]
 	default = current
 [core]
@@ -28,3 +28,5 @@
 	amend = commit -a --amend
 	wipe = reset --hard
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[pull]
+	rebase = true
