@@ -83,9 +83,10 @@ branch=git_branch
 export PROMPT_COMMAND='history -a; history -r; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
 
 # Exports
-export VISUAL=nvim
-export EDITOR=nvim
-export SUDO_EDITOR=nvim
+command -v nvim >/dev/null && editor="nvim" || editor="vim"
+export VISUAL=$editor
+export EDITOR=$editor
+export SUDO_EDITOR=$editor
 opt="$HOME/opt"
 JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"
