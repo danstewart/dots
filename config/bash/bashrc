@@ -80,7 +80,7 @@ function git_branch {
 standard_prompt='\[\033[38;5;14m\][\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;14m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
 color=git_color
 branch=git_branch
-export PROMPT_COMMAND='history -a; history -r; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
+export PROMPT_COMMAND='history -a; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
 
 # Exports
 command -v nvim >/dev/null && editor="nvim" || editor="vim"
@@ -159,3 +159,6 @@ if [[ -n $WSLENV ]]; then
 	export LIBGL_ALWAYS_INDIRECT=1
 fi
 
+export KOPS_STATE_STORE="s3://encompass-k8s-kops"
+export KOPS_FEATURE_FLAGS=+ExperimentalClusterDNS
+export MAVEN_OPTS="-Xmx2048M -Xss128M -XX:MetaspaceSize=512M -XX:MaxMetaspaceSize=2048M -XX:+CMSClassUnloadingEnabled"
