@@ -49,16 +49,16 @@
 
     // Copy ssh key from Dropbox
     "sshkey": {
-      "src": "$HOME/Dropbox/Keys/ssh/id_rsa",
+      "src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
       "target": "$HOME/.ssh/id_rsa",
-      "cond": "-e $HOME/Dropbox",
+      "cond": "-e $HOME/Nextcloud/",
       "noForce": true,
       "andThen": "chmod 600 $HOME/.ssh/id_rsa"
     },
     "sshpubkey": {
-      "src": "$HOME/Dropbox/Keys/ssh/id_rsa.pub",
+      "src": "$HOME/Nextcloud/Keys/ssh/id_rsa.pub",
       "target": "$HOME/.ssh/id_rsa.pub",
-      "cond": "-e $HOME/Dropbox",
+      "cond": "-e $HOME/Nextcloud/",
       "noForce": true,
       "andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
     }
