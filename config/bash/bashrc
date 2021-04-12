@@ -130,6 +130,9 @@ if [[ -d /usr/share/doc/fzf/ ]]; then
 	source /usr/share/doc/fzf/examples/completion.bash
 fi
 
+# git autocompletion
+[[ -d /usr/share/bash-completion/completions/git ]] && source /usr/share/bash-completion/completions/git
+
 # Pass
 [[ -f ~/.password-store/.bash-completion ]] && source ~/.password-store/.bash-completion
 
