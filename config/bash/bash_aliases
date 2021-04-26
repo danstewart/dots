@@ -44,6 +44,7 @@ alias mv='mv -i'
 alias sudo='sudo '
 alias perltidy='perltidy -l=0 -pt=2 -sbt=2 -bt=2 -blbs=2 -lbl=1 -bbb -mbl=2 -kbl=0 -et=4 -ce'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias z='zellij'
 
 # cd
 alias ..='cd ..'
@@ -128,4 +129,8 @@ function cd() {
 			deactivate
 		fi
 	fi
+}
+
+function edit() {
+	kwrite "$@" 2>/dev/null &
 }
