@@ -125,7 +125,7 @@ function cd() {
 	# If we are no longer within our active venv then deactivate
 	if [[ -n "$VIRTUAL_ENV" ]] ; then
 		venvparent="$(dirname "$VIRTUAL_ENV")"
-		if [[ "$PWD"/ != "$venvparent"/* ]] ; then
+		if [[ "$(pwd -P)"/ != "$venvparent"/* ]] ; then
 			deactivate
 		fi
 	fi
