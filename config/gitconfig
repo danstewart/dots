@@ -6,6 +6,7 @@
 [core]
 	filemode = false
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	;pager = delta
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -29,5 +30,13 @@
 	wipe = reset --hard
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	cleanup = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
-;[pull]
-	;rebase = true
+[diff]
+    tool = kitty
+    guitool = kitty.gui
+[difftool]
+    prompt = false
+    trustExitCode = true
+[difftool "kitty"]
+    cmd = kitty +kitten diff $LOCAL $REMOTE
+[difftool "kitty.gui"]
+    cmd = kitty kitty +kitten diff $LOCAL $REMOTE

@@ -53,7 +53,11 @@ alias ....='..;..;..'
 alias .....='..;..;..;..'
 
 #SSH
-alias ssh='ssh -XY'
+#alias ssh='ssh -XY'
+alias ssh="kitty +kitten ssh -XY"
+
+# Diff
+alias gitdiff="git difftool --no-symlinks --dir-diff"
 
 # Functions
 function hlgrep() {
