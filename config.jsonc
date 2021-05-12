@@ -28,6 +28,12 @@
     }
   },
 
+  // Kitty terminal
+  "kitty": {
+    "kitty/kitty.conf": "$HOME/.config/kitty/kitty.conf",
+    "kitty/diff.conf": "$HOME/.config/kitty/diff.conf"
+  },
+
   // Base config
   "base": {
     "&include": [ "bash", "ssh" ],
