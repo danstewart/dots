@@ -53,8 +53,7 @@ alias ....='..;..;..'
 alias .....='..;..;..;..'
 
 #SSH
-#alias ssh='ssh -XY'
-alias ssh="kitty +kitten ssh -XY"
+alias ssh='ssh -XYt'
 
 # Diff
 alias gitdiff="git difftool --no-symlinks --dir-diff"
