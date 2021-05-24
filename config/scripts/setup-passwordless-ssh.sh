@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 server=$1
-[[ -z $server ]] && { echo "Usage: ./setup-passwordless-ssh.sh servername"; exit 1; }
+[[ -z $server ]] && { echo "Usage: ./setup-passwordless-ssh.sh <servername> [user]"; exit 1; }
 
-user=$(whoami)
+user=$2
+[[ -z $user ]] && user=$(whoami)
 
 # Generate a key if we don't have one
 if [[ ! -f  "$HOME/.ssh/id_rsa.pub" ]]; then
