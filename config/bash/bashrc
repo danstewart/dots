@@ -77,10 +77,25 @@ function git_branch {
 	fi
 }
 
+function short_cwd {
+	cwd_length=14
+	cwd="${PWD/$HOME/\~}"
+
+	if [[ $(echo $cwd | wc -c | tr -d " ") -gt $cwd_length ]]; then
+		#cwd="...$(echo -n $PWD | sed -e "s/.*\(.\{$cwd_length\}\)/\1/")"
+		cwd=$(echo -n $cwd | awk -F '/' '{ print $1 "/" $2 "/.../" $(NF-1) "/" $(NF) }')
+	else
+		cwd="$(echo -n $cwd)"
+	fi
+
+	echo $cwd
+}
+
 standard_prompt='\[\033[38;5;14m\][\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;14m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
 color=git_color
 branch=git_branch
-export PROMPT_COMMAND='history -a; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
+
+export PROMPT_COMMAND='echo -ne "\033]0;`short_cwd`\007"; history -a; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
 
 # Exports
 command -v nvim >/dev/null && editor="nvim" || editor="vim"
