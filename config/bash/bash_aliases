@@ -15,6 +15,14 @@ alias py3='python3'
 alias gpg='gpg2'
 alias more='less'
 
+if command -v batcat >/dev/null 2>&1; then
+	alias cat='batcat'
+fi
+
+if command -v fdfind >/dev/null 2>&1; then
+	alias fd='fdfind'
+fi
+
 if command -v colordiff >/dev/null 2>&1; then
 	alias diff='colordiff'
 fi
@@ -134,6 +142,57 @@ function cd() {
 	fi
 }
 
-function edit() {
-	kwrite "$@" 2>/dev/null &
+# FZF Stuff
+function git-br() {
+	# Git branch management
+	# Mode:
+	#  ls|co -> Checkout the selected branch
+	#  rm -> Delete the selected branches
+	mode=$1
+	limit=1
+
+	[[ $mode == 'rm' ]] && limit=999
+
+	results=$(git branch | grep --invert-match '\*' | cut -c 3- |
+		fzf \
+		--multi=$limit \
+		--ansi \
+		--color=dark \
+		--preview="git log --color=always {} --" \
+		--preview-window=down:70%:wrap)
+
+	if [[ $mode == 'co' || $mode == 'ls' ]]; then
+		echo $results | xargs --no-run-if-empty git checkout
+	elif [[ $mode == 'rm' ]]; then
+		echo $rerults | xargs --no-run-if-empty git branch --delete --force
+	fi
+}
+
+function gh-pr() {
+	local jq_template pr_number
+
+	jq_template='"'\
+'#\(.number) - \(.title)'\
+'\t'\
+'Author: \(.user.login)\n'\
+'Created: \(.created_at)\n'\
+'Updated: \(.updated_at)\n\n'\
+'\(.body)'\
+'"'
+
+	pr_number=$(
+		gh api 'repos/:owner/:repo/pulls' |
+		jq ".[] | $jq_template" |
+		sed -e 's/"\(.*\)"/\1/' -e 's/\\t/\t/' |
+		fzf \
+		--with-nth=1 \
+		--delimiter='\t' \
+		--preview='echo -e {2}' \
+		--preview-window=bottom:70:wrap |
+		sed 's/^#\([0-9]\+\).*/\1/'
+	)
+
+	if [ -n "$pr_number" ]; then
+		gh pr checkout "$pr_number"
+	fi
 }
