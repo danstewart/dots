@@ -18,7 +18,14 @@ else
 	exit 1
 fi
 
-# Install diff-so-fancy
+# Install misc commands
 mkdir ~/bin
-curl -o ~/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
-chmod 755 ~/bin/diff-so-fancy
+curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -o ~/bin/diff-so-fancy && chmod 0755 ~/bin/diff-so-fancy
+curl https://beyondgrep.com/ack-v3.5.0 -o ~/bin/ack && chmod 0755 ~/bin/ack
+
+# apt programs
+if [[ $DISTRO == 'ubuntu' ]]; then
+	sudo apt-get -y update && sudo apt-get -u upgrade
+	sudo apt-get install -y git curl vim fzf gnupg2 jq python3-venv python3-pip bat fd-find npm fzf
+	sudo npm -g install tldr
+fi
