@@ -83,7 +83,7 @@ function short_cwd {
 
 	if [[ $(echo $cwd | wc -c | tr -d " ") -gt $cwd_length ]]; then
 		#cwd="...$(echo -n $PWD | sed -e "s/.*\(.\{$cwd_length\}\)/\1/")"
-		cwd=$(echo -n $cwd | awk -F '/' '{ print $1 "/" $2 "/.../" $(NF-1) "/" $(NF) }')
+		cwd=$(echo -n $cwd | awk -F '/' '{ print ".../" $(NF-1) "/" $(NF) }')
 	else
 		cwd="$(echo -n $cwd)"
 	fi
