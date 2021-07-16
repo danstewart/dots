@@ -128,7 +128,12 @@ function clean_tail() {
 function json() {
 	file="$1"
 	[[ -z $file ]] && file=/dev/stdin
-	jq -C . "$file" | less -R
+
+	if [ -t 1 ]; then
+		jq -C . "$file" | less -R
+	else
+		jq -M . "$file" | less -R
+	fi
 }
 
 # Auto activate python venv
