@@ -98,7 +98,7 @@ function mygit() {
 		git config user.name 'Dan Stewart' >/dev/null 2>&1
 		git config user.email 'danielandrewstewart@gmail.com' >/dev/null 2>&1
 	fi
-	
+
 	if [[ "$ARGS" ]]; then
 		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION $ARGS
 	else
@@ -122,6 +122,13 @@ function clean_tail() {
 	file=$1
 
 	tail -n 0 -f $file | grep -v --line-buffered uninitialized | grep -v --line-buffered 'has gone away' | grep -v --line-buffered 'Prototype mismatch' | egrep -v --line-buffered '^ at' | grep --line-buffered -v 'Use of uninitialized' | grep --line-buffered -v 'Constant subroutine redefined' | grep --line-buffered -v 'Prototype mismatch'
+}
+
+# Take JSON from pipe or file and format it and page it through less
+function json() {
+	file="$1"
+	[[ -z $file ]] && file=/dev/stdin
+	jq -C . "$file" | less -R
 }
 
 # Auto activate python venv
@@ -161,10 +168,10 @@ function git-br() {
 		--preview="git log --color=always {} --" \
 		--preview-window=down:70%:wrap)
 
-	if [[ $mode == 'co' || $mode == 'ls' ]]; then
+	if [[ $mode == 'co' || $mode == 'ls' || -z $mode ]]; then
 		echo $results | xargs --no-run-if-empty git checkout
 	elif [[ $mode == 'rm' ]]; then
-		echo $rerults | xargs --no-run-if-empty git branch --delete --force
+		echo $results | xargs --no-run-if-empty git branch --delete --force
 	fi
 }
 
@@ -188,11 +195,12 @@ function gh-pr() {
 		--with-nth=1 \
 		--delimiter='\t' \
 		--preview='echo -e {2}' \
-		--preview-window=bottom:70:wrap |
+		--preview-window=bottom:70%:wrap |
 		sed 's/^#\([0-9]\+\).*/\1/'
 	)
 
 	if [ -n "$pr_number" ]; then
+		git checkout main
 		gh pr checkout "$pr_number"
 	fi
 }
