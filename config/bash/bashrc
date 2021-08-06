@@ -130,6 +130,7 @@ paths=(
 	"$HOME/.cargo/bin"
 	"/usr/local/go/bin/"
 	"$HOME/go/bin"
+	"/home/linuxbrew/.linuxbrew/bin/"
 )
 
 # Filter non existent paths
