@@ -2,6 +2,7 @@
 
 #!/usr/bin/env bash
 
+# From https://github.com/ildar-shaimordanov/perl-utils#sponge
 cat << EOF > ~/bin/sponge
 sponge() {
     perl -e '
