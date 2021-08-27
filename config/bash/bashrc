@@ -28,6 +28,11 @@ if [ -t 1 ]; then
 	complete -d cd
 fi
 
+# Enable Docker BuildKit
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+export BUILDKIT_PROGRESS=plain
+
 # ===== Colors =====
 if [[ -x /usr/bin/dircolors ]]; then
 	#test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -44,14 +49,16 @@ COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
 COLOR_GREEN="\033[0;32m"
 COLOR_OCHRE="\033[38;5;95m"
-COLOR_BLUE="\033[0;34m"
+COLOR_BLUE="\033[38;5;14m"
 COLOR_WHITE="\033[0;37m"
 COLOR_RESET="\033[0m"
+COLOR_YELLOW="\033[38;5;11m"
+COLOR_DARK_GREEN="\033[38;5;28m"
 
-# Enable Docker BuildKit
-export DOCKER_BUILDKIT=1
-export COMPOSE_DOCKER_CLI_BUILD=1
-export BUILDKIT_PROGRESS=plain
+function color() {
+	color_code="$1"
+	[[ $color_code == 'reset' ]] && tput sgr0 || echo "\[$color_code\]"
+}
 
 function git_color {
 	git_status="$(git status 2> /dev/null)"
@@ -75,6 +82,7 @@ function git_branch {
 
 	if [[ $git_status =~ $on_branch ]]; then
 		local branch=${BASH_REMATCH[1]}
+		branch=$(echo $branch | rev | cut -d\/ -f1 | rev)  # Cut out stuff like 'user/feature/xyz' and just get the base branch name
 		echo "($branch) "
 	elif [[ $git_status =~ $on_commit ]]; then
 		local commit=${BASH_REMATCH[1]}
@@ -87,7 +95,6 @@ function short_cwd {
 	cwd="${PWD/$HOME/\~}"
 
 	if [[ $(echo $cwd | wc -c | tr -d " ") -gt $cwd_length ]]; then
-		#cwd="...$(echo -n $PWD | sed -e "s/.*\(.\{$cwd_length\}\)/\1/")"
 		cwd=$(echo -n $cwd | awk -F '/' '{ print ".../" $(NF-1) "/" $(NF) }')
 	else
 		cwd="$(echo -n $cwd)"
@@ -96,11 +103,11 @@ function short_cwd {
 	echo $cwd
 }
 
-standard_prompt='\[\033[38;5;14m\][\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;11m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;14m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
+standard_prompt="$(color $COLOR_BLUE)[$(color reset)$(color $COLOR_YELLOW)\u@\h$(color reset)$(color $COLOR_BLUE)]$(color reset)"
 color=git_color
 branch=git_branch
 
-export PROMPT_COMMAND='echo -ne "\033]0;`short_cwd`\007"; history -a; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt}\[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
+export PROMPT_COMMAND='echo -ne "\033]0;`short_cwd`\007"; history -a; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt} \[\033[38;5;10m\]`short_cwd`\[$(tput sgr0)\] \[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
 
 # Exports
 command -v nvim >/dev/null && editor="nvim" || editor="vim"
