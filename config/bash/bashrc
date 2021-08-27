@@ -55,9 +55,12 @@ COLOR_RESET="\033[0m"
 COLOR_YELLOW="\033[38;5;11m"
 COLOR_DARK_GREEN="\033[38;5;28m"
 
-function color() {
+function colorize() {
+	# Takes a color code and a string and echos that string in that color
+	# Handles resetting the color afterwards
 	color_code="$1"
-	[[ $color_code == 'reset' ]] && tput sgr0 || echo "\[$color_code\]"
+	str="$2"
+	[[ -n $str && $str != '' ]] && echo "\[$color_code\]$str\[$COLOR_RESET\]"
 }
 
 function git_color {
@@ -83,10 +86,10 @@ function git_branch {
 	if [[ $git_status =~ $on_branch ]]; then
 		local branch=${BASH_REMATCH[1]}
 		branch=$(echo $branch | rev | cut -d\/ -f1 | rev)  # Cut out stuff like 'user/feature/xyz' and just get the base branch name
-		echo "($branch) "
+		echo -n "($branch)"
 	elif [[ $git_status =~ $on_commit ]]; then
 		local commit=${BASH_REMATCH[1]}
-		echo "($commit) "
+		echo -n "($commit)"
 	fi
 }
 
@@ -103,11 +106,12 @@ function short_cwd {
 	echo $cwd
 }
 
-standard_prompt="$(color $COLOR_BLUE)[$(color reset)$(color $COLOR_YELLOW)\u@\h$(color reset)$(color $COLOR_BLUE)]$(color reset)"
+#standard_prompt="$(color $COLOR_BLUE)[$(color reset)$(color $COLOR_YELLOW)\u@\h$(color reset)$(color $COLOR_BLUE)]$(color reset)"
+standard_prompt="$(colorize $COLOR_BLUE '[')$(colorize $COLOR_YELLOW '\u@\h')$(colorize $COLOR_BLUE ']')"
 color=git_color
 branch=git_branch
 
-export PROMPT_COMMAND='echo -ne "\033]0;`short_cwd`\007"; history -a; color=$(git_color); branch=$(git_branch); export PS1="${standard_prompt} \[\033[38;5;10m\]`short_cwd`\[$(tput sgr0)\] \[${color}\]${branch}\[$COLOR_RESET\]\$ "; unset color; unset branch'
+export PROMPT_COMMAND='history -a; prompt="${standard_prompt} $(colorize $COLOR_BLUE `short_cwd`) $(colorize `git_color` `git_branch`) \$ "; export PS1=${prompt//  / }'
 
 # Exports
 command -v nvim >/dev/null && editor="nvim" || editor="vim"
