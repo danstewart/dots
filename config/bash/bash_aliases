@@ -1,12 +1,5 @@
-# DNF
-alias dnfi='sudo dnf install'
-alias dnfu='sudo dnf update'
-alias dnfr='sudo dnf remove'
-alias dnfs='sudo dnf search'
-alias dnfl='sudo dnf list'
-alias dnfcu='sudo dnf check-update'
-alias dnfca='sudo dnf clean all'
-alias dnfar='sudo dnf autoremove'
+# Work
+alias sql='/home/dan/Code/teamweb/scripts/mysql.py'
 
 # Versioning
 alias py2='python'
@@ -15,6 +8,7 @@ alias py3='python3'
 alias gpg='gpg2'
 alias more='less'
 
+# Upgrades people, upgrades!
 if command -v batcat >/dev/null 2>&1; then
 	alias cat='batcat'
 fi
@@ -72,37 +66,20 @@ function hlgrep() {
 	grep --color -E "$1|\$" $2
 }
 
-# Git wrapper for work repos
-function ttekgit() {
+# Git wrapper to use a different email and SSH key
+function workgit() {
 	ACTION=$1 && shift
 	ARGS="$@"
 
 	if [[ $ACTION != 'clone' ]]; then
 		git config user.name 'Dan Stewart' >/dev/null 2>&1
-		git config user.email 'daniel@traveltek.net' >/dev/null 2>&1
+		git config user.email 'me@workemail.com' >/dev/null 2>&1
 	fi
 
 	if [[ "$ARGS" ]]; then
-		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION $ARGS
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_work' git $ACTION $ARGS
 	else
-		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_traveltek' git $ACTION
-	fi
-}
-
-# Git wrapper for personal repos
-function mygit() {
-	ACTION=$1 && shift
-	ARGS="$@"
-
-	if [[ $ACTION != 'clone' ]]; then
-		git config user.name 'Dan Stewart' >/dev/null 2>&1
-		git config user.email 'danielandrewstewart@gmail.com' >/dev/null 2>&1
-	fi
-
-	if [[ "$ARGS" ]]; then
-		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION $ARGS
-	else
-		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_personal' git $ACTION
+		GIT_SSH_COMMAND='ssh -i $HOME/.ssh/id_rsa_work' git $ACTION
 	fi
 }
 
@@ -117,13 +94,6 @@ function perl_check() {
 	done < <(git status --porcelain | egrep -v "^ ?D ")
 }
 
-# tail -f with a bunch of grep -v
-function clean_tail() {
-	file=$1
-
-	tail -n 0 -f $file | grep -v --line-buffered uninitialized | grep -v --line-buffered 'has gone away' | grep -v --line-buffered 'Prototype mismatch' | egrep -v --line-buffered '^ at' | grep --line-buffered -v 'Use of uninitialized' | grep --line-buffered -v 'Constant subroutine redefined' | grep --line-buffered -v 'Prototype mismatch'
-}
-
 # Take JSON from pipe or file and format it and page it through less
 function json() {
 	file="$1"
@@ -136,7 +106,7 @@ function json() {
 	fi
 }
 
-# Auto activate python venv
+# Auto activate python venv when cd-ing around
 function cd() {
 	builtin cd "$@"
 
@@ -181,6 +151,7 @@ function git-br() {
 }
 
 function gh-pr() {
+	# List all open PRs in FZF
 	local jq_template pr_number
 
 	jq_template='"'\
