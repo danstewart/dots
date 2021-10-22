@@ -3,22 +3,30 @@
 # ===== Sourcing other files =====
 [[ -f /etc/bashrc ]] && . /etc/bashrc
 
-shopt -s checkwinsize
-shopt -s histappend
-shopt -s globstar
-HISTSIZE=1000
-HISTFILESIZE=2000
+# ===== History ===== #
+shopt -s cmdhist  # Store multiline commands on one line in history
+shopt -s histappend  # Append to history instead of overwriting
+HISTTIMEFORMAT="%h %d %H:%M:%S "
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTCONTROL=erasedups
 
 # ===== Settings =====
+shopt -s checkwinsize  # Handle window size changes
+shopt -s globstar  # Support ** globbing
+
 if [ -t 1 ]; then
 	[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases && cd .
 	[[ -f ~/.bash_funcs ]] && . ~/.bash_funcs
 	[[ -f ~/.sensible.bash ]] && . ~/.sensible.bash
 
 	shopt -s histverify  # Expand history before executing when using bangs
-	shopt -s autocd
-	shopt -s cdspell
-	shopt -s direxpand dirspell
+	shopt -s direxpand  # Expand filenames
+	shopt -s autocd  # When typing just a dir name, cd to it
+	shopt -s cdspell  # Fix typos when cd-ing
+	shopt -s dirspell  # Fix typos in dir names
+
+	# Keys
 	bind '"\t":menu-complete'
 	bind '"\e[Z":menu-complete-backward'
 	bind 'set mark-symlinked-directories on'
@@ -106,7 +114,6 @@ function short_cwd {
 	echo $cwd
 }
 
-#standard_prompt="$(color $COLOR_BLUE)[$(color reset)$(color $COLOR_YELLOW)\u@\h$(color reset)$(color $COLOR_BLUE)]$(color reset)"
 standard_prompt="$(colorize $COLOR_BLUE '[')$(colorize $COLOR_YELLOW '\u@\h')$(colorize $COLOR_BLUE ']')"
 color=git_color
 branch=git_branch
