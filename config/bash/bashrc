@@ -132,6 +132,7 @@ ANDROID_HOME="$opt/Android/SDK"
 WINHOME=/mnt/c/Users/DanielStewart/
 plenvpath="$HOME/.plenv/bin"
 rbenvpath="$HOME/.rbenv/bin"
+pyenvpath="$HOME/.pyenv/bin"
 
 # Build $PATH
 exists=()
@@ -139,6 +140,7 @@ paths=(
 	"$HOME/bin"
 	"$plenvpath"
 	"$rbenvpath"
+	"$pyenvpath"
 	"$opt/kotlinc/bin"
 	"$opt/flutter/bin"
 	"$opt/dart-sdk/bin"
@@ -163,6 +165,7 @@ export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 # Initialise some stuff
 [[ -d $plenvpath ]] && eval "$(plenv init -)"
 [[ -d $rbenvpath ]] && eval "$(rbenv init -)"
+[[ -d $pyenvpath ]] && eval "$(pyenv init -)"
 
 # fzf
 export FZF_DEFAULT_OPTS='--reverse --border --exact'
