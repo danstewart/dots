@@ -7,7 +7,7 @@ DISTRO=$(cat /etc/os-release | grep "^ID=" | cut -d= -f2)
 
 # First install some common packages we need
 # TODO: Check $DISTRO on Fedora and Arch/Manjaro
-if [[ $DISTRO == 'ubuntu' ]]; then
+if [[ $DISTRO == 'ubuntu' || $DISTRO == 'elementary' ]]; then
 	sudo apt-get install -qq -y libjson-perl
 elif [[ $DISTRO == 'fedora' ]]; then
 	sudo dnf install -y perl-JSON
