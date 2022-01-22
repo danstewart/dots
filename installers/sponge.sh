@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#!/usr/bin/env bash
-
 # From https://github.com/ildar-shaimordanov/perl-utils#sponge
 cat << EOF > ~/bin/sponge
 sponge() {

@@ -168,6 +168,15 @@ nmap <silent> <S-Down> :wincmd j<CR>
 nmap <silent> <S-Left> :wincmd h<CR>
 nmap <silent> <S-Right> :wincmd l<CR>
 
+" ctrl+backspace
+imap <C-BS> <C-W>
+imap <C-Del> <C-O>
+noremap! <C-BS> <C-w>
+noremap! <C-h> <C-w>
+inoremap <C-w> <C-\><C-o>dB
+inoremap <C-BS> <C-\><C-o>dB
+inoremap <C-Del> <C-\><C-o>dw
+
 " easyalign
 vmap <leader>a <Plug>(EasyAlign)
 
@@ -182,8 +191,7 @@ noremap <F2> :set list!<CR>
 " NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <leader>tt :NERDTreeToggle<CR>
-imap <C-BS> <C-W>
-imap <C-Del> <C-O>dw
+
 " close if NERDTree is the only open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
