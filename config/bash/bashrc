@@ -131,9 +131,9 @@ JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"
 ANDROID_HOME="$opt/Android/SDK"
 WINHOME=/mnt/c/Users/DanielStewart/
-plenvpath="$HOME/.plenv/bin"
-rbenvpath="$HOME/.rbenv/bin"
-pyenvpath="$HOME/.pyenv/bin"
+plenvpath="$HOME/.plenv/bin/"
+rbenvpath="$HOME/.rbenv/bin/"
+pyenvpath="$HOME/.pyenv/bin/"
 
 # Build $PATH
 exists=()
@@ -143,15 +143,15 @@ paths=(
 	"$plenvpath"
 	"$rbenvpath"
 	"$pyenvpath"
-	"$opt/kotlinc/bin"
-	"$opt/flutter/bin"
-	"$opt/dart-sdk/bin"
+	"$opt/kotlinc/bin/"
+	"$opt/flutter/bin/"
+	"$opt/dart-sdk/bin/"
 	"$JAVA_HOME"
 	"$FLUTTER_ROOT"
 	"$ANDROID_HOME"
-	"$HOME/.cargo/bin"
+	"$HOME/.cargo/bin/"
 	"/usr/local/go/bin/"
-	"$HOME/go/bin"
+	"$HOME/go/bin/"
 	"/home/linuxbrew/.linuxbrew/bin/"
 	"/home/dan/.poetry/bin/"
 )
@@ -168,7 +168,10 @@ export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 # Initialise some stuff
 [[ -d $plenvpath ]] && eval "$(plenv init -)"
 [[ -d $rbenvpath ]] && eval "$(rbenv init -)"
-[[ -d $pyenvpath ]] && eval "$(pyenv init -)"
+if [[ -d $pyenvpath ]]; then
+	eval "$(pyenv init -)"
+	eval "$(pyenv init --path)"
+fi
 
 # fzf
 export FZF_DEFAULT_OPTS='--reverse --border --exact'

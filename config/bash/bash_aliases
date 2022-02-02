@@ -7,6 +7,8 @@ alias py='python3'
 alias py3='python3'
 alias gpg='gpg2'
 alias more='less'
+alias pip='python -m pip'
+alias pip3='python -m pip'
 
 # Upgrades people, upgrades!
 if command -v batcat >/dev/null 2>&1; then
@@ -180,3 +182,4 @@ function gh-pr() {
 		gh pr checkout "$pr_number"
 	fi
 }
+
