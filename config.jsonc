@@ -1,5 +1,5 @@
 // This file has a list of tags and the files they should link
-// The key is the source file within /config and the value is either the target to link 
+// The key is the source file within /config and the value is either the target to link
 // or an object
 //
 // Tags can include other tags by having "&include": [ "otherTag" ]
@@ -34,26 +34,18 @@
     "kitty/diff.conf": "$HOME/.config/kitty/diff.conf"
   },
 
-  // Base config
-  "base": {
-    "&include": [ "bash", "ssh" ],
-    "gitconfig": "$HOME/.gitconfig",
-    "tmux.conf": "$HOME/.tmux.conf"
-  },
-
-  // Extra config
-  "extra": {
-    "scripts": "$HOME/scripts",
-    "dircolors": "$HOME/.dircolors"
-  },
-
   // Personal config includes both base and extra and defines some of it's configs too
   "personal": {
-    "&include": [ "base", "extra" ],
+    "&include": [ "bash", "ssh", "kitty" ],
     "vim/nvimrc": "$HOME/.config/nvim/init.vim",
     "prettierrc": "$HOME/.prettierrc",
+    "gitconfig": "$HOME/.gitconfig",
+    "tmux.conf": "$HOME/.tmux.conf",
 
-    // Copy ssh key from Dropbox
+    "scripts": "$HOME/scripts",
+    "dircolors": "$HOME/.dircolors",
+
+    // Copy ssh key from Nextcloud
     "sshkey": {
       "src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
       "target": "$HOME/.ssh/id_rsa",
@@ -68,13 +60,6 @@
       "noForce": true,
       "andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
     }
-  },
-
-  // Work includes both base and extra and overrides the bashrc
-  "work": {
-    "&include": [ "base", "extra" ],
-    "gitconfig": { "src": "overrides/work/gitconfig", "target": "$HOME/.gitconfig" },
-    "vim/vimrc": "$HOME/.vimrc"
   },
 
   // Server includes only base and the vimrc
