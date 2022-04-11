@@ -176,10 +176,9 @@ fi
 # fzf
 export FZF_DEFAULT_OPTS='--reverse --border --exact'
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
-if [[ -d /usr/share/doc/fzf/ ]]; then
-	source /usr/share/doc/fzf/examples/key-bindings.bash
-	source /usr/share/doc/fzf/examples/completion.bash
-fi
+[[ -f /usr/share/fzf/shell/key-bindings.bash ]] && source /usr/share/fzf/shell/key-bindings.bash
+[[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
+[[ -f /usr/share/doc/fzf/examples/completion.bash ]] && source /usr/share/doc/fzf/examples/completion.bash
 
 # bash autocompletion
 for file in git docker docker-compose; do
