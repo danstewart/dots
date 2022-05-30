@@ -45,5 +45,4 @@ If the file maps to an object then you can specify
 
 # Fresh Install
 
-Next things to do for a fresh Fedora install  
-https://gist.github.com/danstewart/6cd497ddb122ba852357a0d6538a01fb  
+See [docs](https://github.com/danstewart/dots/tree/main/docs) for next steps for a fresh system install.
