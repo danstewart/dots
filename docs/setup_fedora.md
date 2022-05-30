@@ -38,7 +38,7 @@ sudo dnf install -y neovim python3-neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Then run :PlugInstall, restart then :UpdateRemotePlugins
+Then run `:PlugInstall`, restart then `:UpdateRemotePlugins`, finally run `:CocInstall coc-pyright`
 
 
 ### Other
