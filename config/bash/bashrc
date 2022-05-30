@@ -125,7 +125,9 @@ command -v nvim >/dev/null && editor="nvim" || editor="vim"
 export VISUAL='code'
 export EDITOR=$editor
 export SUDO_EDITOR=$editor
-export LESS="--mouse --wheel-lines=3"
+export PAGER="most"
+export BAT_PAGER="less -XFR"
+export LESS="--mouse --wheel-lines=3 -XFR"
 opt="$HOME/opt"
 JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"
@@ -153,7 +155,7 @@ paths=(
 	"/usr/local/go/bin/"
 	"$HOME/go/bin/"
 	"/home/linuxbrew/.linuxbrew/bin/"
-	"/home/dan/.poetry/bin/"
+	"$HOME/.local/share/pypoetry/venv/bin/"
 )
 
 # Filter non existent paths
@@ -213,3 +215,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Auto-activate hermit
+eval "$(test -x $HOME/bin/hermit && $HOME/bin/hermit shell-hooks --print --bash)"
+. "$HOME/.cargo/env"

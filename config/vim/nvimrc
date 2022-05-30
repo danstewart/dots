@@ -22,6 +22,7 @@ if !exists('g:vscode')
 	Plug 'pangloss/vim-javascript'
 	Plug 'bling/vim-bufferline'
 	Plug 'adelarsq/vim-matchit'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 	" fzf
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -60,6 +61,9 @@ set number
 set background=dark
 set showbreak=↪
 set hidden
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
 set mouse=a
 set timeoutlen=1000
 set ttimeoutlen=0
@@ -82,10 +86,7 @@ set splitright
 set inccommand=nosplit
 set relativenumber
 set noshowmode
-
-if !exists('g:vscode')
-	colorscheme onedark 
-endif
+set signcolumn=number
 
 syntax on
 map <SPACE> <leader>
@@ -142,6 +143,15 @@ vmap <tab> >gv
 vmap <S-tab> <gv
 nmap <tab> >>
 nmap <S-tab> <<
+
+" COC
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 
 
 " navigate between buffers

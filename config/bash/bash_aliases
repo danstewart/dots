@@ -11,8 +11,8 @@ alias pip='python -m pip'
 alias pip3='python -m pip'
 
 # Upgrades people, upgrades!
-if command -v batcat >/dev/null 2>&1; then
-	alias cat='batcat'
+if command -v bat >/dev/null 2>&1; then
+	alias cat='bat'
 fi
 
 if command -v fdfind >/dev/null 2>&1; then
@@ -157,7 +157,7 @@ function gh-pr() {
 	local jq_template pr_number
 
 	jq_template='"'\
-'#\(.number) - \(.title)'\
+'#\(.number) - \(.title) [\(.user.login)]'\
 '\t'\
 'Author: \(.user.login)\n'\
 'Created: \(.created_at)\n'\
@@ -183,3 +183,10 @@ function gh-pr() {
 	fi
 }
 
+# Create an empty-ish python file and open idle to edit it
+# For easy quick python file creation
+function pyscratch() {
+	file=$(mktemp)
+	echo "Creating python scratch file: ${file}.py"
+	code --new-window ${file}.py
+}
