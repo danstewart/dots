@@ -1,17 +1,17 @@
 ### Update
-```
+```shell
 sudo dnf update
 ```
 
 
 ### Via dnf
-```
+```shell
 sudo dnf -y install git curl vim fzf gnupg2 jq python3-devel python3-pip net-tools
 ```
 
 ### Via Flatpak
 
-```
+```shell
 # Enable flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
@@ -31,9 +31,19 @@ flatpak install flathub com.microsoft.Teams
 flatpak install flathub com.microsoft.Teams
 ```
 
+### Neovim
+
+```shell
+sudo dnf install -y neovim python3-neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Then run :PlugInstall, restart then :UpdateRemotePlugins
+
+
 ### Other
 **[diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)**
-```
+```shell
 mkdir ~/bin
 curl -o ~/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
 chmod 755 ~/bin/diff-so-fancy
