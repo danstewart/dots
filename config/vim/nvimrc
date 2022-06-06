@@ -2,57 +2,58 @@
 "== Plugins ==
 "=============
 
-if !exists('g:vscode')
-	call plug#begin('~/.local/share/nvim/plugged')
-	" Plugins
-	Plug 'junegunn/vim-easy-align'
-	Plug 'Townk/vim-autoclose'
-	Plug 'vim-scripts/IndentAnything'
-	Plug 'scrooloose/nerdtree'
-	Plug 'scrooloose/nerdcommenter'
-	Plug 'henrik/vim-indexed-search'
-	Plug 'farmergreg/vim-lastplace'
-	Plug 'mhinz/vim-startify'
-	Plug 'vim-perl/vim-perl'
-	Plug 'itchyny/lightline.vim'
-	Plug 'majutsushi/tagbar'
-	Plug 'AndrewRadev/splitjoin.vim'
-	Plug 'tpope/vim-sensible'
-	Plug 'alvan/vim-closetag'
-	Plug 'pangloss/vim-javascript'
-	Plug 'bling/vim-bufferline'
-	Plug 'adelarsq/vim-matchit'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#begin('~/.local/share/nvim/plugged')
+" Plugins
+Plug 'junegunn/vim-easy-align'
+Plug 'Townk/vim-autoclose'
+Plug 'vim-scripts/IndentAnything'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'henrik/vim-indexed-search'
+Plug 'farmergreg/vim-lastplace'
+Plug 'mhinz/vim-startify'
+Plug 'vim-perl/vim-perl'
+Plug 'itchyny/lightline.vim'
+Plug 'majutsushi/tagbar'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tpope/vim-sensible'
+Plug 'alvan/vim-closetag'
+Plug 'pangloss/vim-javascript'
+Plug 'bling/vim-bufferline'
+Plug 'adelarsq/vim-matchit'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-	" fzf
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-	if has('nvim')
-	  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	else
-	  Plug 'Shougo/deoplete.nvim'
-	  Plug 'roxma/nvim-yarp'
-	  Plug 'roxma/vim-hug-neovim-rpc'
-	endif
-
-	" Colors
-	Plug 'morhetz/gruvbox'
-	Plug 'romainl/flattened'
-	Plug 'MaxSt/FlatColor'
-	Plug 'mhinz/vim-janah'
-	Plug 'iCyMind/NeoSolarized'
-	Plug 'mhartington/oceanic-next'
-	Plug 'joshdick/onedark.vim'
-	Plug 'arcticicestudio/nord-vim'
-	Plug 'challenger-deep-theme/vim'
-	Plug 'AlessandroYorba/Sierra'
-	call plug#end()
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+" Colors
+Plug 'morhetz/gruvbox'
+Plug 'romainl/flattened'
+Plug 'MaxSt/FlatColor'
+Plug 'mhinz/vim-janah'
+Plug 'iCyMind/NeoSolarized'
+Plug 'mhartington/oceanic-next'
+Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'challenger-deep-theme/vim'
+Plug 'AlessandroYorba/Sierra'
+call plug#end()
 
 "====================
 "== Basic Settings ==
 "====================
+colorscheme onedark
 set nocompatible
 set bg=dark
 set hls
@@ -152,6 +153,9 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" Telescope
+nnoremap <C-p> <cmd>Telescope find_files<CR>
+nnoremap <C-b> <cmd>Telescope buffers<cr>
 
 
 " navigate between buffers
