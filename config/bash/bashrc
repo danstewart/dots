@@ -19,6 +19,7 @@ if [ -t 1 ]; then
 	[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases && cd .
 	[[ -f ~/.bash_funcs ]] && . ~/.bash_funcs
 	[[ -f ~/.sensible.bash ]] && . ~/.sensible.bash
+	[[ -f ~/.forgit.bash ]] && . ~/.forgit.bash
 
 	shopt -s histverify  # Expand history before executing when using bangs
 	shopt -s direxpand  # Expand filenames

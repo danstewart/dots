@@ -34,7 +34,6 @@
 [diff]
 	tool = kitty
 	guitool = kitty.gui
-	external = difft
 [difftool]
 	prompt = false
 	trustExitCode = true

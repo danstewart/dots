@@ -52,3 +52,5 @@ chmod 755 ~/bin/diff-so-fancy
 - [VS Code](https://code.visualstudio.com/docs/setup/linux)
 - [GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
 - [Docker](https://docs.docker.com/engine/install/fedora/)
+- [forgit](https://github.com/wfxr/forgit)
+- [git-open](https://github.com/paulirish/git-open)

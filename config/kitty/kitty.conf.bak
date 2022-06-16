@@ -43,6 +43,6 @@ bell_on_tab no
 
 
 # BEGIN_KITTY_THEME
-# Snazzy
+# Kaolin Temple
 include current-theme.conf
 # END_KITTY_THEME

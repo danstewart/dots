@@ -61,6 +61,12 @@ alias ssh='ssh -XYt'
 
 # Diff
 alias gitdiff="git difftool --no-symlinks --dir-diff"
+alias gitdifft="GIT_EXTERNAL_DIFF=difft git diff"
+
+# Kitty
+alias icat="kitty +kitten icat"
+alias kdiff="kitty +kitten diff"
+alias panel="kitty +kitten panel"
 
 # Functions
 function hlgrep() {

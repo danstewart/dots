@@ -37,6 +37,8 @@ chmod 755 ~/bin/diff-so-fancy
 - [MS Teams](https://www.microsoft.com/en-gb/microsoft-teams/download-app)
 - [Obsidian](https://obsidian.md/)
 - [GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
+- [forgit](https://github.com/wfxr/forgit)
+- [git-open](https://github.com/paulirish/git-open)
 
 ##### Docker and docker-compose
 https://docs.docker.com/engine/install/ubuntu/
