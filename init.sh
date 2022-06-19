@@ -29,6 +29,5 @@ done
 # apt programs
 if [[ $DISTRO == 'ubuntu' ]]; then
 	sudo apt-get -qq -y update && sudo apt-get -qq -u upgrade
-	sudo apt-get install -qq -y git curl vim fzf gnupg2 jq python3-venv python3-pip bat fd-find npm fzf
-	sudo npm -g --silent install tldr
+	sudo apt-get install -qq -y git curl vim fzf gnupg2 jq python3-venv python3-pip bat fd-find fzf
 fi
