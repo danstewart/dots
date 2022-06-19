@@ -220,4 +220,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Auto-activate hermit
 eval "$(test -x $HOME/bin/hermit && $HOME/bin/hermit shell-hooks --print --bash)"
-[[ -f ~/.cargo/env ]] && . ~/.cargo/env
