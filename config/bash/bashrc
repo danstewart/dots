@@ -20,6 +20,7 @@ if [ -t 1 ]; then
 	[[ -f ~/.bash_funcs ]] && . ~/.bash_funcs
 	[[ -f ~/.sensible.bash ]] && . ~/.sensible.bash
 	[[ -f ~/.forgit.bash ]] && . ~/.forgit.bash
+	[[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
 
 	shopt -s histverify  # Expand history before executing when using bangs
 	shopt -s direxpand  # Expand filenames
@@ -219,4 +220,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Auto-activate hermit
 eval "$(test -x $HOME/bin/hermit && $HOME/bin/hermit shell-hooks --print --bash)"
-. "$HOME/.cargo/env"
+[[ -f ~/.cargo/env ]] && . ~/.cargo/env
