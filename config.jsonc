@@ -64,7 +64,9 @@
 
   // Server includes only base and the vimrc
   "server": {
-    "&include": [ "base" ],
-    "vim/vimrc": "$HOME/.vimrc"
+    "&include": [ "bash" ],
+    "vim/vimrc": "$HOME/.vimrc",
+    "scripts": "$HOME/scripts",
+    "dircolors": "$HOME/.dircolors"
   }
 }
