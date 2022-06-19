@@ -15,7 +15,7 @@ HISTCONTROL=erasedups
 shopt -s checkwinsize  # Handle window size changes
 shopt -s globstar  # Support ** globbing
 
-if [ -t 1 ]; then
+if [[ -n $PS1 ]]; then
 	[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases && cd .
 	[[ -f ~/.bash_funcs ]] && . ~/.bash_funcs
 	[[ -f ~/.sensible.bash ]] && . ~/.sensible.bash
