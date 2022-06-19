@@ -5,8 +5,7 @@
 # Figure out our distro
 DISTRO=$(cat /etc/os-release | grep "^ID=" | cut -d= -f2)
 
-# First install some common packages we need
-# TODO: Check $DISTRO on Fedora and Arch/Manjaro
+# First install some dependency packages we need
 if [[ $DISTRO == 'ubuntu' || $DISTRO == 'elementary' ]]; then
 	sudo apt-get install -qq -y libjson-perl
 elif [[ $DISTRO == 'fedora' ]]; then
@@ -25,9 +24,3 @@ for installer in ./installers/*; do
 	echo "Installing $prog_name"
 	bash $installer
 done
-
-# apt programs
-if [[ $DISTRO == 'ubuntu' ]]; then
-	sudo apt-get -qq -y update && sudo apt-get -qq -u upgrade
-	sudo apt-get install -qq -y git curl vim fzf gnupg2 jq python3-venv python3-pip bat fd-find fzf
-fi
