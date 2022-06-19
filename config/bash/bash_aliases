@@ -67,6 +67,7 @@ alias gitdifft="GIT_EXTERNAL_DIFF=difft git diff"
 alias icat="kitty +kitten icat"
 alias kdiff="kitty +kitten diff"
 alias panel="kitty +kitten panel"
+alias kssh="kitty +kitten ssh"
 
 # Functions
 function hlgrep() {
