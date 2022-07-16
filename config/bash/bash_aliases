@@ -1,5 +1,5 @@
 # Work
-alias sql='/home/dan/Code/teamweb/scripts/mysql.py'
+alias sql='/home/dan/Code/teamweb/admin-scripts/mysql.py'
 
 # Versioning
 alias py2='python'
@@ -68,6 +68,7 @@ alias icat="kitty +kitten icat"
 alias kdiff="kitty +kitten diff"
 alias panel="kitty +kitten panel"
 alias kssh="kitty +kitten ssh"
+alias ktheme="kitty +kitten themes"
 
 # Functions
 function hlgrep() {
