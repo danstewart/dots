@@ -130,14 +130,17 @@ export SUDO_EDITOR=$editor
 export PAGER="most"
 export BAT_PAGER="less -XFR"
 export LESS="--mouse --wheel-lines=3 -XFR"
+export AWS_PAGER=""
 opt="$HOME/opt"
 JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"
 ANDROID_HOME="$opt/Android/SDK"
+GO_PATH="/usr/local/go/bin"
 WINHOME=/mnt/c/Users/DanielStewart/
 plenvpath="$HOME/.plenv/bin/"
 rbenvpath="$HOME/.rbenv/bin/"
 pyenvpath="$HOME/.pyenv/bin/"
+DENO_INSTALL="/home/dan/.deno"
 
 # Build $PATH
 exists=()
@@ -153,11 +156,13 @@ paths=(
 	"$JAVA_HOME"
 	"$FLUTTER_ROOT"
 	"$ANDROID_HOME"
+	"$GO_PATH"
 	"$HOME/.cargo/bin/"
 	"/usr/local/go/bin/"
 	"$HOME/go/bin/"
 	"/home/linuxbrew/.linuxbrew/bin/"
 	"$HOME/.local/share/pypoetry/venv/bin/"
+	"$DENO_INSTALL/bin"
 )
 
 # Filter non existent paths
@@ -167,6 +172,7 @@ for item in "${paths[@]}"; do [[ -e $item ]] && exists+=("$item"); done
 [[ -e $JAVA_HOME ]] && export JAVA_HOME
 [[ -e $FLUTTER_ROOT ]] && export FLUTTER_ROOT
 [[ -e $ANDROID_HOME ]] && export ANDROID_HOME
+[[ -e $DENO_INSTALL ]] && export DENO_INSTALL
 export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 
 # Initialise some stuff

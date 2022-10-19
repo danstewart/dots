@@ -10,6 +10,9 @@ alias more='less'
 alias pip='python -m pip'
 alias pip3='python -m pip'
 
+# Scripts
+alias uuid="$HOME/scripts/uuid.sh"
+
 # Upgrades people, upgrades!
 if command -v bat >/dev/null 2>&1; then
 	alias cat='bat'
@@ -59,9 +62,11 @@ alias .....='..;..;..;..'
 #SSH
 alias ssh='ssh -XYt'
 
-# Diff
+# Git
 alias gitdiff="git difftool --no-symlinks --dir-diff"
 alias gitdifft="GIT_EXTERNAL_DIFF=difft git diff"
+alias mainpull="git checkout main && git pull"
+alias mainpullmerge="git checkout main && git pull && git checkout - && GIT_MERGE_AUTOEDIT=no git merge main"
 
 # Kitty
 alias icat="kitty +kitten icat"
@@ -121,8 +126,10 @@ function cd() {
 	builtin cd "$@"
 
 	# If env folder is found then activate the virtualenv
-	if [[ -d ./venv ]] ; then
+	if [[ -e ./venv/bin/activate ]] ; then
 		source ./venv/bin/activate
+	elif [[ -e ./.venv/bin/activate ]] ; then
+		source ./.venv/bin/activate
 	fi
 
 	# If we are no longer within our active venv then deactivate
@@ -197,4 +204,14 @@ function pyscratch() {
 	file=$(mktemp)
 	echo "Creating python scratch file: ${file}.py"
 	code --new-window ${file}.py
+}
+
+function man-http() {
+	code="$1"
+	if [[ -z $code ]]; then
+		echo "Usage: man-http <status code>"
+		exit 0
+	fi
+
+	firefox "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/$code"
 }
