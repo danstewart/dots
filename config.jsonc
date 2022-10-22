@@ -64,9 +64,10 @@
 
   // Server includes only base and the vimrc
   "server": {
-    "&include": [ "bash" ],
-    "vim/vimrc": "$HOME/.vimrc",
+    "&include": [ "bash", "kitty" ],
+    "vim/nvimrc": "$HOME/.config/nvim/init.vim",
     "scripts": "$HOME/scripts",
-    "dircolors": "$HOME/.dircolors"
+    "dircolors": "$HOME/.dircolors",
+    "gitconfig": "$HOME/.gitconfig"
   }
 }
