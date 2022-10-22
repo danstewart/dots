@@ -3,7 +3,7 @@
 git clone git@github.com:danstewart/dots.git
 cd dots
 bash init.sh
-perl links.pl --tag1 --tag2 [--force]
+perl links.pl [--server|--desktop] [--force]
 ```
 
 Tags are defined in `config.jsonc`

@@ -35,7 +35,7 @@
   },
 
   // Personal config includes both base and extra and defines some of it's configs too
-  "personal": {
+  "desktop": {
     "&include": [ "bash", "ssh", "kitty" ],
     "vim/nvimrc": "$HOME/.config/nvim/init.vim",
     "prettierrc": "$HOME/.prettierrc",
