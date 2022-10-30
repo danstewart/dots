@@ -12,18 +12,16 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'henrik/vim-indexed-search'
 Plug 'farmergreg/vim-lastplace'
 Plug 'mhinz/vim-startify'
-Plug 'vim-perl/vim-perl'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-sensible'
 Plug 'alvan/vim-closetag'
-Plug 'pangloss/vim-javascript'
 Plug 'bling/vim-bufferline'
 Plug 'adelarsq/vim-matchit'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -144,14 +142,6 @@ vmap <tab> >gv
 vmap <S-tab> <gv
 nmap <tab> >>
 nmap <S-tab> <<
-
-" COC
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Telescope
 nnoremap <C-p> <cmd>Telescope find_files<CR>
