@@ -35,7 +35,7 @@ else
 endif
 
 " Colors
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'romainl/flattened'
 Plug 'MaxSt/FlatColor'
 Plug 'mhinz/vim-janah'
