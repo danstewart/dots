@@ -14,60 +14,62 @@
 //
 // A lot of the below config is overcomplicated and unneccessary - just to use as an example
 {
-  // Individual groups
-  "bash": {
-    "bash/bashrc": "$HOME/.bashrc",
-    "bash/bash_aliases": "$HOME/.bash_aliases",
-    "bash/sensible.bash": "$HOME/.sensible.bash"
-  },
+	// Individual groups
+	"bash": {
+		"bash/bashrc": "$HOME/.bashrc",
+		"bash/bash_aliases": "$HOME/.bash_aliases",
+		"bash/sensible.bash": "$HOME/.sensible.bash"
+	},
 
-  "ssh": {
-    "ssh/config": {
-      "target": "$HOME/.ssh/config",
-      "andThen": "chmod 600 $HOME/.ssh/config"
-    }
-  },
+	"ssh": {
+		"ssh/config": {
+			"target": "$HOME/.ssh/config",
+			"andThen": "chmod 600 $HOME/.ssh/config"
+		}
+	},
 
-  // Kitty terminal
-  "kitty": {
-    "kitty/kitty.conf": "$HOME/.config/kitty/kitty.conf",
-    "kitty/diff.conf": "$HOME/.config/kitty/diff.conf"
-  },
+	// Kitty terminal
+	"kitty": {
+		"kitty/kitty.conf": "$HOME/.config/kitty/kitty.conf",
+		"kitty/diff.conf": "$HOME/.config/kitty/diff.conf"
+	},
 
-  // Personal config includes both base and extra and defines some of it's configs too
-  "desktop": {
-    "&include": [ "bash", "ssh", "kitty" ],
-    "vim/nvimrc": "$HOME/.config/nvim/init.vim",
-    "prettierrc": "$HOME/.prettierrc",
-    "gitconfig": "$HOME/.gitconfig",
-    "tmux.conf": "$HOME/.tmux.conf",
+	// Common configs that don't fit into a specific category
+	"common": {
+		"gitconfig": "$HOME/.gitconfig",
+		"tmux.conf": "$HOME/.tmux.conf",
+		"mycli.ini": "$HOME/.myclirc",
+		"litecli.ini": "$HOME/.config/litecli/config",
+		"scripts": "$HOME/scripts",
+		"dircolors": "$HOME/.dircolors",
+		"prettierrc": "$HOME/.prettierrc"
+	},
 
-    "scripts": "$HOME/scripts",
-    "dircolors": "$HOME/.dircolors",
+	// Personal config includes both base and extra and defines some of it's configs too
+	"desktop": {
+		"&include": ["bash", "ssh", "kitty", "common"],
+		"vim/nvimrc": "$HOME/.config/nvim/init.vim",
 
-    // Copy ssh key from Nextcloud
-    "sshkey": {
-      "src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
-      "target": "$HOME/.ssh/id_rsa",
-      "cond": "-e $HOME/Nextcloud/",
-      "noForce": true,
-      "andThen": "chmod 600 $HOME/.ssh/id_rsa"
-    },
-    "sshpubkey": {
-      "src": "$HOME/Nextcloud/Keys/ssh/id_rsa.pub",
-      "target": "$HOME/.ssh/id_rsa.pub",
-      "cond": "-e $HOME/Nextcloud/",
-      "noForce": true,
-      "andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
-    }
-  },
+		// Copy ssh key from Nextcloud
+		"sshkey": {
+			"src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
+			"target": "$HOME/.ssh/id_rsa",
+			"cond": "-e $HOME/Nextcloud/",
+			"noForce": true,
+			"andThen": "chmod 600 $HOME/.ssh/id_rsa"
+		},
+		"sshpubkey": {
+			"src": "$HOME/Nextcloud/Keys/ssh/id_rsa.pub",
+			"target": "$HOME/.ssh/id_rsa.pub",
+			"cond": "-e $HOME/Nextcloud/",
+			"noForce": true,
+			"andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
+		}
+	},
 
-  // Server includes only base and the vimrc
-  "server": {
-    "&include": [ "bash", "kitty" ],
-    "vim/nvimrc": "$HOME/.config/nvim/init.vim",
-    "scripts": "$HOME/scripts",
-    "dircolors": "$HOME/.dircolors",
-    "gitconfig": "$HOME/.gitconfig"
-  }
+	// Server includes only base and the vimrc
+	"server": {
+		"&include": ["bash", "kitty", "common"],
+		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
+	}
 }
