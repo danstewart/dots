@@ -21,6 +21,12 @@
 		"bash/sensible.bash": "$HOME/.sensible.bash"
 	},
 
+	// New nvchad neovim config
+	// Not fully committed yet
+	"nvchad": {
+		"neovim/custom": "$HOME/.config/nvim/lua/custom"
+	},
+
 	"ssh": {
 		"ssh/config": {
 			"target": "$HOME/.ssh/config",
