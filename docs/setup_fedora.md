@@ -1,10 +1,11 @@
 ### Update
+
 ```shell
 sudo dnf update
 ```
 
-
 ### Via dnf
+
 ```shell
 sudo dnf -y install git curl fzf gnupg2 jq net-tools python3-devel python3-pip
 ```
@@ -40,9 +41,10 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 
 Then run `:PlugInstall`, restart then `:UpdateRemotePlugins`, finally run `:CocInstall coc-pyright`
 
-
 ### Other
+
 **[diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)**
+
 ```shell
 mkdir ~/bin
 curl -o ~/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
@@ -54,3 +56,4 @@ chmod 755 ~/bin/diff-so-fancy
 - [Docker](https://docs.docker.com/engine/install/fedora/)
 - [forgit](https://github.com/wfxr/forgit)
 - [git-open](https://github.com/paulirish/git-open)
+- [logiops](https://github.com/PixlOne/logiops)

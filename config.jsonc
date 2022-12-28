@@ -48,7 +48,8 @@
 		"litecli.ini": "$HOME/.config/litecli/config",
 		"scripts": "$HOME/scripts",
 		"dircolors": "$HOME/.dircolors",
-		"prettierrc": "$HOME/.prettierrc"
+		"prettierrc": "$HOME/.prettierrc",
+		"logiops.cfg": "/etc/logid.cfg"
 	},
 
 	// Personal config includes both base and extra and defines some of it's configs too
