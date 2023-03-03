@@ -51,6 +51,21 @@ curl -o ~/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-f
 chmod 755 ~/bin/diff-so-fancy
 ```
 
+**[glow](https://github.com/charmbracelet/glow)**
+
+```shell
+echo '[charm]
+name=Charm
+baseurl=https://repo.charm.sh/yum/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
+
+sudo dnf install glow
+```
+
+---
+
 - [VS Code](https://code.visualstudio.com/docs/setup/linux)
 - [GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
 - [Docker](https://docs.docker.com/engine/install/fedora/)
