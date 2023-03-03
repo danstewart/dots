@@ -215,3 +215,8 @@ function man-http() {
 
 	firefox "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/$code"
 }
+
+# Show a QR code of a given string in the terminal
+function qr() {
+  qrencode -t ansiutf8 "$1"
+}
