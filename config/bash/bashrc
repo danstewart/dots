@@ -225,7 +225,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Auto-activate hermit
-eval "$(test -x $HOME/bin/hermit && $HOME/bin/hermit shell-hooks --print --bash)"
+if [[ -e $HOME/bin/hermit ]]; then
+	eval "$(test -x $HOME/bin/hermit && $HOME/bin/hermit shell-hooks --print --bash)"
+fi
 
 if [[ -e $HOME/.asdf ]]; then
 	source $HOME/.asdf/asdf.sh
