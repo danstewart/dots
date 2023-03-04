@@ -41,6 +41,23 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 
 Then run `:PlugInstall`, restart then `:UpdateRemotePlugins`, finally run `:CocInstall coc-pyright`
 
+### Fonts
+
+```shell
+sudo ln -fs /usr/share/fontconfig/conf.avail/10-autohint.conf /etc/fonts/conf.d
+sudo ln -fs /usr/share/fontconfig/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+sudo ln -fs /usr/share/fontconfig/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+
+# Install better fonts: https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/
+sudo dnf copr enable hyperreal/better_fonts -y
+sudo dnf install fontconfig-font-replacements -y
+sudo dnf install fontconfig-enhanced-defaults -y
+
+fc-cache --force
+# And now reboot...
+```
+
+
 ### Other
 
 **[diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)**
