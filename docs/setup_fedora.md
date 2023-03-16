@@ -89,3 +89,4 @@ sudo dnf install glow
 - [forgit](https://github.com/wfxr/forgit)
 - [git-open](https://github.com/paulirish/git-open)
 - [logiops](https://github.com/PixlOne/logiops)
+- [run-or-raise](https://github.com/CZ-NIC/run-or-raise)
