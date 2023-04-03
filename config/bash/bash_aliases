@@ -220,3 +220,13 @@ function man-http() {
 function qr() {
   qrencode -t ansiutf8 "$1"
 }
+
+# Colorize git errors
+git(){
+    command git "$@"
+    local exitCode=$?
+    if [ $exitCode -ne 0 ]; then
+        printf "\033[0;31mERROR: git exited with code $exitCode\033[0m\n"
+        return $exitCode
+    fi
+}
