@@ -6,7 +6,7 @@
 DISTRO=$(cat /etc/os-release | grep "^ID=" | cut -d= -f2)
 
 # First install some dependency packages we need
-if [[ $DISTRO == 'ubuntu' || $DISTRO == 'elementary' ]]; then
+if [[ $DISTRO == 'ubuntu' || $DISTRO == 'elementary' || $DISTRO == 'debian' ]]; then
 	sudo apt-get install -qq -y libjson-perl
 elif [[ $DISTRO == 'fedora' ]]; then
 	sudo dnf install -y perl-JSON
