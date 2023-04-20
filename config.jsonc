@@ -74,9 +74,8 @@
 		}
 	},
 
-	// Server includes only base and the vimrc
+	// Server includes only bash and vimrc
 	"server": {
-		"&include": ["bash", "kitty", "common"],
-		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
+		"&include": ["bash", "vim"],
 	}
 }
