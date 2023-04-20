@@ -76,6 +76,7 @@
 
 	// Server includes only bash and vimrc
 	"server": {
-		"&include": ["bash", "vim"]
+		"&include": ["bash"],
+		"vim/vimrc": "$HOME/.vimrc"
 	}
 }
