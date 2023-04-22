@@ -1,3 +1,11 @@
 Host danstewart.dev
   HostName danstewart.dev
   User dan
+
+Host pve
+  HostName 192.168.4.69
+  User dan
+
+Host web
+  HostName 192.168.4.71
+  User dan

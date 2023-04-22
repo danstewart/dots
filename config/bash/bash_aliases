@@ -9,6 +9,7 @@ alias gpg='gpg2'
 alias more='less'
 alias pip='python -m pip'
 alias pip3='python -m pip'
+alias dockerps="docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}\t{{.CreatedAt}}'"
 
 # Scripts
 alias uuid="$HOME/scripts/uuid.sh"
