@@ -21,10 +21,8 @@
 		"bash/sensible.bash": "$HOME/.sensible.bash"
 	},
 
-	// New nvchad neovim config
-	// Not fully committed yet
-	"nvchad": {
-		"neovim/custom": "$HOME/.config/nvim/lua/custom"
+	"nvim": {
+		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
 	},
 
 	"ssh": {
@@ -77,6 +75,6 @@
 	// Server includes only bash and vimrc
 	"server": {
 		"&include": ["bash"],
-		"vim/vimrc": "$HOME/.vimrc"
+		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
 	}
 }
