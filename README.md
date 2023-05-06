@@ -11,8 +11,8 @@ Tags are defined in `config.jsonc`
 ---
 
 ## Dependencies
-The only dependency that isn't already provided on most systems is the perl JSON.pm module.  
-The `./init.sh` script will handle this for you on Ubuntu, Fedora and Arch.  
+The only dependencies that aren't already provided on most systems are the perl JSON.pm module and [jq](https://stedolan.github.io/jq/download/).  
+The `./init.sh` script will handle both of these for you on Ubuntu, Fedora and Arch.  
 
 ---
 

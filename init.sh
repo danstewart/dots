@@ -7,11 +7,11 @@ DISTRO=$(cat /etc/os-release | grep "^ID=" | cut -d= -f2)
 
 # First install some dependency packages we need
 if [[ $DISTRO == 'ubuntu' || $DISTRO == 'elementary' || $DISTRO == 'debian' ]]; then
-	sudo apt-get install -qq -y libjson-perl
+	sudo apt-get install -qq -y libjson-perl jq
 elif [[ $DISTRO == 'fedora' ]]; then
-	sudo dnf install -y perl-JSON
+	sudo dnf install -y perl-JSON jq
 elif [[ $DISTRO == 'arch' ]]; then
-	sudo pacman --noconfirm -S perl-json
+	sudo pacman --noconfirm -S perl-json jq
 else
 	echo "Unsupported distro '$DISTRO'"
 	exit 1
