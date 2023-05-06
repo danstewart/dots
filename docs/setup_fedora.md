@@ -29,7 +29,7 @@ flatpak install flathub com.nextcloud.desktopclient.nextcloud
 flatpak install flathub com.microsoft.Teams
 
 # Obsidian
-flatpak install flathub com.microsoft.Teams
+flatpak install flathub md.obsidian.Obsidian
 ```
 
 ### Neovim
@@ -59,29 +59,6 @@ fc-cache --force
 
 
 ### Other
-
-**[diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)**
-
-```shell
-mkdir ~/bin
-curl -o ~/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
-chmod 755 ~/bin/diff-so-fancy
-```
-
-**[glow](https://github.com/charmbracelet/glow)**
-
-```shell
-echo '[charm]
-name=Charm
-baseurl=https://repo.charm.sh/yum/
-enabled=1
-gpgcheck=1
-gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
-
-sudo dnf install glow
-```
-
----
 
 - [VS Code](https://code.visualstudio.com/docs/setup/linux)
 - [GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
