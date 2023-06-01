@@ -131,6 +131,7 @@ export PAGER="most"
 export BAT_PAGER="less -XFR"
 export LESS="--mouse --wheel-lines=3 -XFR"
 export AWS_PAGER=""
+
 opt="$HOME/opt"
 JAVA_HOME="$opt/jdk-11/bin"
 FLUTTER_ROOT="$opt/flutter"

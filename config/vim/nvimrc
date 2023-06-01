@@ -112,6 +112,7 @@ set autoindent
 "== Key Bindings ==
 "==================
 " general
+set clipboard=unnamedplus
 nnoremap Q <nop>
 nmap <leader>d <C-]>
 nmap Y y$
