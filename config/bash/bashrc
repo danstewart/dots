@@ -240,4 +240,9 @@ if command -v direnv >/dev/null 2>&1; then
 	eval "$(direnv hook bash)"
 fi
 
-export ERG_PATH="$HOME/.erg"
+# QT Theme
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_STYLE_OVERRIDE="adwaita"
+
+# Teamweb stuff
+export TW_PHINEAS_PATH="/home/dan/Code/teamweb/phineas"
