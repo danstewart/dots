@@ -7,6 +7,7 @@
 
 function main() {
     DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+    mkdir -p $DOCKER_CONFIG/cli-plugins
 
     echo "Fetching latest compose binary..."
     download_file "docker-compose-linux-x86_64" $DOCKER_CONFIG/compose
