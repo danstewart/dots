@@ -1,5 +1,5 @@
 # Work
-alias sql='/home/dan/Code/teamweb/admin-scripts/mysql.py'
+alias sql='/home/dan/Code/teamweb/touramigo/admin-scripts/mysql.py'
 
 # Versioning
 alias py2='python'
