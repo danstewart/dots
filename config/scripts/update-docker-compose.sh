@@ -10,7 +10,8 @@ function main() {
     mkdir -p $DOCKER_CONFIG/cli-plugins
 
     echo "Fetching latest compose binary..."
-    download_file "docker-compose-linux-$(uname -m)" $DOCKER_CONFIG/compose
+    download_file "docker-compose-linux-$(uname -m)" $DOCKER_CONFIG/cli-plugins/docker-compose
+    chmod 755 $DOCKER_CONFIG/cli-plugins/docker-compose
     echo "Done! Now using $(docker compose version)."
 }
 
