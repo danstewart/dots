@@ -2,6 +2,11 @@
 # https://github.com/dexpota/kitty-themes
 include ./themes/ayu_mirage.conf
 
+# Remote control
+# Allows scripting kitty
+allow_remote_control yes
+
+
 # Fonts
 font_family      FiraCode-Retina
 font_features    FiraCode-Retina +zero +onum
@@ -24,13 +29,17 @@ map ctrl+shift+r set_tab_title
 map ctrl+shift+up move_tab_backward
 map ctrl+shift+down move_tab_forward
 
+# Ctrl + Shift binds
+# https://old.reddit.com/r/neovim/comments/mbj8m5
+map ctrl+shift+p send_text all \x1b[80;5u 
+
 # Mouse
 mouse_map left click ungrabbed no-op
 
 # Misc
 map f1 launch --cwd=current
 map f2 launch --type=tab
-map ctrl+shift+t  launch --cwd=current --type=tab
+map ctrl+shift+t  launch --cwd=root --type=tab
 
 # Style
 # wayland_titlebar_color system
@@ -46,6 +55,6 @@ bell_on_tab no
 
 
 # BEGIN_KITTY_THEME
-# Dark Pastel
+# Cobalt2
 include current-theme.conf
 # END_KITTY_THEME
