@@ -81,7 +81,7 @@ alias kssh="kitty +kitten ssh"
 alias ktheme="kitty +kitten themes"
 
 # Functions
-function hlgrep() {
+function hl() {
 	# grep but it prints the entire input content and highlights the matches
 	grep --color -E "$1|\$" $2
 }
@@ -126,23 +126,28 @@ function json() {
 	fi
 }
 
-# Auto activate python venv when cd-ing around
+# Do some stuff when cd-ing around
 function cd() {
 	builtin cd "$@"
 
-	# If env folder is found then activate the virtualenv
+	# Auto activate venv if there is one
 	if [[ -e ./venv/bin/activate ]] ; then
 		source ./venv/bin/activate
 	elif [[ -e ./.venv/bin/activate ]] ; then
 		source ./.venv/bin/activate
 	fi
 
-	# If we are no longer within our active venv then deactivate
+	# Auto de-activate venv when we leave
 	if [[ -n "$VIRTUAL_ENV" ]] ; then
 		venvparent="$(dirname "$VIRTUAL_ENV")"
 		if [[ "$(pwd -P)"/ != "$venvparent"/* ]] ; then
 			deactivate
 		fi
+	fi
+
+	# Auto load  completions for `ctl` script
+	if command -v ctl > /dev/null; then
+		source ctl completions
 	fi
 }
 
