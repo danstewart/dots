@@ -7,7 +7,7 @@ sudo dnf update
 ### Via dnf
 
 ```shell
-sudo dnf -y install git curl fzf gnupg2 jq net-tools python3-devel python3-pip
+sudo dnf -y install git curl fzf gnupg2 jq net-tools python3-devel python3-pip delta
 ```
 
 ### Via Flatpak
