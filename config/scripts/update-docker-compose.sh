@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script will download the latest version of the Github CLI and install it using DNF
+# This script will download the latest version of docker compose and put it in the docker plugins directory
 # Requires:
 # - curl
 # - jq
