@@ -2,6 +2,9 @@
 
 # Spit out a random timeflake UUID
 
+count="$1"
+[[ -z $count ]] && count=1
+
 python3 -c "import timeflake" >/dev/null 2>&1
 if [[ $? != 0 ]]; then
 	echo "Timeflake is not installed, install? [Y/N] "
@@ -11,4 +14,6 @@ if [[ $? != 0 ]]; then
 	pip3 install timeflake
 fi
 
-python3 -c "import timeflake; print(timeflake.random().hex.lower())"
+for (( i=0; i<count; i++ )); do
+	python3 -c "import timeflake; print(timeflake.random().hex.lower())"
+done

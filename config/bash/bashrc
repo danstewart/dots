@@ -141,7 +141,7 @@ WINHOME=/mnt/c/Users/DanielStewart/
 plenvpath="$HOME/.plenv/bin/"
 rbenvpath="$HOME/.rbenv/bin/"
 pyenvpath="$HOME/.pyenv/bin/"
-DENO_INSTALL="/home/dan/.deno"
+DENO_INSTALL="$HOME/.deno"
 
 # Build $PATH
 exists=()
@@ -164,6 +164,7 @@ paths=(
 	"/home/linuxbrew/.linuxbrew/bin/"
 	"$HOME/.local/share/pypoetry/venv/bin/"
 	"$DENO_INSTALL/bin"
+	"$HOME/.cache/rebar3/bin"
 )
 
 # Filter non existent paths
@@ -246,3 +247,8 @@ export QT_STYLE_OVERRIDE="adwaita"
 
 # Teamweb stuff
 export TW_PHINEAS_PATH="/home/dan/Code/teamweb/phineas"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+
+# https://atuin.sh
+eval "$(atuin init bash --disable-up-arrow)"
