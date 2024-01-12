@@ -47,7 +47,8 @@
 		"scripts": "$HOME/scripts",
 		"dircolors": "$HOME/.dircolors",
 		"prettierrc": "$HOME/.prettierrc",
-		"logiops.cfg": "/etc/logid.cfg"
+		"logiops.cfg": "/etc/logid.cfg",
+		"atuin/config.toml": "$HOME/.config/atuin/config.toml"
 	},
 
 	// Personal config includes both base and extra and defines some of it's configs too

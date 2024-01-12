@@ -251,4 +251,4 @@ export TW_PHINEAS_PATH="/home/dan/Code/teamweb/phineas"
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 
 # https://atuin.sh
-eval "$(atuin init bash --disable-up-arrow)"
+eval "$(atuin init bash)"
