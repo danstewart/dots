@@ -149,6 +149,8 @@ function cd() {
 	if command -v ctl > /dev/null; then
 		source ctl completions
 	fi
+
+	[[ -e .env || -e .envrc ]] && direnv reload
 }
 
 # FZF Stuff
