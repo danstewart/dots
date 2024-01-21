@@ -147,7 +147,9 @@ function cd() {
 
 	# Auto load  completions for `ctl` script
 	if command -v ctl > /dev/null; then
-		source ctl completions
+		if ctl completions > /dev/null; then
+			source ctl completions
+		fi
 	fi
 
 	[[ -e .env || -e .envrc ]] && direnv reload
