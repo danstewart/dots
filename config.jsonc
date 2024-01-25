@@ -47,7 +47,6 @@
 		"scripts": "$HOME/scripts",
 		"dircolors": "$HOME/.dircolors",
 		"prettierrc": "$HOME/.prettierrc",
-		"logiops.cfg": "/etc/logid.cfg",
 		"atuin/config.toml": "$HOME/.config/atuin/config.toml"
 	},
 
@@ -55,6 +54,9 @@
 	"desktop": {
 		"&include": ["bash", "ssh", "kitty", "common"],
 		"vim/nvimrc": "$HOME/.config/nvim/init.vim",
+
+		// Mouse config
+		"logiops.cfg": "/etc/logid.cfg",
 
 		// Copy ssh key from Nextcloud
 		"sshkey": {
@@ -71,6 +73,12 @@
 			"noForce": true,
 			"andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
 		}
+	},
+
+	// Mac development machine
+	"mac": {
+		"&include": ["bash", "ssh", "common"],
+		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
 	},
 
 	// Server includes only bash and vimrc

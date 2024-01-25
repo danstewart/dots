@@ -142,11 +142,13 @@ plenvpath="$HOME/.plenv/bin/"
 rbenvpath="$HOME/.rbenv/bin/"
 pyenvpath="$HOME/.pyenv/bin/"
 DENO_INSTALL="$HOME/.deno"
+BREW_PATH="/opt/homebrew/bin"
 
 # Build $PATH
 exists=()
 paths=(
 	"$HOME/bin"
+	"$BREW_PATH"
 	"$HOME/.local/bin"
 	"$plenvpath"
 	"$rbenvpath"
