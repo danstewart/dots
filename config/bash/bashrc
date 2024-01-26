@@ -148,6 +148,7 @@ BREW_PATH="/opt/homebrew/bin"
 exists=()
 paths=(
 	"$HOME/bin"
+	"$HOME/.local/bin"
 	"$BREW_PATH"
 	"$HOME/.local/bin"
 	"$plenvpath"
@@ -248,10 +249,15 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_STYLE_OVERRIDE="adwaita"
 
 # Teamweb stuff
-export TW_PHINEAS_PATH="/home/dan/Code/teamweb/phineas"
+if [[ -e "/home/dan" ]]; then
+	export TW_PHINEAS_PATH="/home/dan/Code/teamweb/phineas"
+elif [[ -e "/Users/dan" ]]; then
+	export TW_PHINEAS_PATH=/Users/dan/Code/teamweb/phineas
+fi
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 
 # https://atuin.sh
 eval "$(atuin init bash --disable-up-arrow)"
+
 

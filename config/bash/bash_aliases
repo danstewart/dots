@@ -1,5 +1,9 @@
 # Work
-alias sql='/home/dan/Code/teamweb/touramigo/admin-scripts/mysql.py'
+if [[ -e "/home/dan" ]]; then
+	alias sql='/home/dan/Code/teamweb/touramigo/admin-scripts/mysql.py'
+elif [[ -e "/Users/dan" ]]; then
+	alias sql='/Users/dan/Code/touramigo/admin-scripts/mysql.py'
+fi
 
 # Versioning
 alias py2='python'
@@ -185,6 +189,9 @@ function gh-pr() {
 	# List all open PRs in FZF
 	local jq_template pr_number
 
+	sed_cmd="sed"
+	command -v gsed >/dev/null && sed_cmd="gsed"
+
 	jq_template='"'\
 '#\(.number) - \(.title) [\(.user.login)]'\
 '\t'\
@@ -197,13 +204,13 @@ function gh-pr() {
 	pr_number=$(
 		gh api 'repos/:owner/:repo/pulls' |
 		jq ".[] | $jq_template" |
-		sed -e 's/"\(.*\)"/\1/' -e 's/\\t/\t/' |
+		$sed_cmd -e 's/"\(.*\)"/\1/' -e 's/\\t/\t/' |
 		fzf \
 		--with-nth=1 \
 		--delimiter='\t' \
 		--preview='echo -e {2}' \
 		--preview-window=bottom:70%:wrap |
-		sed 's/^#\([0-9]\+\).*/\1/'
+		$sed_cmd 's/^#\([0-9]\+\).*/\1/'
 	)
 
 	if [ -n "$pr_number" ]; then
