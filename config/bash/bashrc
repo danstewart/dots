@@ -11,6 +11,58 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=erasedups
 
+
+# ===== Path ======
+opt="$HOME/opt"
+JAVA_HOME="$opt/jdk-11/bin"
+FLUTTER_ROOT="$opt/flutter"
+ANDROID_HOME="$opt/Android/SDK"
+GO_PATH="/usr/local/go/bin"
+WINHOME=/mnt/c/Users/DanielStewart/
+plenvpath="$HOME/.plenv/bin/"
+rbenvpath="$HOME/.rbenv/bin/"
+pyenvpath="$HOME/.pyenv/bin/"
+DENO_INSTALL="$HOME/.deno"
+BREW_PATH="/opt/homebrew/bin"
+
+# Build $PATH
+exists=()
+paths=(
+	"$HOME/bin"
+	"$HOME/.local/bin"
+	"$BREW_PATH"
+	"$HOME/.local/bin"
+	"$plenvpath"
+	"$rbenvpath"
+	"$pyenvpath"
+	"$opt/kotlinc/bin/"
+	"$opt/flutter/bin/"
+	"$opt/dart-sdk/bin/"
+	"$JAVA_HOME"
+	"$FLUTTER_ROOT"
+	"$ANDROID_HOME"
+	"$GO_PATH"
+	"$HOME/.cargo/bin/"
+	"/usr/local/go/bin/"
+	"$HOME/go/bin/"
+	"/home/linuxbrew/.linuxbrew/bin/"
+	"$HOME/.local/share/pypoetry/venv/bin/"
+	"$DENO_INSTALL/bin"
+	"$HOME/.cache/rebar3/bin"
+)
+
+# Filter non existent paths
+for item in "${paths[@]}"; do [[ -e $item ]] && exists+=("$item"); done
+
+[[ -d $WINHOME ]] && export WINHOME
+[[ -e $JAVA_HOME ]] && export JAVA_HOME
+[[ -e $FLUTTER_ROOT ]] && export FLUTTER_ROOT
+[[ -e $ANDROID_HOME ]] && export ANDROID_HOME
+[[ -e $DENO_INSTALL ]] && export DENO_INSTALL
+PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
+export PATH
+
+
 # ===== Settings =====
 shopt -s checkwinsize  # Handle window size changes
 shopt -s globstar  # Support ** globbing
@@ -122,7 +174,6 @@ branch=git_branch
 
 export PROMPT_COMMAND='history -a; prompt="${standard_prompt} $(colorize $COLOR_BLUE `short_cwd`) $(colorize `git_color` `git_branch`) \$ "; export PS1=${prompt//  / }'
 
-# Exports
 command -v nvim >/dev/null && editor="nvim" || editor="vim"
 export VISUAL='code'
 export EDITOR=$editor
@@ -131,62 +182,6 @@ export PAGER="most"
 export BAT_PAGER="less -XFR"
 export LESS="--mouse --wheel-lines=3 -XFR"
 export AWS_PAGER=""
-
-opt="$HOME/opt"
-JAVA_HOME="$opt/jdk-11/bin"
-FLUTTER_ROOT="$opt/flutter"
-ANDROID_HOME="$opt/Android/SDK"
-GO_PATH="/usr/local/go/bin"
-WINHOME=/mnt/c/Users/DanielStewart/
-plenvpath="$HOME/.plenv/bin/"
-rbenvpath="$HOME/.rbenv/bin/"
-pyenvpath="$HOME/.pyenv/bin/"
-DENO_INSTALL="$HOME/.deno"
-BREW_PATH="/opt/homebrew/bin"
-
-# Build $PATH
-exists=()
-paths=(
-	"$HOME/bin"
-	"$HOME/.local/bin"
-	"$BREW_PATH"
-	"$HOME/.local/bin"
-	"$plenvpath"
-	"$rbenvpath"
-	"$pyenvpath"
-	"$opt/kotlinc/bin/"
-	"$opt/flutter/bin/"
-	"$opt/dart-sdk/bin/"
-	"$JAVA_HOME"
-	"$FLUTTER_ROOT"
-	"$ANDROID_HOME"
-	"$GO_PATH"
-	"$HOME/.cargo/bin/"
-	"/usr/local/go/bin/"
-	"$HOME/go/bin/"
-	"/home/linuxbrew/.linuxbrew/bin/"
-	"$HOME/.local/share/pypoetry/venv/bin/"
-	"$DENO_INSTALL/bin"
-	"$HOME/.cache/rebar3/bin"
-)
-
-# Filter non existent paths
-for item in "${paths[@]}"; do [[ -e $item ]] && exists+=("$item"); done
-
-[[ -d $WINHOME ]] && export WINHOME
-[[ -e $JAVA_HOME ]] && export JAVA_HOME
-[[ -e $FLUTTER_ROOT ]] && export FLUTTER_ROOT
-[[ -e $ANDROID_HOME ]] && export ANDROID_HOME
-[[ -e $DENO_INSTALL ]] && export DENO_INSTALL
-export PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
-
-# Initialise some stuff
-[[ -d $plenvpath ]] && eval "$(plenv init -)"
-[[ -d $rbenvpath ]] && eval "$(rbenv init -)"
-if [[ -d $pyenvpath ]]; then
-	eval "$(pyenv init -)"
-	eval "$(pyenv init --path)"
-fi
 
 # fzf
 export FZF_DEFAULT_OPTS='--reverse --border --exact'
@@ -259,5 +254,3 @@ fi
 
 # https://atuin.sh
 eval "$(atuin init bash --disable-up-arrow)"
-
-

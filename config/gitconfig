@@ -1,3 +1,5 @@
+[include]
+	path = /Users/dan/.local/share/delta/themes.gitconfig
 [user]
 	name = Dan Stewart
 	email = git@mail.danstewart.dev
@@ -5,9 +7,9 @@
 	default = current
 [core]
 	filemode = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	;pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = nvim
-	;pager = delta
+	pager = delta
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -46,3 +48,10 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+[delta]
+	features = mantis-shrimp-lite
+	side-by-side = true
+[delta "interactive"]
+	keep-plus-minus-markers = false
