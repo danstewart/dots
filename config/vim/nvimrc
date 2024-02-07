@@ -26,14 +26,6 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 " Colors
 Plug 'gruvbox-community/gruvbox'
 Plug 'romainl/flattened'
@@ -50,7 +42,7 @@ call plug#end()
 "====================
 "== Basic Settings ==
 "====================
-colorscheme onedark
+colorscheme gruvbox
 set nocompatible
 set bg=dark
 set hls
