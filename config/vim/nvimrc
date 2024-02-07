@@ -198,6 +198,8 @@ nnoremap <leader>tt :NERDTreeToggle<CR>
 " Map Ctrl-A -> Start of line, Ctrl-E -> End of line
 map <C-a> <Home>
 map <C-e> <End>
+imap <C-a> <Home>
+imap <C-e> <End>
 
 " close if NERDTree is the only open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

@@ -190,12 +190,10 @@ export FZF_DEFAULT_OPTS='--reverse --border --exact'
 [[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
 [[ -f /usr/share/doc/fzf/examples/completion.bash ]] && source /usr/share/doc/fzf/examples/completion.bash
 
-# bash autocompletion
-for file in git docker docker-compose; do
-	if [[ -f /usr/share/bash-completion/completions/$file ]]; then
-		source /usr/share/bash-completion/completions/$file
-	fi
-done
+# Auto complete
+[[ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+[[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
+
 
 # Pass
 [[ -f ~/.password-store/.bash-completion ]] && source ~/.password-store/.bash-completion
