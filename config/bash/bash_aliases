@@ -13,7 +13,10 @@ alias gpg='gpg2'
 alias more='less'
 alias pip='python -m pip'
 alias pip3='python -m pip'
+
+# Helpers
 alias dockerps="docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}\t{{.CreatedAt}}'"
+alias brewup="brew update && brew upgrade && brew cleanup && brew doctor"
 
 # Scripts
 alias uuid="$HOME/scripts/uuid.sh"
