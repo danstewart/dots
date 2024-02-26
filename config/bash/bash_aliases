@@ -17,6 +17,7 @@ alias pip3='python -m pip'
 # Helpers
 alias dockerps="docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}\t{{.CreatedAt}}'"
 alias brewup="brew update && brew upgrade && brew cleanup && brew doctor"
+alias zsql="mycli -uroot -proot_password -P3307 -h127.0.0.1"
 
 # Scripts
 alias uuid="$HOME/scripts/uuid.sh"
@@ -228,6 +229,20 @@ function pyscratch() {
 	file=$(mktemp)
 	echo "Creating python scratch file: ${file}.py"
 	code --new-window ${file}.py
+}
+
+code_path=$(which code)
+function code() {
+	project_dir=$(realpath "$1")
+	project_name=$(basename "$project_dir")
+
+	if [[ -f "$project_dir/.vscode/${project_name}.code-workspace" ]]; then
+		echo "Found ${project_name}.code-workspace, opening that instead..."
+		$code_path "$project_dir/.vscode/${project_name}.code-workspace"
+		return
+	fi
+
+	$code_path "$@"
 }
 
 function man-http() {
