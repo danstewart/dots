@@ -248,7 +248,7 @@ elif [[ -e "/Users/dan" ]]; then
 	export TW_PHINEAS_PATH=/Users/dan/Code/teamweb/phineas
 fi
 
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+source ~/.bash-preexec.sh
 
 # https://atuin.sh
 eval "$(atuin init bash --disable-up-arrow)"
