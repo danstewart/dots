@@ -88,6 +88,9 @@ if [[ -n $PS1 ]]; then
 	bind '"\C-h": backward-kill-word'
 	bind '"\e[3;5~": kill-word'
 
+	stty werase undef
+	bind '"\C-w": backward-kill-word'
+
 	complete -d cd
 fi
 
