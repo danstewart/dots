@@ -182,7 +182,7 @@ command -v nvim >/dev/null && editor="nvim" || editor="vim"
 export VISUAL='code'
 export EDITOR=$editor
 export SUDO_EDITOR=$editor
-export PAGER="most"
+export PAGER="less"
 export BAT_PAGER="less -XFR"
 export LESS="--mouse --wheel-lines=3 -XFR"
 export AWS_PAGER=""

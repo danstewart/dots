@@ -23,7 +23,7 @@ while [[ "$#" -gt 0 ]]; do
 	shift
 done
 
-if [[ -n $help || -z $input || -z $output || -z $start || -z $end ]]; then
+if [[ $help == 1 || -z $input || -z $output || -z $start || -z $end ]]; then
     echo "$0 --input <file> --output <file> --start <timestamp> --end <timestamp>"
     echo ""
     echo "Cut up a video into a smaller video at set timestamps"
