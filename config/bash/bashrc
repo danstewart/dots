@@ -49,6 +49,7 @@ paths=(
 	"$HOME/.local/share/pypoetry/venv/bin/"
 	"$DENO_INSTALL/bin"
 	"$HOME/.cache/rebar3/bin"
+	"/opt/homebrew/sbin"
 )
 
 # Filter non existent paths
