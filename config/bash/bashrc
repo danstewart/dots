@@ -113,7 +113,7 @@ fi
 # ===== Exports =====
 # Coloured prompt
 # https://i.sstatic.net/KTSQa.png
-COLOR_DANGER="\033[38;5;124m"
+COLOR_DANGER="\033[38;5;160m"
 COLOR_WARNING="\033[38;5;214m"
 COLOR_SUCCESS="\033[38;5;120m"
 COLOR_INFO="\033[38;5;117m"
