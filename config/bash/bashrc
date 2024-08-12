@@ -112,15 +112,16 @@ fi
 
 # ===== Exports =====
 # Coloured prompt
-COLOR_RED="\033[0;31m"
-COLOR_YELLOW="\033[0;33m"
-COLOR_GREEN="\033[0;32m"
-COLOR_OCHRE="\033[38;5;95m"
-COLOR_BLUE="\033[38;5;14m"
-COLOR_WHITE="\033[0;37m"
-COLOR_RESET="\033[0m"
-COLOR_YELLOW="\033[38;5;11m"
-COLOR_DARK_GREEN="\033[38;5;28m"
+# https://i.sstatic.net/KTSQa.png
+COLOR_DANGER="\033[38;5;124m"
+COLOR_WARNING="\033[38;5;214m"
+COLOR_SUCCESS="\033[38;5;120m"
+COLOR_INFO="\033[38;5;117m"
+COLOR_RESET="\e[0m"
+
+COLOR_PROMPT_CWD="\033[38;5;152m"
+COLOR_PROMPT_HOST="\033[38;5;228m"
+COLOR_PROMPT_BRACKETS="\033[38;5;152m"
 
 function colorize() {
 	# Takes a color code and a string and echos that string in that color
@@ -135,13 +136,13 @@ function git_color {
 	[[ $? > 0 ]] && exit 0
 
 	if [[ ! $git_status =~ "working tree clean" && ! $git_status =~ "working directory clean" ]]; then
-		echo -e $COLOR_YELLOW
+		echo -e $COLOR_WARNING
 	elif [[ $git_status =~ "Your branch is ahead of" ]]; then
-		echo -e $COLOR_RED
+		echo -e $COLOR_DANGER
 	elif [[ $git_status =~ "nothing to commit" ]]; then
-		echo -e $COLOR_GREEN
+		echo -e $COLOR_SUCCESS
 	else
-		echo -e $COLOR_OCHRE
+		echo -e $COLOR_INFO
 	fi
 }
 
@@ -173,11 +174,11 @@ function short_cwd {
 	echo $cwd
 }
 
-standard_prompt="$(colorize $COLOR_BLUE '[')$(colorize $COLOR_YELLOW '\u@\h')$(colorize $COLOR_BLUE ']')"
+standard_prompt="$(colorize $COLOR_PROMPT_BRACKETS '[')$(colorize $COLOR_PROMPT_HOST '\u@\h')$(colorize $COLOR_PROMPT_BRACKETS ']')"
 color=git_color
 branch=git_branch
 
-export PROMPT_COMMAND='history -a; prompt="${standard_prompt} $(colorize $COLOR_BLUE `short_cwd`) $(colorize `git_color` `git_branch`) \$ "; export PS1=${prompt//  / }'
+export PROMPT_COMMAND='history -a; prompt="${standard_prompt} $(colorize $COLOR_PROMPT_CWD `short_cwd`) $(colorize `git_color` `git_branch`) \$ "; export PS1=${prompt//  / }'
 
 command -v nvim >/dev/null && editor="nvim" || editor="vim"
 export VISUAL='code'
