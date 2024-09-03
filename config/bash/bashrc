@@ -73,7 +73,6 @@ if [[ -n $PS1 ]]; then
 	[[ -f ~/.bash_funcs ]] && . ~/.bash_funcs
 	[[ -f ~/.sensible.bash ]] && . ~/.sensible.bash
 	[[ -f ~/.forgit.bash ]] && . ~/.forgit.bash
-	[[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh ]] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh
 	[[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
 
 	shopt -s histverify  # Expand history before executing when using bangs
@@ -202,6 +201,9 @@ if command -v brew >/dev/null; then
 else
 	[[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
 fi
+
+# Forgit
+[[ -f $(brew --prefix)/share/forgit/forgit.plugin.sh ]] && source $(brew --prefix)/share/forgit/forgit.plugin.sh
 
 # Pass
 [[ -f ~/.password-store/.bash-completion ]] && source ~/.password-store/.bash-completion
