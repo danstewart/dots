@@ -20,24 +20,20 @@
 		"bash/bash_aliases": "$HOME/.bash_aliases",
 		"bash/sensible.bash": "$HOME/.sensible.bash"
 	},
-
 	"nvim": {
-		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
+		"vim/nvim-init.vim": "$HOME/.config/nvim/init.vim"
 	},
-
 	"ssh": {
 		"ssh/config": {
 			"target": "$HOME/.ssh/config",
 			"andThen": "chmod 600 $HOME/.ssh/config"
 		}
 	},
-
 	// Kitty terminal
 	"kitty": {
 		"kitty/kitty.conf": "$HOME/.config/kitty/kitty.conf",
 		"kitty/diff.conf": "$HOME/.config/kitty/diff.conf"
 	},
-
 	// Common configs that don't fit into a specific category
 	"common": {
 		"gitconfig": "$HOME/.gitconfig",
@@ -49,15 +45,17 @@
 		"prettierrc": "$HOME/.prettierrc",
 		"atuin/config.toml": "$HOME/.config/atuin/config.toml"
 	},
-
 	// Personal config includes both base and extra and defines some of it's configs too
 	"desktop": {
-		"&include": ["bash", "ssh", "kitty", "common"],
+		"&include": [
+			"bash",
+			"ssh",
+			"kitty",
+			"common"
+		],
 		"vim/nvimrc": "$HOME/.config/nvim/init.vim",
-
 		// Mouse config
 		"logiops.cfg": "/etc/logid.cfg",
-
 		// Copy ssh key from Nextcloud
 		"sshkey": {
 			"src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
@@ -74,16 +72,20 @@
 			"andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
 		}
 	},
-
 	// Mac development machine
 	"mac": {
-		"&include": ["bash", "ssh", "common"],
+		"&include": [
+			"bash",
+			"ssh",
+			"common"
+		],
 		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
 	},
-
 	// Server includes only bash and vimrc
 	"server": {
-		"&include": ["bash"],
+		"&include": [
+			"bash"
+		],
 		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
 	}
 }

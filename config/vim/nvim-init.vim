@@ -7,11 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'Townk/vim-autoclose'
 Plug 'vim-scripts/IndentAnything'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'henrik/vim-indexed-search'
-Plug 'farmergreg/vim-lastplace'
-Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -19,8 +15,6 @@ Plug 'tpope/vim-sensible'
 Plug 'alvan/vim-closetag'
 Plug 'bling/vim-bufferline'
 Plug 'adelarsq/vim-matchit'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -28,15 +22,6 @@ Plug 'junegunn/fzf.vim'
 
 " Colors
 Plug 'gruvbox-community/gruvbox'
-Plug 'romainl/flattened'
-Plug 'MaxSt/FlatColor'
-Plug 'mhinz/vim-janah'
-Plug 'iCyMind/NeoSolarized'
-Plug 'mhartington/oceanic-next'
-Plug 'joshdick/onedark.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'challenger-deep-theme/vim'
-Plug 'AlessandroYorba/Sierra'
 call plug#end()
 
 "====================
@@ -125,8 +110,8 @@ let g:NERDDefaultAlign='left'
 " autoclose
 let g:AutoClosePairs="() {} \" ' []"
 
-" map tab to tab selection in visual 
-" and normal modes and shift tab to 
+" map tab to tab selection in visual
+" and normal modes and shift tab to
 " untab
 vmap <tab> >gv
 vmap <S-tab> <gv
@@ -204,7 +189,7 @@ if !exists('g:vscode')
 	let g:lightline = {
 	\	'colorscheme': 'one',
 	\	'active': {
-	\		'left': [ 
+	\		'left': [
 	\			[ 'mode', 'paste' ],
 	\			[ 'readonly', 'modified', 'currenttag', 'bufferline' ],
 	\		],
@@ -233,63 +218,5 @@ if !exists('g:vscode')
 
 	"autoclose
 	let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
-
-	" startify
-	let g:startify_custom_header_quotes = [
-		\ [ "If you leave it long enough, it will resolve itself." ],
-		\ [ "Aware. Don't Care." ],
-		\ [ "\I am a fucking genius!", " - Michael M, 27/04/2017" ],
-		\ [ "Bastards.", "They should get back the same number of fingers.", " - Bogdan, 31/05/2017" ],
-		\ [ "\I'm gonna smack a bitch.", " - Michael M, unknown" ],
-		\ [ "\I swear.", "You better fucking not.", " - Michael M, 08/06/2017" ],
-		\ [ "If you don't take action he will be 1st,", "To those which you don't let them die,", "They will not let you live.", " - Bogdan, 30/06/2017" ],
-		\ [ "Flat AF", " - Bryan McCoo, 17/07/2017" ],
-		\ [ "\I really can't believe that bug exists", " - John G in response to my fix for a bug I added, 31/07/2017" ],
-		\ [ "\I will fucking check the cron before I fuck up something", " - Bogdan, 25/08/2017" ],
-		\ [ "£1000 is better than a kick in the baws"," - Michael P, 07/09/2017"],
-		\ [ "There's loads of stuff you can do with midgets", " - James, 14/09/2017"],
-		\ [ "Anything you're that ashamed of should never go live", " - Richard, 27/09/2017"],
-		\ [ "Don't the query", " - Michael P, 30/10/2017"],
-		\ [ "Oh Bryza, I love how you know my system", " - Alan A, 30/10/2017"],
-		\ [ "6, 7 and 8, because you were a machine when you were younger.", " - Mat, 03/11/2017"],
-		\ [ "anyone noticed that since our wage recalculation we do not get too much of soap on the toilets?", " - Bogdan, 27/11/2017" ],
-		\ [ "could you write a script thing?", " - Gayle, 28/11/2017" ],
-		\ [ "Hi code, what you saying?", " - Craig, 30/11/2017" ],
-		\ [ "Abba will be ragin", " - Michael P, 01/12/2017" ],
-		\ [ "If you assume you make an ass of me n u", " - Michael P, 06/12/2017" ],
-		\ [ "Hopefully the mic is broke and it's not an evil demon on the other line 15 minutes before the shift ends", " - Michael P, 08/12/2017" ],
-		\ [ "Doesn't work, so it works!", " - Jamie M, 13/12/2017" ],
-		\ [ "Hmm. What classifies a sack-able offence around here?", " - James, Sometime in November" ],
-		\ [ "ITIL, ya dick", " - Scott H, 15/12/2017" ],
-		\ [ "Maybe he was just doing some recreational mathematics", " - Michael M, 21/12/2017" ],
-		\ [ "Am ur flawless", " - Michael P, 06/02/2018" ],
-		\ [ "I'm not immature, I'm a homeowner", " - Michael P, 06/02/2018" ],
-		\ [ "Austrige", " - Michael P, 15/02/2018" ],
-		\ [ "a pure beezer of a PN", " - Jimmy Mac, 20/02/2018" ],
-		\ [ "Everytime I get the security warning on a branch page I'm a little tempted to click 'back to safety' because it would be safer to not wade through our code", " - Mat, 22/02/2018" ],
-		\ [ "I had an epiphany, that's what happens when you have an epiphany", " - Craig, 28/02/2018" ],
-		\ [ "When we throw the air to the basket", " - Customer, 08/03/2018" ],
-		\ [ "Don't worry I am drinking", " - Brian, 09/03/2018" ],
-		\ [ "Is it serious? Nah, it's just cancer", " - Uncle Johnny, 13/03/2018" ],
-		\ [ "You have done dodgy stuff", " - Bogdan, 15/03/2018" ],
-		\ [ "The backbone has to stick together otherwise it's just an assorted collection of unconnected vertibrae", " - Mat, 15/03/2018" ],
-		\ [ "User must have clicked like a Korean Starcraft top player to let this issue happen", " - Nikolay, 11/04/2018" ],
-		\ [ "Venice is a planet innit", " - Michael P, 24/04/2018" ],
-		\ [ "Let's kill some bastards, aww I cannae swear, fuck", " - Michael P on Twitch, 25/04/2018" ],
-		\ [ "Probably not, midget strippers are probably more expensive", " - James, 23/05/2018" ]
-	\]
-
-	let g:ascii = [
-				\ '                                ',
-				\ '            __                  ',
-				\ '    __  __ /\_\    ___ ___      ',
-				\ '   /\ \/\ \\/\ \ /'' __` __`\   ',
-				\ '   \ \ \_/ |\ \ \/\ \/\ \/\ \   ',
-				\ '    \ \___/  \ \_\ \_\ \_\ \_\  ',
-				\ '     \/__/    \/_/\/_/\/_/\/_/  ',
-				\'',
-	\ ]
-
-	let g:startify_custom_header = map(g:ascii + startify#fortune#boxed(), '"   ".v:val')
 endif
 
