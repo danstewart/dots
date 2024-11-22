@@ -191,15 +191,15 @@ export FZF_DEFAULT_OPTS='--reverse --border --exact'
 [[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
 [[ -f /usr/share/doc/fzf/examples/completion.bash ]] && source /usr/share/doc/fzf/examples/completion.bash
 
-# Auto complete
 if command -v brew >/dev/null; then
+	# Auto complete
 	[[ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+
+	# Forgit
+	[[ -f $(brew --prefix)/share/forgit/forgit.plugin.sh ]] && source $(brew --prefix)/share/forgit/forgit.plugin.sh
 else
 	[[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
 fi
-
-# Forgit
-[[ -f $(brew --prefix)/share/forgit/forgit.plugin.sh ]] && source $(brew --prefix)/share/forgit/forgit.plugin.sh
 
 # Pass
 [[ -f ~/.password-store/.bash-completion ]] && source ~/.password-store/.bash-completion
