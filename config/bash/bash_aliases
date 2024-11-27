@@ -1,10 +1,3 @@
-# Work
-if [[ -e "/home/dan" ]]; then
-	alias sql='/home/dan/Code/teamweb/touramigo/admin-scripts/mysql.py'
-elif [[ -e "/Users/dan" ]]; then
-	alias sql='/Users/dan/Code/touramigo/admin-scripts/mysql.py'
-fi
-
 # Versioning
 alias py2='python'
 alias py='python3'
@@ -17,7 +10,6 @@ alias pip3='python -m pip'
 # Helpers
 alias dockerps="docker ps --format 'table {{.Names}}\t{{.Ports}}\t{{.Status}}\t{{.CreatedAt}}'"
 alias brewup="brew update && brew upgrade && brew cleanup && brew doctor"
-alias zsql="mycli -uroot -proot_password -P3307 -h127.0.0.1"
 
 # Scripts
 alias uuid="$HOME/scripts/uuid.sh"

@@ -50,6 +50,7 @@ paths=(
 	"$DENO_INSTALL/bin"
 	"$HOME/.cache/rebar3/bin"
 	"/opt/homebrew/sbin"
+	"/Users/danstewart/.atuin/bin/"
 )
 
 # Filter non existent paths
