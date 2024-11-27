@@ -7,8 +7,6 @@
 
 [core]
 	filemode = false
-	editor = nvim
-	# pager = less --tabs=4 -RF
 	pager = delta
 
 [delta]
