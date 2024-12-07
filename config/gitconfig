@@ -8,6 +8,7 @@
 [core]
 	filemode = false
 	pager = delta
+	editor = vim
 
 [delta]
 	features = decorations
