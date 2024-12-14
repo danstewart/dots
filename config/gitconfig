@@ -85,6 +85,8 @@
 	def-branch = ! "git remote show origin | grep 'HEAD branch' | cut -d' ' -f5"
 	# Find all todo comments on the current branch that are not in main
 	todo= ! "git diff $(git def-branch).. | grep '^+.*TODO'"
+	# Update a fork
+	update-fork = ! "git fetch upstream && git checkout main && git rebase upstream/main"
 
 [diff]
 	algorithm = histogram
