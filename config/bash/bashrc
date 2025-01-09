@@ -241,6 +241,10 @@ if [[ -e $HOME/.asdf ]]; then
 	source $HOME/.asdf/completions/asdf.bash
 fi
 
+if [[ -e $HOME/.local/bin/mise ]]; then
+	eval "$(/home/dan/.local/bin/mise activate bash)"
+fi
+
 # direnv
 if command -v direnv >/dev/null 2>&1; then
 	eval "$(direnv hook bash)"
