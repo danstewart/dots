@@ -242,7 +242,7 @@ if [[ -e $HOME/.asdf ]]; then
 fi
 
 if [[ -e $HOME/.local/bin/mise ]]; then
-	eval "$(/home/dan/.local/bin/mise activate bash)"
+	eval "$($HOME/.local/bin/mise activate bash)"
 fi
 
 # direnv
