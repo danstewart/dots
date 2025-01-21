@@ -192,18 +192,20 @@ export FZF_DEFAULT_OPTS='--reverse --border --exact'
 [[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]] && source /usr/share/doc/fzf/examples/key-bindings.bash
 [[ -f /usr/share/doc/fzf/examples/completion.bash ]] && source /usr/share/doc/fzf/examples/completion.bash
 
+# Mac
 if command -v brew >/dev/null; then
 	# Auto complete
 	[[ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 	# Forgit
 	[[ -f $(brew --prefix)/share/forgit/forgit.plugin.sh ]] && source $(brew --prefix)/share/forgit/forgit.plugin.sh
+
+# Linux
 else
+	# Auto complete
 	[[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
 fi
 
-# Pass
-[[ -f ~/.password-store/.bash-completion ]] && source ~/.password-store/.bash-completion
 
 # SSH
 eval $(ssh-agent -s) > /dev/null 2>&1
@@ -237,6 +239,10 @@ fi
 if [[ -e $HOME/.asdf ]]; then
 	source $HOME/.asdf/asdf.sh
 	source $HOME/.asdf/completions/asdf.bash
+fi
+
+if [[ -e $HOME/.local/bin/mise ]]; then
+	eval "$($HOME/.local/bin/mise activate bash)"
 fi
 
 # direnv
