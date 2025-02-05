@@ -92,18 +92,17 @@ nmap Y y$
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 inoremap <C-H> <C-W>
 
-" Mac keys
-" Map Ctrl-A -> Start of line, Ctrl-E -> End of line
-map <C-a> <Home>
-map <C-e> <End>
-imap <C-a> <Home>
-imap <C-e> <End>
+" Map ctrl-A and ctlr-E (home/end keys) to go to start/end of line
+map <C-a> ^
+map <C-e> $
+imap <C-a> <C-o>^
+imap <C-e> <C-o>$
 
 " semicolon to colon
 nmap ; :
 
-" map tab to tab selection in visual
-" and normal modes and shift tab to
+" map tab to tab selection in visual 
+" and normal modes and shift tab to 
 " untab
 vmap <tab> >gv
 vmap <S-tab> <gv
