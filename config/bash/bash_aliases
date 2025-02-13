@@ -239,12 +239,22 @@ function code() {
 
 function man-http() {
 	code="$1"
+	type="$2"
+
 	if [[ -z $code ]]; then
-		echo "Usage: man-http <status code>"
-		exit 0
+		echo "Usage: man-http <status code> [--simple | --browser]"
+		return
 	fi
 
-	firefox "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/$code"
+	if [[ -z $type || $type == "--simple" ]]; then
+		curl --silent "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/$code" | grep -Eo "<header><h1>.*</h1></header>" | sed 's/<[^>]*>//g'
+	elif [[ $type == "--browser" ]]; then
+		if command -v open >/dev/null 2>&1; then
+			open "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/$code"
+		else
+			firefox "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/$code"
+		fi
+	fi
 }
 
 # Show a QR code of a given string in the terminal
