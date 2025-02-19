@@ -76,7 +76,7 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	cleanup = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
 	# Update current branch with all changes in trunk
-	trunk = ! "git fetch origin trunk:trunk && git rebase -i trunk"
+	up-trunk = ! "git fetch origin trunk:trunk && git rebase -i trunk"
 	# Squash all commits on PR
 	squash = ! "git reset --soft $(git merge-base $(git def-branch) HEAD) && git commit"
 	# As above but rebases all commits on PR
@@ -87,6 +87,8 @@
 	todo= ! "git diff $(git def-branch).. | grep '^+.*TODO'"
 	# Update a fork
 	update-fork = ! "git fetch upstream && git checkout main && git rebase upstream/main"
+	# Add all changes onto the last commit and force push
+	shove = ! "git add -A . && git commit --amend --no-edit && git push -f"
 
 [diff]
 	algorithm = histogram
