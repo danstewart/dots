@@ -51,6 +51,7 @@ paths=(
 	"$HOME/.cache/rebar3/bin"
 	"/opt/homebrew/sbin"
 	"/Users/danstewart/.atuin/bin/"
+	"/Users/dan/.atuin/bin/"
 )
 
 # Filter non existent paths
@@ -77,7 +78,7 @@ if [[ -n $PS1 ]]; then
 	[[ -f /etc/profile.d/vte.sh ]] && . /etc/profile.d/vte.sh
 
 	shopt -s histverify  # Expand history before executing when using bangs
-	shopt -s direxpand  # Expand filenames
+	#shopt -s direxpand  # Expand filenames
 	shopt -s autocd  # When typing just a dir name, cd to it
 	shopt -s cdspell  # Fix typos when cd-ing
 	shopt -s dirspell  # Fix typos in dir names
@@ -243,6 +244,8 @@ fi
 
 if [[ -e $HOME/.local/bin/mise ]]; then
 	eval "$($HOME/.local/bin/mise activate bash)"
+elif [[ -e /opt/homebrew/bin/mise ]]; then
+	eval "$(/opt/homebrew/bin/mise activate bash)"
 fi
 
 # direnv

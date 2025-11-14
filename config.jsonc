@@ -79,7 +79,7 @@
 			"ssh",
 			"common"
 		],
-		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
+		"vim/simplevimrc": "$HOME/.vimrc"
 	},
 	// Server includes only bash and vimrc
 	"server": {
