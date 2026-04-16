@@ -91,6 +91,14 @@
 	shove = ! "git add -A . && git commit --amend --no-edit && git push -f"
 	# Switch to main branch and update it
 	mp = ! "git co $(git def-branch) && git pull"
+    todo = "!sh -c ' \
+        [ $GIT_PREFIX ] && cd $GIT_PREFIX; \
+        git status --short --branch $*; \
+        git --no-pager diff -U0 $(git def-branch) | \
+        grep \"^+.*TODO\" | \
+        sed \"s/^+//\" | \
+        git --no-pager grep -nFf - 2> /dev/null' -"
+
 
 [diff]
 	algorithm = histogram
