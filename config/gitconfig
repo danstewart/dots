@@ -76,15 +76,18 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	cleanup = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
 	# Update current branch with all changes in trunk
-	up-trunk = ! "git fetch origin $(git def-branch):$(git def-branch) && git rebase -i $(git def-branch)"
+	up-trunk = ! "git fetch origin $(git def-branch) && git rebase origin/$(git def-branch)"
 	# Squash all commits on PR
 	squash = ! "git reset --soft $(git merge-base $(git def-branch) HEAD) && git commit"
 	# As above but rebases all commits on PR
 	rb-squash = ! "git rebase -i $(git merge-base feature $(git def-branch))"
 	# Get the default branch name (eg. main/master/trunk)
-	def-branch = ! "git remote show origin | grep 'HEAD branch' | cut -d' ' -f5"
+	# def-branch = ! "git remote show origin | grep 'HEAD branch' | cut -d' ' -f5"
+	def-branch = ! "PAGER= gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name'"
+	# Get the current branch name
+	cur-branch = ! "git branch --show-current"
 	# Find all todo comments on the current branch that are not in main
-	todo= ! "git diff $(git def-branch).. | grep '^+.*TODO'"
+	todo = ! "git diff $(git def-branch).. | grep '^+.*TODO'"
 	# Update a fork
 	update-fork = ! "git fetch upstream && git checkout main && git rebase upstream/main"
 	# Add all changes onto the last commit and force push
@@ -98,6 +101,7 @@
         grep \"^+.*TODO\" | \
         sed \"s/^+//\" | \
         git --no-pager grep -nFf - 2> /dev/null' -"
+    diffmain = ! "git diff $(git def-branch) $(git cur-branch) -- "
 
 
 [diff]
