@@ -1,0 +1,18 @@
+{
+	"meta": {
+		"name": "omp",
+		"version": "1.0.0",
+		"description": "OMP with additional project access"
+	},
+	"extends": "claude-code",
+	"groups": {
+		"include": []
+	},
+	"filesystem": {
+		"allow": ["$WORKDIR", "$HOME/.omp", "$HOME/.ollama", "$HOME/projects", "$HOME/.npm", "$HOME/.cache"]
+	},
+	"network": {
+		"block": false
+	},
+	"env_credentials": {}
+}

@@ -1,0 +1,62 @@
+colorBlindMode: false
+defaultThinkingLevel: auto
+display:
+    hideToolActivity: true
+    shimmer: classic
+    showTokenUsage: true
+hideThinkingBlock: true
+modelRoles:
+    default: ollama/minimax-m3:cloud
+omitThinking: true
+setupVersion: 1
+statusLine:
+    compactThinkingLevel: false
+    leftSegments:
+        - pi
+        - model
+        - mode
+        - path
+        - subagents
+        - time_spent
+    preset: custom
+    rightSegments:
+        - token_in
+        - token_out
+        - token_rate
+        - cost
+        - context_pct
+    segmentOptions:
+        git:
+            showBranch: true
+            showStaged: true
+            showUnstaged: true
+            showUntracked: true
+        model:
+            showThinkingLevel: true
+        path:
+            abbreviate: true
+            maxLength: 60
+        time:
+            format: 24h
+            showSeconds: true
+    separator: slash
+    sessionAccent: false
+    showHookStatus: true
+    transparent: false
+symbolPreset: nerd
+task:
+    showResolvedModelBadge: false
+terminal:
+    showProgress: true
+theme:
+    dark: dark-catppuccin
+todo:
+    eager: default
+    remindersMax: 5
+tui:
+    hyperlinks: always
+    scrollbackRebuild: true
+    textSizing: true
+    tight: false
+vault:
+    enabled: true
