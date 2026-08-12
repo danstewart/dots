@@ -11,40 +11,55 @@
 		"bindings": {
 			"shift shift": "file_finder::Toggle",
 			"cmd-t": "project_panel::Toggle",
-			"cmd-b": "agent::Toggle",
-		},
+			"cmd-b": "agent::Toggle"
+		}
 	},
 	{
-		// Always have tab use AI predicatiosn even if autocomplete box is open
+		// Always have tab use AI predications even if autocomplete box is open
 		"context": "Editor && (edit_prediction && showing_completions)",
 		"bindings": {
-			"tab": "editor::AcceptEditPrediction",
-		},
+			"tab": "editor::AcceptEditPrediction"
+		}
 	},
 	{
 		// By default cmd+f doesn't allow using `n` to go to next match
 		// so use the vim search instead
 		"context": "Editor && mode == full",
 		"bindings": {
-			"cmd-f": "vim::Search",
-		},
+			"cmd-f": "vim::Search"
+		}
+	},
+	{
+		"context": "(VimControl || !Editor) && !Terminal",
+		"bindings": {
+			"space t s": ["task::Spawn", { "task_name": "pytest_single", "reevaluate_context": true }],
+			"space t a": ["task::Spawn", { "task_name": "pytest_current", "reevaluate_context": true }],
+			"space d s": "debugger::Start",
+			"space d r": ["action::Sequence", ["debugger::Stop", "debugger::Rerun"]]
+		}
 	},
 	{
 		"context": "Terminal",
 		"bindings": {
 			"cmd-c": ["terminal::SendKeystroke", "ctrl-c"],
-			"cmd-shift-c": "terminal::Copy",
-		},
+			"cmd-shift-c": "terminal::Copy"
+		}
 	},
 	{
 		"context": "Editor && vim_mode == insert && mode == full",
 		"bindings": {
 			"ctrl-a": "vim::StartOfLine",
 			"ctrl-e": "vim::EndOfLine",
-		},
+			"alt-backspace": "editor::DeleteToPreviousSubwordStart",
+			"alt-delete": "editor::DeleteToNextSubwordEnd",
+			"alt-left": "editor::MoveToPreviousSubwordStart",
+			"alt-right": "editor::MoveToNextSubwordEnd",
+			"ctrl-backspace": "editor::DeleteToPreviousWordStart",
+			"ctrl-delete": "editor::DeleteToNextWordEnd"
+		}
 	},
 	{
-		"context": "Editor && vim_mode == normal && mode == full",
+		"context": "Editor && vim_mode == normal",
 		"bindings": {
 			"cmd-c": "editor::ToggleComments",
 			"ctrl-a": "vim::StartOfLine",
@@ -63,21 +78,26 @@
 			// debug:start
 			"space d s": "debugger::Start",
 			// debug:restart
-			"space d r": ["action::Sequence", ["debugger::Stop", "debugger::Rerun"]],
-		},
+			"space d r": ["action::Sequence", ["debugger::Stop", "debugger::Rerun"]]
+		}
 	},
 	{
 		"context": "Editor && vim_mode == visual && mode == full",
 		"bindings": {
 			"cmd-c": "editor::ToggleComments",
 			"tab": "vim::Indent",
-			"shift-tab": "vim::Outdent",
-		},
+			"shift-tab": "vim::Outdent"
+		}
 	},
 	{
 		"context": "Editor && (edit_prediction && (showing_completions || in_leading_whitespace))",
 		"bindings": {
-			"tab": "editor::AcceptEditPrediction",
-		},
+			"tab": "editor::AcceptEditPrediction"
+		}
 	},
+	{
+		"unbind": {
+			"cmd-shift-c": "collab_panel::ToggleFocus"
+		}
+	}
 ]

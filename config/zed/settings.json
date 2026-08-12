@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
 	"icon_theme": "Zed (Default)",
- "diff_view_style": "unified",
+	"diff_view_style": "unified",
 	"cli_default_open_behavior": "existing_window",
 	"outline_panel": {
 		"dock": "right",
@@ -18,6 +18,8 @@
 	},
 	"git_panel": {
 		"dock": "left",
+		"group_by": "none",
+		"tree_view": true,
 	},
 	"context_servers": {},
 	"which_key": {
@@ -25,10 +27,7 @@
 		"enabled": true,
 	},
 	"agent_servers": {
-		"claude-acp": {
-			"type": "registry",
-		},
-		"Claude Code (sandboxed)": {
+		"Claude (sandboxed)": {
 			"type": "custom",
 			"command": "nono",
 			"args": [
@@ -41,8 +40,16 @@
 			],
 			"default_config_options": {
 				"model": "default",
-    "mode": "bypassPermissions",
+				"mode": "bypassPermissions",
 			},
+		},
+		"OMP (sandboxed)": {
+			"default_config_options": {
+				"model": "ollama/kimi-k2.7-code:cloud",
+			},
+			"type": "custom",
+			"command": "nono",
+			"args": ["run", "--allow-cwd", "--profile", "omp", "--", "omp", "acp", "--auto-approve", "--hide-thinking"],
 		},
 	},
 	"rounded_selection": true,
@@ -65,6 +72,13 @@
 			"model": "claude-sonnet-4-6",
 			"enable_thinking": false,
 		},
+		"sidebar_side": "right",
+		"show_turn_stats": true,
+		"message_editor_min_lines": 4,
+		"expand_edit_card": false,
+		"expand_terminal_card": false,
+		"single_file_review": true,
+		"thinking_display": "always_collapsed",
 		"default_profile": "ask",
 		"dock": "right",
 		"default_model": {
@@ -146,6 +160,14 @@
 	},
 	"soft_wrap": "editor_width",
 	"vim_mode": true,
+	"vim": {
+		"cursor_shape": {
+			"insert": "bar",
+		},
+		"highlight_on_yank_duration": 200,
+		"use_smartcase_find": true,
+		"toggle_relative_line_numbers": false,
+	},
 	"ui_font_size": 15,
 	"buffer_font_size": 14.5,
 	"theme": {
@@ -166,10 +188,26 @@
 			"language_servers": ["ty", "ruff"],
 			"remove_trailing_whitespace_on_save": true,
 		},
+		"TypeScript": {
+			"language_servers": ["typescript-language-server", "eslint", "!vtsls"],
+		},
+		"TSX": {
+			"language_servers": ["typescript-language-server", "eslint", "tailwindcss-language-server", "!vtsls"],
+		},
 		"YAML": {
 			"tab_size": 2,
 			"remove_trailing_whitespace_on_save": true,
 			"formatter": "language_server",
+		},
+	},
+	"lsp": {
+		"vtsls": {
+			"settings": {
+				// For TypeScript:
+				"typescript": { "tsserver": { "maxTsServerMemory": 16184 } },
+				// For JavaScript:
+				"javascript": { "tsserver": { "maxTsServerMemory": 16184 } },
+			},
 		},
 	},
 }
