@@ -1,0 +1,175 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+	"icon_theme": "Zed (Default)",
+ "diff_view_style": "unified",
+	"cli_default_open_behavior": "existing_window",
+	"outline_panel": {
+		"dock": "right",
+	},
+	"collaboration_panel": {
+		"dock": "right",
+	},
+	"git_panel": {
+		"dock": "left",
+	},
+	"context_servers": {},
+	"which_key": {
+		"delay_ms": 0,
+		"enabled": true,
+	},
+	"agent_servers": {
+		"claude-acp": {
+			"type": "registry",
+		},
+		"Claude Code (sandboxed)": {
+			"type": "custom",
+			"command": "nono",
+			"args": [
+				"run",
+				"--allow-cwd",
+				"--profile",
+				"my-claude-code",
+				"--",
+				"/Users/dan/.local/share/mise/installs/node/22/bin/claude-agent-acp",
+			],
+			"default_config_options": {
+				"model": "default",
+    "mode": "bypassPermissions",
+			},
+		},
+	},
+	"rounded_selection": true,
+	"current_line_highlight": "all",
+	"unnecessary_code_fade": 0.5,
+	"text_rendering_mode": "platform_default",
+	"hover_popover_enabled": true,
+	"hover_popover_delay": 500,
+	"inlay_hints": {
+		"show_background": true,
+		"show_other_hints": true,
+		"show_parameter_hints": true,
+		"show_type_hints": true,
+		"show_value_hints": true,
+		"enabled": false,
+	},
+	"agent": {
+		"inline_assistant_model": {
+			"provider": "zed.dev",
+			"model": "claude-sonnet-4-6",
+			"enable_thinking": false,
+		},
+		"default_profile": "ask",
+		"dock": "right",
+		"default_model": {
+			"provider": "anthropic",
+			"model": "claude-sonnet-4-6-latest",
+			"enable_thinking": false,
+		},
+		"favorite_models": [],
+		"model_parameters": [],
+	},
+	"tab_bar": {
+		"show_pinned_tabs_in_separate_row": true,
+	},
+	"tabs": {
+		"file_icons": false,
+		"git_status": true,
+	},
+	"edit_predictions": {
+		"provider": "zed",
+	},
+	"session": {
+		"trust_all_worktrees": true,
+	},
+	"terminal": {
+		"font_size": 14.0,
+		"font_family": "Monaco",
+		"line_height": {
+			"custom": 1.4,
+		},
+	},
+	"project_panel": {
+		"dock": "left",
+		"auto_reveal_entries": true,
+		"auto_fold_dirs": true,
+	},
+	"git": {
+		"inline_blame": {
+			"enabled": true,
+		},
+	},
+	"base_keymap": "VSCode",
+	"preview_tabs": {
+		"enabled": false,
+	},
+	"show_signature_help_after_edits": false,
+	"auto_signature_help": false,
+	"multi_cursor_modifier": "cmd_or_ctrl",
+	"sticky_scroll": {
+		"enabled": true,
+	},
+	"minimap": {
+		"show": "never",
+	},
+	"cursor_shape": "bar",
+	"cursor_blink": true,
+	"use_system_window_tabs": true,
+	"buffer_font_fallbacks": [
+		"0xProto Nerd Font",
+		"Hasklug Nerd Font Mono",
+		"CaskaydiaCove NFM",
+		"Spot Mono",
+		"JetBrains Mono",
+		"Menlo",
+		"Monaco",
+		"Cascadia Mono",
+		"monospace",
+	],
+	"buffer_font_family": "Maple Mono",
+	"file_types": {
+		"shellscript": [".env", ".bash*", ".env", ".bash*"],
+		"nunjucks": ["*.njk", "*.njk"],
+	},
+	"colorize_brackets": true,
+	"auto_indent_on_paste": true,
+	"show_whitespaces": "none",
+	"ensure_final_newline_on_save": true,
+	"indent_guides": {
+		"enabled": true,
+	},
+	"soft_wrap": "editor_width",
+	"vim_mode": true,
+	"ui_font_size": 15,
+	"buffer_font_size": 14.5,
+	"theme": {
+		"mode": "dark",
+		"light": "Ayu Light",
+		"dark": "Fleet Dark Purple",
+	},
+	"languages": {
+		"Python": {
+			"colorize_brackets": true,
+			"auto_indent_on_paste": true,
+			"show_whitespaces": "none",
+			"ensure_final_newline_on_save": true,
+			"indent_guides": {
+				"enabled": true,
+			},
+			"soft_wrap": "editor_width",
+			"language_servers": ["ty", "ruff"],
+			"remove_trailing_whitespace_on_save": true,
+		},
+		"YAML": {
+			"tab_size": 2,
+			"remove_trailing_whitespace_on_save": true,
+			"formatter": "language_server",
+		},
+	},
+}
