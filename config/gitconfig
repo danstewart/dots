@@ -12,6 +12,7 @@
 
 [delta]
 	features = decorations
+	dark = true
 
 [delta "decorations"]
 	commit-decoration-style       = blue ol
