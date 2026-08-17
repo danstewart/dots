@@ -75,7 +75,9 @@
 	wipe = reset --hard
     difft = !GIT_EXTERNAL_DIFF=difft git diff
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	cleanup = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+	# cleanup = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+	# cleanup = ! "git branch --merged | egrep -v '(^\*|master|main|trunk)' | xargs git branch -d"
+	cleanup = ! "git remote prune origin"
 	# Update current branch with all changes in trunk
 	up-trunk = ! "git fetch origin $(git def-branch) && git rebase origin/$(git def-branch)"
 	# Squash all commits on PR
