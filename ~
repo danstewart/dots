@@ -55,9 +55,9 @@ pre-existing issues in untouched code.
 If told to run in `fast` mode (eg. `/local-review fast`) then do not run tests or any other expensive operations.
 Remind me of this in the summary.
 
-### Project Specific Rules
+## Project Specific Rules
 
-#### tms-ux
+### tms-ux
 
 - Ensure error handling uses `extractMutationErrors`
 - Ensure modal handling uses `useSimpleModal`
