@@ -1,0 +1,29 @@
+default = "prompt"
+
+[bash]
+allow = [
+    "git *",
+    "grep *",
+    "find *",
+    "cat *",
+    "ls *",
+    "head *",
+    "./script/test *",
+    "tail *",
+    "echo *",
+]
+prompt = [
+    "rm -rf *",
+    "sudo *",
+	"git push *",
+]
+
+[read]
+default = "allow"
+
+[mcp.github]
+deny = ["admin_delete"]
+
+[write]
+allow = [
+]
