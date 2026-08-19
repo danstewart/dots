@@ -3,6 +3,6 @@ maki.setup({
         splash_animation = true,
         mouse_scroll_lines = 1,
         theme = "rose_pine_moon",
-        show_thinking = false,
+		show_thinking = false,
     }
 })

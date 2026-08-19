@@ -23,6 +23,9 @@ default = "allow"
 
 [mcp.github]
 deny = ["admin_delete"]
+allow = [
+    "pull_request_read",
+]
 
 [write]
 allow = [
