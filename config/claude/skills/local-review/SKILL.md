@@ -82,6 +82,8 @@ fill a category. If nothing qualifies for a level, say so.
 Open with the base compared against and a one-line verdict (e.g. "2 must-fix
 issues block merge" or "No blocking issues — good to merge").
 
+Number each finding so I can easily refer back to them.
+
 Then group findings by traffic-light level, red first. For each finding:
 
 ```markdown
