@@ -1,0 +1,180 @@
+{
+	"extends": ["pi"],
+	"meta": {
+		"name": "my-pi",
+		"version": "1.0.0",
+		"description": "pi.dev",
+		"author": "Dan Stewart"
+	},
+	"security": {
+		"signal_mode": null,
+		"process_info_mode": null,
+		"ipc_mode": null,
+		"capability_elevation": null,
+		"wsl2_proxy_policy": null
+	},
+	"groups": {
+		"include": [],
+		"exclude": []
+	},
+	"commands": {
+		"allow": [],
+		"deny": []
+	},
+	"command_policies": {
+		"commands": {
+			"gh": {
+				"from": {
+					"session": {
+						"sandbox": {
+							"fs_read": [".", "$HOME/.config/gh", "@git:common-dir", "@git:toplevel"],
+							"fs_read_file": ["@git:config-files"],
+							"network": {
+								"allow_domain": ["api.github.com"]
+							}
+						},
+						"invocation_policy": {
+							"default": "deny",
+							"allow": [
+								{
+									"argv": { "prefix": ["auth", "status"] },
+									"reason": "check which account gh is using"
+								},
+								{ "argv": { "prefix": ["pr", "view"] }, "reason": "read pull request details" },
+								{ "argv": { "prefix": ["pr", "list"] }, "reason": "list pull requests" },
+								{ "argv": { "prefix": ["pr", "status"] }, "reason": "read pull request status" },
+								{ "argv": { "prefix": ["pr", "checks"] }, "reason": "read CI check results" },
+								{ "argv": { "prefix": ["pr", "diff"] }, "reason": "read pull request diff" },
+								{ "argv": { "prefix": ["run", "list"] }, "reason": "list Actions runs" },
+								{
+									"argv": { "prefix": ["run", "view"] },
+									"reason": "read Actions run details and logs"
+								},
+								{ "argv": { "prefix": ["workflow", "list"] }, "reason": "list workflows" },
+								{ "argv": { "prefix": ["workflow", "view"] }, "reason": "read workflow definitions" },
+								{ "argv": { "prefix": ["issue", "list"] }, "reason": "list issues" },
+								{ "argv": { "prefix": ["issue", "view"] }, "reason": "read issue details" },
+								{ "argv": { "prefix": ["release", "list"] }, "reason": "list releases" },
+								{ "argv": { "prefix": ["release", "view"] }, "reason": "read release details" },
+								{ "argv": { "prefix": ["repo", "view"] }, "reason": "read repository metadata" }
+							]
+						}
+					}
+				}
+			},
+			"git": {
+				"from": {
+					"session": {
+						"sandbox": {
+							"fs_read_file": ["@git:config-files"],
+							"fs_read": [
+								"/opt/homebrew",
+								"@git:hooks-path",
+								"@git:toplevel",
+								"@git:common-dir",
+								"@git:worktree",
+								"/tmp/claude-$UID"
+							],
+							"fs_write": ["@git:toplevel", "@git:common-dir", "@git:worktree"]
+						},
+						"invocation_policy": {
+							"default": "allow",
+							"deny": [
+								{
+									"argv": { "contains": ["push"] },
+									"reason": "Agents must not push"
+								},
+								{
+									"argv": { "contains": ["send-pack"] },
+									"reason": "send-pack is the plumbing behind git push"
+								}
+							]
+						}
+					}
+				}
+			}
+		}
+	},
+	"filesystem": {
+		"allow": [
+			"$WORKDIR",
+			"$HOME/.claude",
+			"$HOME/projects",
+			"$HOME/.npm",
+			"$HOME/.cache",
+			"$HOME/Library/Application Support/orca"
+		],
+		"read": ["~/.agents/", "~/Library/Application Support/Chromium", "$HOME/.config/gh"],
+		"write": ["~/.local/share/claude/versions"],
+		"allow_file": [],
+		"read_file": [],
+		"write_file": [],
+		"unix_socket": [],
+		"unix_socket_bind": [],
+		"unix_socket_dir": [],
+		"unix_socket_dir_bind": [],
+		"unix_socket_subtree": [],
+		"unix_socket_subtree_bind": [],
+		"deny": [],
+		"bypass_protection": ["~/Library/Application Support/Chromium"],
+		"suppress_save_prompt": [
+			"~/",
+			"~/Library/Application Support/BraveSoftware/Brave-Browser",
+			"~/Library/Application Support/Google/Chrome",
+			"~/Library/Application Support/Microsoft Edge",
+			"~/Library/Application Support/Vivaldi",
+			"~/.claude.json.tmp.92470.0cc340948070",
+			"~/.claude.json.tmp.92470.20811cfa46f7",
+			"~/.claude.json.tmp.92470.486f2c75bd87",
+			"~/.claude.json.tmp.92470.7491139beeca",
+			"~/.claude.json.tmp.92470.8d2bf67ff072",
+			"~/.claude.json.tmp.92470.92501fdc04e1"
+		]
+	},
+	"network": {
+		"block": false,
+		"network_profile": "claude-code",
+		"allow_http2": false,
+		"allow_domain": [],
+		"deny_domain": [],
+		"open_port": [],
+		"open_port_range": [],
+		"listen_port": [],
+		"listen_port_range": [],
+		"connect_port": [],
+		"no_proxy": [],
+		"custom_credentials": {},
+		"tls_intercept": null,
+		"upstream_proxy": null,
+		"upstream_bypass": []
+	},
+	"diagnostics": {
+		"suppress_system_services": []
+	},
+	"linux": {
+		"af_unix_mediation": null,
+		"sandbox_policy": null
+	},
+	"env_credentials": {},
+	"credential_capture": {},
+	"credential_providers": {},
+	"credential_routes": [],
+	"workdir": {
+		"access": "none"
+	},
+	"hooks": {},
+	"session_hooks": {},
+	"rollback": {
+		"exclude_patterns": [],
+		"exclude_globs": []
+	},
+	"open_urls": {
+		"allow_origins": [],
+		"allow_localhost": true
+	},
+	"interactive": false,
+	"skipdirs": [],
+	"packs": [],
+	"command_args": [],
+	"unsafe_macos_seatbelt_rules": []
+}

@@ -28,6 +28,22 @@
 		"enabled": true,
 	},
 	"agent_servers": {
+		"codex-acp": {
+			"default_config_options": {
+				"reasoning_effort": "high",
+			},
+			"type": "registry",
+		},
+		"Claude": {
+			"type": "custom",
+			"command": "npx",
+			"args": ["@agentclientprotocol/claude-agent-acp"],
+			"default_config_options": {
+				"effort": "high",
+				"model": "claude-fable-5[1m]",
+				"mode": "auto",
+			},
+		},
 		"Claude (sandboxed)": {
 			"type": "custom",
 			"command": "nono",
@@ -44,14 +60,6 @@
 				"model": "default",
 				"mode": "bypassPermissions",
 			},
-		},
-		"OMP (sandboxed)": {
-			"default_config_options": {
-				"model": "ollama/kimi-k2.7-code:cloud",
-			},
-			"type": "custom",
-			"command": "nono",
-			"args": ["run", "--allow-cwd", "--profile", "omp", "--", "omp", "acp", "--auto-approve", "--hide-thinking"],
 		},
 		"Maki": {
 			"default_config_options": {
