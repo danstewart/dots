@@ -1,0 +1,18 @@
+{
+	"autocompleteMaxVisible": 5,
+	"defaultModel": "glm-5.3-flash:cloud",
+	"defaultProvider": "ollama",
+	"editorPaddingX": 3,
+	"fullscreenExitOutput": "resume-hint",
+	"fullscreenScrollbar": "auto",
+	"hideThinkingBlock": true,
+	"lastChangelogVersion": "0.84.4",
+	"outputPad": 1,
+	"packages": ["npm:@ollama/pi-web-search", "npm:@plannotator/pi-extension", "npm:@gotgenes/pi-permission-system"],
+	"steeringMode": "one-at-a-time",
+	"terminal": {
+		"showTerminalProgress": true
+	},
+	"theme": "dark",
+	"tuiMode": "regular"
+}
