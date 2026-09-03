@@ -5,17 +5,28 @@
 		"*": "ask",
 		"third_party_tool": "ask",
 		"mcp": "allow",
-		"read": "ask",
-		"write": "ask",
-		"read:/Users/danstewart/projects/*": "allow",
-		"read:/Users/danstewart/.supacode/repos/*": "allow",
-		"write:/Users/danstewart/projects/*": "allow",
-		"write:/Users/danstewart/.supacode/repos/*": "allow",
-		"edit:/Users/danstewart/projects/*": "allow",
-		"edit:/Users/danstewart/.supacode/repos/*": "allow",
+		"read": "allow",
+		"write": "allow",
+		"edit": "allow",
+		"grep": "allow",
+		"find": "allow",
+		"ls": "allow",
+		"path": {
+			"*": "allow",
+			"*.env": "deny",
+			"*.env.*": "deny"
+		},
+		"external_directory": {
+			"*": "ask",
+			"/Users/danstewart/projects/*": "allow",
+			"/Users/danstewart/.supacode/repos/*": "allow"
+		},
 		"plannotator_submit_plan": "allow",
 		"bash": {
 			"*": "ask",
+			"git log": "allow",
+			"git log *": "allow",
+			"git show *": "allow",
 			"git status *": "allow",
 			"git status": "allow",
 			"gh issue list": "allow",
@@ -28,8 +39,8 @@
 			"ls *": "allow",
 			"cd *": "allow",
 			"echo *": "allow",
+			"find *": "allow",
 			"./script/test *": "allow"
-		},
-		"external_directory": "ask"
+		}
 	}
 }
