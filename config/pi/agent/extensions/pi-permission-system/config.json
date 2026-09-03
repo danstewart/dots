@@ -1,46 +1,64 @@
 {
-	"$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
-	"yoloMode": false,
-	"permission": {
-		"*": "ask",
-		"third_party_tool": "ask",
-		"mcp": "allow",
-		"read": "allow",
-		"write": "allow",
-		"edit": "allow",
-		"grep": "allow",
-		"find": "allow",
-		"ls": "allow",
-		"path": {
-			"*": "allow",
-			"*.env": "deny",
-			"*.env.*": "deny"
-		},
-		"external_directory": {
-			"*": "ask",
-			"/Users/danstewart/projects/*": "allow",
-			"/Users/danstewart/.supacode/repos/*": "allow"
-		},
-		"plannotator_submit_plan": "allow",
-		"bash": {
-			"*": "ask",
-			"git log": "allow",
-			"git log *": "allow",
-			"git show *": "allow",
-			"git status *": "allow",
-			"git status": "allow",
-			"gh issue list": "allow",
-			"gh issue view *": "allow",
-			"gh pr list": "allow",
-			"gh pr view *": "allow",
-			"grep *": "allow",
-			"head *": "allow",
-			"tail *": "allow",
-			"ls *": "allow",
-			"cd *": "allow",
-			"echo *": "allow",
-			"find *": "allow",
-			"./script/test *": "allow"
-		}
-	}
+  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
+  "yoloMode": false,
+  "permission": {
+    "*": "ask",
+    "third_party_tool": "ask",
+    "mcp": "allow",
+    "read": "allow",
+    "write": "allow",
+    "edit": "allow",
+    "grep": "allow",
+    "find": "allow",
+    "ls": "allow",
+    "path": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny"
+    },
+    "external_directory": {
+      "*": "ask",
+      "/Users/danstewart/projects/*": "allow",
+      "/Users/danstewart/.supacode/repos/*": "allow",
+      "/tmp/*": "allow"
+    },
+    "plannotator_submit_plan": "allow",
+    "bash": {
+      "*": "ask",
+      "git log": "allow",
+      "git log *": "allow",
+      "git diff *": "allow",
+      "git add *": "allow",
+      "git commit *": "allow",
+      "git show *": "allow",
+      "git status *": "allow",
+      "git status": "allow",
+      "git blame *": "allow",
+      "gh issue list": "allow",
+      "gh issue view *": "allow",
+      "gh run view *": "allow",
+      "gh pr list": "allow",
+      "gh pr view *": "allow",
+      "grep *": "allow",
+      "rg *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "ls *": "allow",
+      "cd *": "allow",
+      "echo *": "allow",
+      "find *": "allow",
+      "cat *": "allow",
+      "wc *": "allow",
+      "cut *": "allow",
+      "awk *": "allow",
+      "sed *": "allow",
+      "sort *": "allow",
+      "npx jest *": "allow",
+      "npx tsc *": "allow",
+      "script/test *": "allow",
+      "script/lint": "allow",
+      "script/lint *": "allow",
+      "make karma_ci": "allow"
+    }
+  }
 }
