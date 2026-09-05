@@ -4,6 +4,7 @@
   "permission": {
     "*": "ask",
     "third_party_tool": "ask",
+    "web_fetch": "allow",
     "mcp": "allow",
     "read": "allow",
     "write": "allow",
@@ -18,11 +19,17 @@
     },
     "external_directory": {
       "*": "ask",
-      "/Users/danstewart/projects/*": "allow",
-      "/Users/danstewart/.supacode/repos/*": "allow",
+      "~/projects/*": "allow",
+      "~/.supacode/repos/*": "allow",
       "/tmp/*": "allow"
     },
+    "external_directory_read": {
+      "~/.gem/*": "allow",
+      "~/.local/share/mise/*": "allow",
+      "~/.pi/agent/extensions/pi-permission-system/config.json": "allow"
+    },
     "plannotator_submit_plan": "allow",
+    "mcp__rollbar": "allow",
     "bash": {
       "*": "ask",
       "git log": "allow",
@@ -32,8 +39,11 @@
       "git commit *": "allow",
       "git show *": "allow",
       "git status *": "allow",
+      "git config --get *": "allow",
       "git status": "allow",
       "git blame *": "allow",
+      "git rev-parse *": "allow",
+      "git fetch *": "allow",
       "gh issue list": "allow",
       "gh issue view *": "allow",
       "gh run view *": "allow",
@@ -41,7 +51,9 @@
       "gh pr view *": "allow",
       "grep *": "allow",
       "rg *": "allow",
+      "head": "allow",
       "head *": "allow",
+      "tail": "allow",
       "tail *": "allow",
       "ls *": "allow",
       "cd *": "allow",
@@ -58,7 +70,11 @@
       "script/test *": "allow",
       "script/lint": "allow",
       "script/lint *": "allow",
-      "make karma_ci": "allow"
+      "make karma_ci": "allow",
+      "rake format:*": "allow",
+      "bundle exec rubocop *": "allow",
+      "rails test *": "allow",
+      "bundle list": "allow"
     }
   }
 }
