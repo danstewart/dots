@@ -26,13 +26,13 @@
     "external_directory_read": {
       "~/.gem/*": "allow",
       "~/.local/share/mise/*": "allow",
+      "~/.agents/*": "allow",
       "~/.pi/agent/extensions/pi-permission-system/config.json": "allow"
     },
     "plannotator_submit_plan": "allow",
     "mcp__rollbar": "allow",
     "bash": {
       "*": "ask",
-      "git log": "allow",
       "git log *": "allow",
       "git diff *": "allow",
       "git add *": "allow",
@@ -40,7 +40,6 @@
       "git show *": "allow",
       "git status *": "allow",
       "git config --get *": "allow",
-      "git status": "allow",
       "git blame *": "allow",
       "git rev-parse *": "allow",
       "git fetch *": "allow",
@@ -51,9 +50,7 @@
       "gh pr view *": "allow",
       "grep *": "allow",
       "rg *": "allow",
-      "head": "allow",
       "head *": "allow",
-      "tail": "allow",
       "tail *": "allow",
       "ls *": "allow",
       "cd *": "allow",
@@ -68,13 +65,20 @@
       "npx jest *": "allow",
       "npx tsc *": "allow",
       "script/test *": "allow",
-      "script/lint": "allow",
       "script/lint *": "allow",
       "make karma_ci": "allow",
       "rake format:*": "allow",
-      "bundle exec rubocop *": "allow",
-      "rails test *": "allow",
-      "bundle list": "allow"
+      "bin/rubocop *": "allow",
+      "bin/brakeman *": "allow",
+      "*bundle exec rubocop *": "allow",
+      "*bundle exec brakeman *": "allow",
+      "*bundle exec rake format:*": "allow",
+      "*rails test *": "allow",
+      "*rails test:*": "allow",
+      "npm run build:css": "allow",
+      "npm audit *": "allow",
+      "bundle list": "allow",
+      "true": "allow"
     }
   }
 }
