@@ -79,7 +79,8 @@
 			"ssh",
 			"common"
 		],
-		"vim/simplevimrc": "$HOME/.vimrc"
+    "vim/simplevimrc": "$HOME/.vimrc",
+    "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json"
 	},
 	// Server includes only bash and vimrc
 	"server": {
