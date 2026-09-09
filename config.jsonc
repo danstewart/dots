@@ -46,30 +46,27 @@
       "andThen": "chmod 600 $HOME/.ssh/id_rsa.pub",
     },
   },
-  // Common configs that don't fit into a specific category
-  "common": {
+  "pi": {
+    "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
+    "pi/AGENT.md": "$HOME/.pi/AGENT.md",
+  },
+  // Mac development machine
+  "mac": {
+    "&include": ["bash", "ssh", "pi"],
     "gitconfig": "$HOME/.gitconfig",
-    "mycli.ini": "$HOME/.myclirc",
     "litecli.ini": "$HOME/.config/litecli/config",
     "scripts": "$HOME/scripts",
     "dircolors": "$HOME/.dircolors",
     "prettierrc": "$HOME/.prettierrc",
     "atuin/config.toml": "$HOME/.config/atuin/config.toml",
-  },
-  // Mac development machine
-  "mac": {
-    "&include": ["bash", "ssh", "common"],
     "vim/simplevimrc": "$HOME/.vimrc",
-    "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
-    "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
   // Work mac machine
   "work-mac": {
+    "&include": ["pi"],
     "gitconfig": "$HOME/.gitconfig",
     "scripts": "$HOME/scripts",
     "vim/simplevimrc": "$HOME/.vimrc",
-    "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
-    "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
   // Server includes only bash and vimrc
   "server": {
