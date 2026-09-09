@@ -74,11 +74,15 @@
       "awk *": "allow",
       "sed *": "allow",
       "sort *": "allow",
+      "diff *": "allow",
       "uniq *": "allow",
       "mkdir *": "allow",
       "npx jest *": "allow",
+      "npx pretty-quick *": "allow",
       "pnpm exec jest *": "allow",
       "npx tsc *": "allow",
+      "npx prettier *": "allow",
+      ".venv/bin/ruff *": "allow",
       "script/test *": "allow",
       "script/codegen *": "allow",
       "script/lint *": "allow",
@@ -99,6 +103,7 @@
       "pwd": "allow",
       "pnpm run check-typescript": "allow",
       "pnpm run lint:*": "allow",
+      "pnpm exec eslint *": "allow",
       "xargs grep *": "allow"
     }
   }

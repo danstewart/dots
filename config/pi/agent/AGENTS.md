@@ -37,6 +37,8 @@ commands where possible but this is not a hard requirement.
 5. **Dependencies:** don't add one without checking it's justified and consistent with
    what the project already uses.
 6. **Secrets:** never commit or echo secrets, tokens, or `.env` contents.
+7. **Tests:** Avoid running entire test suites unless asked. Add tests where they're needed
+   to catch regressions and ensure the code works as expected.
 
 ## Git
 
