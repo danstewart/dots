@@ -77,8 +77,10 @@
       "uniq *": "allow",
       "mkdir *": "allow",
       "npx jest *": "allow",
+      "pnpm exec jest *": "allow",
       "npx tsc *": "allow",
       "script/test *": "allow",
+      "script/codegen *": "allow",
       "script/lint *": "allow",
       "make karma_ci": "allow",
       "rake format:*": "allow",
@@ -96,6 +98,7 @@
       "true": "allow",
       "pwd": "allow",
       "pnpm run check-typescript": "allow",
+      "pnpm run lint:*": "allow",
       "xargs grep *": "allow"
     }
   }
