@@ -14,79 +14,66 @@
 //
 // A lot of the below config is overcomplicated and unneccessary - just to use as an example
 {
-	// Individual groups
-	"bash": {
-		"bash/bashrc": "$HOME/.bashrc",
-		"bash/bash_aliases": "$HOME/.bash_aliases",
-		"bash/sensible.bash": "$HOME/.sensible.bash"
-	},
-	"nvim": {
-		"vim/nvim-init.vim": "$HOME/.config/nvim/init.vim"
-	},
-	"ssh": {
-		"ssh/config": {
-			"target": "$HOME/.ssh/config",
-			"andThen": "chmod 600 $HOME/.ssh/config"
-		}
-	},
-	// Kitty terminal
-	"kitty": {
-		"kitty/kitty.conf": "$HOME/.config/kitty/kitty.conf",
-		"kitty/diff.conf": "$HOME/.config/kitty/diff.conf"
-	},
-	// Common configs that don't fit into a specific category
-	"common": {
-		"gitconfig": "$HOME/.gitconfig",
-		"tmux.conf": "$HOME/.tmux.conf",
-		"mycli.ini": "$HOME/.myclirc",
-		"litecli.ini": "$HOME/.config/litecli/config",
-		"scripts": "$HOME/scripts",
-		"dircolors": "$HOME/.dircolors",
-		"prettierrc": "$HOME/.prettierrc",
-		"atuin/config.toml": "$HOME/.config/atuin/config.toml"
-	},
-	// Personal config includes both base and extra and defines some of it's configs too
-	"desktop": {
-		"&include": [
-			"bash",
-			"ssh",
-			"kitty",
-			"common"
-		],
-		"vim/nvimrc": "$HOME/.config/nvim/init.vim",
-		// Mouse config
-		"logiops.cfg": "/etc/logid.cfg",
-		// Copy ssh key from Nextcloud
-		"sshkey": {
-			"src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
-			"target": "$HOME/.ssh/id_rsa",
-			"cond": "-e $HOME/Nextcloud/",
-			"noForce": true,
-			"andThen": "chmod 600 $HOME/.ssh/id_rsa"
-		},
-		"sshpubkey": {
-			"src": "$HOME/Nextcloud/Keys/ssh/id_rsa.pub",
-			"target": "$HOME/.ssh/id_rsa.pub",
-			"cond": "-e $HOME/Nextcloud/",
-			"noForce": true,
-			"andThen": "chmod 600 $HOME/.ssh/id_rsa.pub"
-		}
-	},
-	// Mac development machine
-	"mac": {
-		"&include": [
-			"bash",
-			"ssh",
-			"common"
-		],
+  // Individual groups
+  "bash": {
+    "bash/bashrc": "$HOME/.bashrc",
+    "bash/bash_aliases": "$HOME/.bash_aliases",
+    "bash/sensible.bash": "$HOME/.sensible.bash",
+  },
+  "nvim": {
+    "vim/nvim-init.vim": "$HOME/.config/nvim/init.vim",
+  },
+  "ssh": {
+    "ssh/config": {
+      "target": "$HOME/.ssh/config",
+      "andThen": "chmod 600 $HOME/.ssh/config",
+    },
+  },
+  "sshKeys": {
+    // Copy ssh key from Nextcloud
+    "sshkey": {
+      "src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
+      "target": "$HOME/.ssh/id_rsa",
+      "cond": "-e $HOME/Nextcloud/",
+      "noForce": true,
+      "andThen": "chmod 600 $HOME/.ssh/id_rsa",
+    },
+    "sshpubkey": {
+      "src": "$HOME/Nextcloud/Keys/ssh/id_rsa.pub",
+      "target": "$HOME/.ssh/id_rsa.pub",
+      "cond": "-e $HOME/Nextcloud/",
+      "noForce": true,
+      "andThen": "chmod 600 $HOME/.ssh/id_rsa.pub",
+    },
+  },
+  // Common configs that don't fit into a specific category
+  "common": {
+    "gitconfig": "$HOME/.gitconfig",
+    "mycli.ini": "$HOME/.myclirc",
+    "litecli.ini": "$HOME/.config/litecli/config",
+    "scripts": "$HOME/scripts",
+    "dircolors": "$HOME/.dircolors",
+    "prettierrc": "$HOME/.prettierrc",
+    "atuin/config.toml": "$HOME/.config/atuin/config.toml",
+  },
+  // Mac development machine
+  "mac": {
+    "&include": ["bash", "ssh", "common"],
     "vim/simplevimrc": "$HOME/.vimrc",
-    "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json"
-	},
-	// Server includes only bash and vimrc
-	"server": {
-		"&include": [
-			"bash"
-		],
-		"vim/nvimrc": "$HOME/.config/nvim/init.vim"
-	}
+    "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
+    "pi/AGENT.md": "$HOME/.pi/AGENT.md",
+  },
+  // Work mac machine
+  "work-mac": {
+    "gitconfig": "$HOME/.gitconfig",
+    "scripts": "$HOME/scripts",
+    "vim/simplevimrc": "$HOME/.vimrc",
+    "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
+    "pi/AGENT.md": "$HOME/.pi/AGENT.md",
+  },
+  // Server includes only bash and vimrc
+  "server": {
+    "&include": ["bash"],
+    "vim/nvimrc": "$HOME/.config/nvim/init.vim",
+  },
 }
