@@ -6,7 +6,7 @@ bash init.sh
 perl links.pl [--server|--desktop] [--force]
 ```
 
-Tags are defined in `config.jsonc`
+Tags are defined in `config.json`
 
 ---
 
@@ -16,7 +16,7 @@ The `./init.sh` script will handle both of these for you on Ubuntu, Fedora and A
 
 ---
 
-## config.jsonc
+## config.json
 
 This file has a list of tags and the files they should link.  
 The key is the source file within /config and the value is either the target to link or an object.  

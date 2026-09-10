@@ -55,6 +55,7 @@
       "gh run view *": "allow",
       "gh pr list": "allow",
       "gh pr view *": "allow",
+      "gh pr diff *": "allow",
       "grep *": "allow",
       "rg *": "allow",
       "head *": "allow",

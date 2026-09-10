@@ -51,6 +51,7 @@ commands where possible but this is not a hard requirement.
   mutate GitHub state unless explicitly asked.
 - Don't switch branches, stash, or discard changes without confirming — uncommitted work
   may be the user's.
+- Do not use `git -C` if you are already in the correct directory.
 
 ## Communication
 

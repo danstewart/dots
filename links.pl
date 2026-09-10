@@ -7,29 +7,29 @@ use feature qw{say};
 
 use Linker;
 use ConfigBuilder;
-use Util qw{parse_jsonc script_dir};
+use Util qw{parse_json script_dir};
 use Data::Dumper;
 
-my $CONFIG_FILE = script_dir() . "/config.jsonc";
+my $CONFIG_FILE = script_dir() . "/config.json";
 
 my $args = arg_parse(@ARGV);
 my $tags = $args->{tags} || [];
 
 if (scalar @$tags == 0) {
 	say 'Usage: ./links.pl --tag1 --tag2 [--force] [--test]';
-	say '--tag:   The tag(s) you want to link (from config.jsonc)';
+	say '--tag:   The tag(s) you want to link (from config.json)';
 	say '--force: Overwrite existing files';
 
 	exit 0;
 }
 
-my $config  = parse_jsonc($CONFIG_FILE);
+my $config  = parse_json($CONFIG_FILE);
 my $builder = ConfigBuilder->new;
 
 # Go through all tags we want to set up links for
 foreach my $tag (@$tags) {
 	if (not exists $config->{$tag}) {
-		say "WARNING: Tag '$tag' not found in config.jsonc";
+		say "WARNING: Tag '$tag' not found in config.json";
 		next;
 	}
 

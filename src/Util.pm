@@ -5,7 +5,7 @@ use warnings;
 
 require Exporter;
 our @ISA = qw{Exporter};
-our @EXPORT_OK = qw{parse_jsonc script_dir};
+our @EXPORT_OK = qw{parse_json script_dir};
 
 sub script_dir {
 	require Cwd;
@@ -13,7 +13,7 @@ sub script_dir {
 	return File::Basename::dirname(Cwd::abs_path($0));
 }
 
-sub parse_jsonc {
+sub parse_json {
 	my ($filepath) = @_;
 
 	my $file_contents = do {
@@ -22,11 +22,8 @@ sub parse_jsonc {
 		<$fh>;
 	};
 
-	# Strip out comments
-	$file_contents =~ s{^\s*//.*}{}gm;
-
 	require JSON;
-	my $config = JSON->new->decode($file_contents);
+	my $config = JSON->new->relaxed->decode($file_contents);
 	return $config;
 }
 

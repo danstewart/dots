@@ -1,20 +1,20 @@
-// This file has a list of tags and the files they should link
-// The key is the source file within /config and the value is either the target to link
-// or an object
-//
-// Tags can include other tags by having "&include": [ "otherTag" ]
-// $HOME will automatically be replaced
-//
-// If the file maps to an object then you can specify
-// - src: The path of the src file (Defaults to the key if not specified)
-// - target: The target to link to
-// - andThen: Optional shell command to run after linking
-// - cond: Optional shell condition (automatically wrapped in [])
-// - noForce: Overrides --force flag to never overwrite
-//
-// A lot of the below config is overcomplicated and unneccessary - just to use as an example
+# This file has a list of tags and the files they should link
+# The key is the source file within /config and the value is either the target to link
+# or an object
+#
+# Tags can include other tags by having "&include": [ "otherTag" ]
+# $HOME will automatically be replaced
+#
+# If the file maps to an object then you can specify
+# - src: The path of the src file (Defaults to the key if not specified)
+# - target: The target to link to
+# - andThen: Optional shell command to run after linking
+# - cond: Optional shell condition (automatically wrapped in [])
+# - noForce: Overrides --force flag to never overwrite
+#
+# A lot of the below config is overcomplicated and unneccessary - just to use as an example
 {
-  // Individual groups
+  # Individual groups
   "bash": {
     "bash/bashrc": "$HOME/.bashrc",
     "bash/bash_aliases": "$HOME/.bash_aliases",
@@ -30,7 +30,7 @@
     },
   },
   "sshKeys": {
-    // Copy ssh key from Nextcloud
+    # Copy ssh key from Nextcloud
     "sshkey": {
       "src": "$HOME/Nextcloud/Keys/ssh/id_rsa",
       "target": "$HOME/.ssh/id_rsa",
@@ -50,7 +50,7 @@
     "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
     "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
-  // Mac development machine
+  # Mac development machine
   "mac": {
     "&include": ["bash", "ssh", "pi"],
     "gitconfig": "$HOME/.gitconfig",
@@ -61,14 +61,14 @@
     "atuin/config.toml": "$HOME/.config/atuin/config.toml",
     "vim/simplevimrc": "$HOME/.vimrc",
   },
-  // Work mac machine
+  # Work mac machine
   "work-mac": {
     "&include": ["pi"],
     "gitconfig": "$HOME/.gitconfig",
     "scripts": "$HOME/scripts",
     "vim/simplevimrc": "$HOME/.vimrc",
   },
-  // Server includes only bash and vimrc
+  # Server includes only bash and vimrc
   "server": {
     "&include": ["bash"],
     "vim/nvimrc": "$HOME/.config/nvim/init.vim",
