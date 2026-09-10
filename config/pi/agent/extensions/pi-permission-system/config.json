@@ -34,8 +34,10 @@
     "mcp__rollbar": "allow",
     "bash": {
       "*": "ask",
+      "xargs grep *": "allow",
       "git log *": "allow",
       "git diff *": "allow",
+      "git diff-tree *": "allow",
       "git add *": "allow",
       "git commit *": "allow",
       "git reflog *": "allow",
@@ -58,6 +60,7 @@
       "gh pr diff *": "allow",
       "grep *": "allow",
       "rg *": "allow",
+      "xxd *": "allow",
       "head *": "allow",
       "tail *": "allow",
       "ls *": "allow",
@@ -83,6 +86,8 @@
       "pnpm exec jest *": "allow",
       "npx tsc *": "allow",
       "npx prettier *": "allow",
+	  "node_modules/.bin/prettier": "allow",
+	  "node_modules/.bin/eslint": "allow",
       ".venv/bin/ruff *": "allow",
       "script/test *": "allow",
       "script/codegen *": "allow",
@@ -105,6 +110,9 @@
       "pnpm run check-typescript": "allow",
       "pnpm run lint:*": "allow",
       "pnpm exec eslint *": "allow",
+      "pnpm exec prettier *": "allow",
+      "npx eslint *": "allow",
+      "node --check *": "allow",
       "xargs grep *": "allow"
     }
   }
