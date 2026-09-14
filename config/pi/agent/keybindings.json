@@ -1,8 +1,4 @@
 {
-  "tui.editor.deleteWordBackward": [
-    "ctrl+w",
-    "alt+backspace",
-    "ctrl+backspace",
-    "cmd+backspace"
-  ]
+  "tui.editor.deleteWordBackward": ["ctrl+w", "ctrl+backspace"],
+  "tui.editor.deleteToLineStart": ["ctrl+u", "ctrl+shift+backspace"]
 }

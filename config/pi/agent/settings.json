@@ -11,7 +11,8 @@
   "packages": [
     "npm:@ollama/pi-web-search",
     "npm:@plannotator/pi-extension",
-    "npm:@gotgenes/pi-permission-system"
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-open-tui"
   ],
   "steeringMode": "one-at-a-time",
   "terminal": {

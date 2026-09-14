@@ -50,6 +50,7 @@
     "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
     "pi/agent/settings.json": "$HOME/.pi/agent/settings.json",
     "pi/agent/keybindings.json": "$HOME/.pi/agent/keybindings.json",
+    "pi/agent/open-tui.json": "$HOME/.pi/agent/open-tui.json",
     "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
   # Mac development machine
@@ -62,6 +63,7 @@
     "prettierrc": "$HOME/.prettierrc",
     "atuin/config.toml": "$HOME/.config/atuin/config.toml",
     "vim/simplevimrc": "$HOME/.vimrc",
+    "ghostty/config.ghostty": "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty",
   },
   # Work mac machine
   "work-mac": {
@@ -69,6 +71,7 @@
     "gitconfig": "$HOME/.gitconfig",
     "scripts": "$HOME/scripts",
     "vim/simplevimrc": "$HOME/.vimrc",
+    "ghostty/config.ghostty": "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty",
   },
   # Server includes only bash and vimrc
   "server": {
