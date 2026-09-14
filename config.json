@@ -48,6 +48,8 @@
   },
   "pi": {
     "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
+    "pi/agent/settings.json": "$HOME/.pi/agent/settings.json",
+    "pi/agent/keybindings.json": "$HOME/.pi/agent/keybindings.json",
     "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
   # Mac development machine
