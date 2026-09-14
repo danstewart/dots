@@ -3,7 +3,7 @@
   "settingsLanguage": "en",
   "cursorStyle": "bar",
   "fullscreen": {
-    "wheelScrollLines": 4
+    "wheelScrollLines": 1
   },
   "icons": {
     "mode": "auto"
@@ -11,13 +11,13 @@
   "footerSegments": {
     "cwd": true,
     "sessionName": true,
-    "gitBranch": true,
-    "gitStatus": true,
+    "gitBranch": false,
+    "gitStatus": false,
     "gitCommit": false,
-    "runtime": true,
+    "runtime": false,
     "context": true,
     "tokens": true,
-    "cost": true,
+    "cost": false,
     "extensionStatuses": true
   },
   "telemetry": {
@@ -30,6 +30,6 @@
     "cost": true
   },
   "thinkingPeek": {
-    "lines": 1
+    "lines": 2
   }
 }
