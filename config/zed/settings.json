@@ -28,49 +28,40 @@
 		"enabled": true,
 	},
 	"agent_servers": {
-		"codex-acp": {
-			"default_config_options": {
-				"reasoning_effort": "high",
-			},
-			"type": "registry",
-		},
-		"Claude": {
-			"type": "custom",
-			"command": "npx",
-			"args": ["@agentclientprotocol/claude-agent-acp"],
-			"default_config_options": {
-				"effort": "high",
-				"model": "claude-fable-5[1m]",
-				"mode": "auto",
-			},
-		},
-		"Claude (sandboxed)": {
-			"type": "custom",
-			"command": "nono",
-			"args": [
-				"run",
-				"--allow-cwd",
-				"--profile",
-				"my-claude-code",
-				"--",
-				"/Users/dan/.local/share/mise/installs/node/22/bin/claude-agent-acp",
-			],
-			"default_config_options": {
-				"effort": "default",
-				"model": "default",
-				"mode": "bypassPermissions",
-			},
-		},
-		"Maki": {
-			"default_config_options": {
-				"model": "ollama/glm-5.2",
-			},
-			"type": "custom",
-			"command": "maki",
-			"args": ["acp"],
-			"env": {},
-		},
-	},
+    "codex-acp": {
+      "default_config_options": {
+        "reasoning_effort": "high",
+      },
+      "type": "registry",
+    },
+    "Claude": {
+      "type": "custom",
+      "command": "npx",
+      "args": ["@agentclientprotocol/claude-agent-acp"],
+      "default_config_options": {
+        "effort": "high",
+        "model": "claude-fable-5[1m]",
+        "mode": "auto",
+      },
+    },
+    "Claude (sandboxed)": {
+      "type": "custom",
+      "command": "nono",
+      "args": [
+        "run",
+        "--allow-cwd",
+        "--profile",
+        "my-claude-code",
+        "--",
+        "/Users/dan/.local/share/mise/installs/node/22/bin/claude-agent-acp",
+      ],
+      "default_config_options": {
+        "effort": "default",
+        "model": "default",
+        "mode": "bypassPermissions",
+      },
+    },
+  },
 	"rounded_selection": true,
 	"current_line_highlight": "all",
 	"unnecessary_code_fade": 0.5,

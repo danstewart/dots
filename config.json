@@ -53,9 +53,12 @@
     "pi/agent/open-tui.json": "$HOME/.pi/agent/open-tui.json",
     "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
+  "skills": {
+    "agents/skills/local-review": "$HOME/.agents/skills/local-review"
+  },
   # Mac development machine
   "mac": {
-    "&include": ["bash", "ssh", "pi"],
+    "&include": ["bash", "ssh", "pi", "skills"],
     "gitconfig": "$HOME/.gitconfig",
     "litecli.ini": "$HOME/.config/litecli/config",
     "scripts": "$HOME/scripts",
@@ -68,7 +71,7 @@
   },
   # Work mac machine
   "work-mac": {
-    "&include": ["pi"],
+    "&include": ["pi", "skills"],
     "gitconfig": "$HOME/.gitconfig",
     "scripts": "$HOME/scripts",
     "vim/simplevimrc": "$HOME/.vimrc",

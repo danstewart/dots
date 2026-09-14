@@ -1,21 +1,21 @@
 ---
 name: local-review
-description: Review the changes on the current branch against `trunk`, focusing on bugs, maintainability, backwards compatibility, and code cleanliness, and report findings with a red/orange/green traffic-light system.
+description: Review the changes on the current branch against `main`, focusing on bugs, maintainability, backwards compatibility, and code cleanliness, and report findings with a red/orange/green traffic-light system.
 ---
 
 # Local Code Review
 
 Review the local, uncommitted-and-committed work on the current branch against
-`trunk`. This is a working-tree review, not a GitHub PR review — never call `gh`.
+`main`. This is a working-tree review, not a GitHub PR review — never call `gh`.
 
 ## Scope the diff
 
-Confirm you are in a git repo and not on `trunk` itself. Then gather the full set
-of changes on this branch relative to `trunk`:
+Confirm you are in a git repo and not on `main` itself. Then gather the full set
+of changes on this branch relative to `main`:
 
 ```bash
-git fetch origin trunk --quiet 2>/dev/null || true
-git merge-base HEAD trunk            # {base}
+git fetch origin main --quiet 2>/dev/null || true
+git merge-base HEAD main            # {base}
 git diff {base}...HEAD --stat        # committed changes on the branch
 git status --short                   # uncommitted working-tree changes
 ```
@@ -25,8 +25,8 @@ working-tree changes (staged and unstaged), so the review reflects everything th
 branch currently contains. Use `git diff {base}...HEAD` for the committed diff and
 `git diff HEAD` for the working-tree diff.
 
-If `trunk` does not exist locally, fall back in order to `origin/trunk`, then
-`main`/`origin/main`, then `master`. State which base you used.
+If `main` does not exist locally, fall back in order to `origin/main`, then
+`trunk`/`origin/trunk`, then `master`. State which base you used.
 
 Read the changed files in full for context — do not review from the diff hunks
 alone. Judge each change against how the surrounding code already works.
