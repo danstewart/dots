@@ -64,6 +64,7 @@
     "atuin/config.toml": "$HOME/.config/atuin/config.toml",
     "vim/simplevimrc": "$HOME/.vimrc",
     "ghostty/config": "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty",
+    "tuicr/config.toml": "$HOME/.config/tuicr/config.toml",
   },
   # Work mac machine
   "work-mac": {
@@ -72,6 +73,7 @@
     "scripts": "$HOME/scripts",
     "vim/simplevimrc": "$HOME/.vimrc",
     "ghostty/config": "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty",
+    "tuicr/config.toml": "$HOME/.config/tuicr/config.toml",
   },
   # Server includes only bash and vimrc
   "server": {
