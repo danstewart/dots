@@ -1,6 +1,4 @@
-theme = "gruvbox-dark"
+theme = "ayu-mirage"
 transparent_background = false
 scroll_offset = 5
-
-
 
