@@ -51,7 +51,7 @@
         "run",
         "--allow-cwd",
         "--profile",
-        "my-claude-code",
+        "claude",
         "--",
         "/Users/dan/.local/share/mise/installs/node/22/bin/claude-agent-acp",
       ],

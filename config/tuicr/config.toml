@@ -1,4 +1,5 @@
 theme = "ayu-mirage"
 transparent_background = false
 scroll_offset = 5
+single_file_view = true
 

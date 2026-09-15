@@ -59,6 +59,7 @@
       "gh pr list": "allow",
       "gh pr view *": "allow",
       "gh pr diff *": "allow",
+      "gh project item-list *": "allow",
       "grep *": "allow",
       "rg *": "allow",
       "xxd *": "allow",

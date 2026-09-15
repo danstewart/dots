@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "name": "my-claude-code",
+    "version": "1.0.0",
+    "description": "Claude Code with additional project access"
+  },
+  "extends": "nolabs-ai/claude",
+  "groups": {
+    "include": []
+  },
+  "filesystem": {
+    "allow": [
+      "$WORKDIR",
+      "$HOME/.claude",
+      "$HOME/projects",
+      "$HOME/.npm",
+      "$HOME/.cache"
+    ]
+  },
+  "network": {
+    "block": false
+  },
+  "env_credentials": {}
+}
