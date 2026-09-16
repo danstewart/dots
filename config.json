@@ -54,7 +54,8 @@
     "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
   "skills": {
-    "agents/skills/local-review": "$HOME/.agents/skills/local-review"
+    "agents/skills/local-review": "$HOME/.agents/skills/local-review",
+    "agents/skills/daily-summary": "$HOME/.agents/skills/daily-summary"
   },
   # Mac development machine
   "mac": {
