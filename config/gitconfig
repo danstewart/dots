@@ -108,6 +108,9 @@
 [diff]
 	algorithm = histogram
 
+[diff "gzip"]
+    textconv = gunzip -c
+
 [pull]
 	rebase = false
 

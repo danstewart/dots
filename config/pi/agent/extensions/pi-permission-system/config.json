@@ -28,7 +28,8 @@
       "~/.local/share/mise/*": "allow",
       "~/.agents/*": "allow",
       "/private/tmp/*": "allow",
-      "~/.pi/agent/extensions/pi-permission-system/config.json": "allow"
+      "~/.pi/agent/extensions/pi-permission-system/config.json": "allow",
+      "~/Data/Notes/*": "allow"
     },
     "plannotator_submit_plan": "allow",
     "mcp__rollbar": "allow",
