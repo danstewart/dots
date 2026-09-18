@@ -16,6 +16,8 @@ brew "glow"
 brew "gnupg"
 # Modern load testing tool, using Go and JavaScript
 brew "tuicr"
+# A cat(1) clone with wings.
+brew install bat
 
 # GUI apps
 # Terminal emulator that uses platform-native UI and GPU acceleration
