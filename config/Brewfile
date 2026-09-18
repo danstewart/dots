@@ -1,0 +1,30 @@
+# Homebrew Bundle
+# Install:  brew bundle --file=Brewfile
+# Regenerate: brew bundle dump --force
+
+# CLI tools
+brew "bash"
+# Diff that understands syntax
+brew "difftastic"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# GitHub command-line tool
+brew "gh"
+# Render markdown on the CLI
+brew "glow"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Modern load testing tool, using Go and JavaScript
+brew "tuicr"
+
+# GUI apps
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Mouse utility to add gesture functions and smooth scrolling to 3rd party mice
+cask "mac-mouse-fix"
+# Native terminal coding agents command center
+cask "supacode"
+
+# npm globals
+npm "@earendil-works/pi-coding-agent"
+npm "corepack"
