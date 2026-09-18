@@ -161,7 +161,7 @@ export LESS="--mouse --wheel-lines=3 -XFR"
 export AWS_PAGER=""
 
 # Server specific settings
-if [[ $hostname == "web" || $hostname == "media" || $hostname == "pve" ]]; then
+if [[ $(hostname) == "web" || $(hostname) == "media" || $(hostname) == "pve" ]]; then
     export TERM="xterm-256color"
 fi
 
