@@ -82,6 +82,6 @@
   # Server includes only bash and vimrc
   "server": {
     "&include": ["bash"],
-    "vim/nvimrc": "$HOME/.config/nvim/init.vim",
+    "vim/simplevimrc": "$HOME/.vimrc",
   },
 }
