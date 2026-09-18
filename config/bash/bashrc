@@ -13,16 +13,7 @@ HISTCONTROL=erasedups
 
 
 # ===== Path ======
-opt="$HOME/opt"
-JAVA_HOME="$opt/jdk-11/bin"
-FLUTTER_ROOT="$opt/flutter"
-ANDROID_HOME="$opt/Android/SDK"
 GO_PATH="/usr/local/go/bin"
-WINHOME=/mnt/c/Users/DanielStewart/
-plenvpath="$HOME/.plenv/bin/"
-rbenvpath="$HOME/.rbenv/bin/"
-pyenvpath="$HOME/.pyenv/bin/"
-DENO_INSTALL="$HOME/.deno"
 BREW_PATH="/opt/homebrew/bin"
 
 # Build $PATH
@@ -32,36 +23,19 @@ paths=(
 	"$HOME/.local/bin"
 	"$BREW_PATH"
 	"$HOME/.local/bin"
-	"$plenvpath"
-	"$rbenvpath"
-	"$pyenvpath"
-	"$opt/kotlinc/bin/"
-	"$opt/flutter/bin/"
-	"$opt/dart-sdk/bin/"
-	"$JAVA_HOME"
-	"$FLUTTER_ROOT"
-	"$ANDROID_HOME"
 	"$GO_PATH"
 	"$HOME/.cargo/bin/"
 	"/usr/local/go/bin/"
 	"$HOME/go/bin/"
-	"/home/linuxbrew/.linuxbrew/bin/"
 	"$HOME/.local/share/pypoetry/venv/bin/"
-	"$DENO_INSTALL/bin"
 	"$HOME/.cache/rebar3/bin"
 	"/opt/homebrew/sbin"
-	"/Users/danstewart/.atuin/bin/"
-	"/Users/dan/.atuin/bin/"
+	"$HOME/.atuin/bin/"
 )
 
 # Filter non existent paths
 for item in "${paths[@]}"; do [[ -e $item ]] && exists+=("$item"); done
 
-[[ -d $WINHOME ]] && export WINHOME
-[[ -e $JAVA_HOME ]] && export JAVA_HOME
-[[ -e $FLUTTER_ROOT ]] && export FLUTTER_ROOT
-[[ -e $ANDROID_HOME ]] && export ANDROID_HOME
-[[ -e $DENO_INSTALL ]] && export DENO_INSTALL
 PATH="$(IFS=: eval 'echo "${exists[*]}"'):$PATH"
 export PATH
 
@@ -186,6 +160,11 @@ export BAT_PAGER="less -XFR"
 export LESS="--mouse --wheel-lines=3 -XFR"
 export AWS_PAGER=""
 
+# Server specific settings
+if [[ $hostname == "web" || $hostname == "media" || $hostname == "pve" ]]; then
+    export TERM="xterm-256color"
+fi
+
 # fzf
 export FZF_DEFAULT_OPTS='--reverse --border --exact'
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
@@ -211,7 +190,6 @@ fi
 # SSH
 eval $(ssh-agent -s) > /dev/null 2>&1
 ssh-add $HOME/.ssh/id_rsa > /dev/null 2>&1
-
 for i in $HOME/.ssh/*.pem; do
 	ssh-add $i > /dev/null 2>&1
 done
@@ -228,40 +206,21 @@ if [[ -n $WSLENV ]]; then
 	export LIBGL_ALWAYS_INDIRECT=1
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Auto-activate hermit
 if [[ -e $HOME/bin/hermit ]]; then
 	eval "$(test -x $HOME/bin/hermit && $HOME/bin/hermit shell-hooks --print --bash)"
 fi
 
-if [[ -e $HOME/.asdf ]]; then
-	source $HOME/.asdf/asdf.sh
-	source $HOME/.asdf/completions/asdf.bash
-fi
-
+# https://mise.jdx.dev/
 if [[ -e $HOME/.local/bin/mise ]]; then
 	eval "$($HOME/.local/bin/mise activate bash)"
 elif [[ -e /opt/homebrew/bin/mise ]]; then
 	eval "$(/opt/homebrew/bin/mise activate bash)"
 fi
 
-# direnv
+# https://direnv.net/
 if command -v direnv >/dev/null 2>&1; then
 	eval "$(direnv hook bash)"
-fi
-
-# QT Theme
-export QT_QPA_PLATFORMTHEME="qt5ct"
-export QT_STYLE_OVERRIDE="adwaita"
-
-# Teamweb stuff
-if [[ -e "/home/dan" ]]; then
-	export TW_PHINEAS_PATH="/home/dan/Code/teamweb/phineas"
-elif [[ -e "/Users/dan" ]]; then
-	export TW_PHINEAS_PATH=/Users/dan/Code/teamweb/phineas
 fi
 
 if [[ -f "~/.bash-preexec.sh" ]]; then
@@ -271,7 +230,5 @@ fi
 # https://atuin.sh
 if command -v atuin >/dev/null; then
 	eval "$(atuin init bash --disable-up-arrow)"
+	source "$HOME/.atuin/bin/env"
 fi
-
-. "$HOME/.atuin/bin/env"
-. "$HOME/.cargo/env"
