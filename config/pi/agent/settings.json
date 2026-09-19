@@ -12,7 +12,8 @@
     "npm:@ollama/pi-web-search",
     "npm:@plannotator/pi-extension",
     "npm:@gotgenes/pi-permission-system",
-    "npm:pi-open-tui"
+    "npm:pi-open-tui",
+    "npm:pi-mcp-adapter"
   ],
   "steeringMode": "one-at-a-time",
   "terminal": {

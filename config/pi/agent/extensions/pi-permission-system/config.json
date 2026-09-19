@@ -3,9 +3,23 @@
   "yoloMode": false,
   "permission": {
     "*": "ask",
+    "skill": {
+      "*": "ask",
+      "local-review": "allow"
+    },
+    "mcp": {
+      "*": "ask",
+      "mcp_stat": "allow",
+      "mcp_list": "allow",
+      "rollbar:get-item-details": "allow",
+      "rollbar:get-deployments": "allow",
+      "rollbar:get-version": "allow",
+      "rollbar:list-items": "allow",
+      "rollbar:list-projects": "allow",
+      "rollbar:list-occurrences": "allow"
+    },
     "third_party_tool": "ask",
     "web_fetch": "allow",
-    "mcp": "allow",
     "read": "allow",
     "write": "allow",
     "edit": "allow",
@@ -32,7 +46,6 @@
       "~/Data/Notes/*": "allow"
     },
     "plannotator_submit_plan": "allow",
-    "mcp__rollbar": "allow",
     "bash": {
       "*": "ask",
       "xargs grep *": "allow",
