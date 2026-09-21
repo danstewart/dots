@@ -6,7 +6,7 @@
   "fullscreenExitOutput": "resume-hint",
   "fullscreenScrollbar": "auto",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.86.1",
   "outputPad": 1,
   "packages": [
     "npm:@ollama/pi-web-search",
