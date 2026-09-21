@@ -5,7 +5,8 @@
     "*": "ask",
     "skill": {
       "*": "ask",
-      "local-review": "allow"
+      "local-review": "allow",
+      "visual-explainer": "allow"
     },
     "mcp": {
       "*": "ask",
@@ -35,7 +36,8 @@
       "*": "ask",
       "~/projects/*": "allow",
       "~/.supacode/repos/*": "allow",
-      "/tmp/*": "allow"
+      "/tmp/*": "allow",
+      "~/.agent/diagrams": "allow"
     },
     "external_directory_read": {
       "~/.gem/*": "allow",

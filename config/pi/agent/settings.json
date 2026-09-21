@@ -13,7 +13,9 @@
     "npm:@plannotator/pi-extension",
     "npm:@gotgenes/pi-permission-system",
     "npm:pi-open-tui",
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "git:github.com/nicobailon/visual-explainer",
+    "npm:pi-mermaid"
   ],
   "steeringMode": "one-at-a-time",
   "terminal": {
