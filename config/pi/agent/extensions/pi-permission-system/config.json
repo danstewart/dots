@@ -21,16 +21,19 @@
     },
     "third_party_tool": "ask",
     "web_fetch": "allow",
-    "read": "allow",
-    "write": "allow",
-    "edit": "allow",
     "grep": "allow",
     "find": "allow",
     "ls": "allow",
+    "write": "allow",
+    "edit": "allow",
+    "read": "allow",
     "path": {
       "*": "allow",
       "*.env": "deny",
       "*.env.*": "deny"
+    },
+    "path_write": {
+      "script/*": "ask"
     },
     "external_directory": {
       "*": "ask",
@@ -44,7 +47,8 @@
       "~/.local/share/mise/*": "allow",
       "~/.agents/*": "allow",
       "/private/tmp/*": "allow",
-      "~/.pi/agent/extensions/pi-permission-system/config.json": "allow",
+      "~/.pi/*": "allow",
+      "~/dots/*": "allow",
       "~/Data/Notes/*": "allow"
     },
     "plannotator_submit_plan": "allow",
@@ -84,6 +88,9 @@
       "head *": "allow",
       "tail *": "allow",
       "ls *": "allow",
+      "cp *": "allow",
+      "mv *": "allow",
+      "rm *": "allow",
       "cd *": "allow",
       "echo *": "allow",
       "printf *": "allow",
@@ -116,6 +123,7 @@
       "./script/codegen *": "allow",
       "script/lint *": "allow",
       "./script/lint *": "allow",
+      "uv run pytest *": "allow",
       "make karma_ci": "allow",
       "rake format:*": "allow",
       "bin/rubocop *": "allow",
