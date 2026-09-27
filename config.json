@@ -51,6 +51,7 @@
     "pi/agent/settings.json": "$HOME/.pi/agent/settings.json",
     "pi/agent/keybindings.json": "$HOME/.pi/agent/keybindings.json",
     "pi/agent/open-tui.json": "$HOME/.pi/agent/open-tui.json",
+    "pi/agent/.i-have-adhd-always": "$HOME/.pi/agent/.i-have-adhd-always",
     "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
   "skills": {

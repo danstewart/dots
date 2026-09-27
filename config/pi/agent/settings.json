@@ -15,7 +15,8 @@
     "npm:pi-open-tui",
     "npm:pi-mcp-adapter",
     "git:github.com/nicobailon/visual-explainer",
-    "npm:pi-mermaid"
+    "npm:pi-mermaid",
+    "https://github.com/ayghri/i-have-adhd"
   ],
   "steeringMode": "one-at-a-time",
   "terminal": {
