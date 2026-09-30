@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
   "yoloMode": false,
+  "promptNotifications": ["osc777"],
   "permission": {
     "*": "ask",
     "skill": {
@@ -85,6 +86,7 @@
       "gh project item-list *": "allow",
       "grep *": "allow",
       "rg *": "allow",
+      "fd *": "allow",
       "xxd *": "allow",
       "date *": "allow",
       "stat *": "allow",
