@@ -22,6 +22,7 @@
     },
     "third_party_tool": "ask",
     "web_fetch": "allow",
+    "memory_search": "allow",
     "grep": "allow",
     "find": "allow",
     "ls": "allow",
