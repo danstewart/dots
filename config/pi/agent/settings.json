@@ -16,7 +16,8 @@
     "npm:pi-mcp-adapter",
     "git:github.com/nicobailon/visual-explainer",
     "npm:pi-mermaid",
-    "https://github.com/ayghri/i-have-adhd"
+    "https://github.com/ayghri/i-have-adhd",
+    "npm:pi-hermes-memory"
   ],
   "steeringMode": "one-at-a-time",
   "terminal": {
