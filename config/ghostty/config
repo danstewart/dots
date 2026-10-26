@@ -44,3 +44,8 @@ keybind = cmd+shift+arrow_right=next_tab
 keybind = cmd+shift+arrow_left=previous_tab
 keybind = alt+shift+arrow_right=next_tab
 keybind = alt+shift+arrow_left=previous_tab
+
+# Delete to line start. macOS swallows cmd+backspace (and cmd+alt+backspace,
+# ctrl+backspace) in the Cocoa text system before Ghostty sees it; use
+# alt+backspace for delete-word and cmd+shift+backspace for delete-to-line-start.
+keybind = cmd+shift+backspace=text:\x15
