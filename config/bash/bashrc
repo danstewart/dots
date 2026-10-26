@@ -9,7 +9,7 @@ shopt -s histappend  # Append to history instead of overwriting
 HISTTIMEFORMAT="%h %d %H:%M:%S "
 HISTSIZE=10000
 HISTFILESIZE=10000
-HISTCONTROL=erasedups
+HISTCONTROL=ignoredups:erasedups
 
 
 # ===== Path ======
@@ -30,7 +30,6 @@ paths=(
 	"$HOME/.local/share/pypoetry/venv/bin/"
 	"$HOME/.cache/rebar3/bin"
 	"/opt/homebrew/sbin"
-	"$HOME/.atuin/bin/"
 )
 
 # Filter non existent paths
@@ -227,8 +226,6 @@ if [[ -f "~/.bash-preexec.sh" ]]; then
 	source ~/.bash-preexec.sh
 fi
 
-# https://atuin.sh
-if command -v atuin >/dev/null; then
-	eval "$(atuin init bash --disable-up-arrow)"
-	source "$HOME/.atuin/bin/env"
+if command -v fzf >/dev/null 2>&1; then
+    eval "$(fzf --bash)"
 fi

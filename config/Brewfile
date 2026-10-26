@@ -18,6 +18,8 @@ brew "gnupg"
 brew "tuicr"
 # A cat(1) clone with wings.
 brew install bat
+# A command-line fuzzy finder
+brew install fzf
 
 # GUI apps
 # Terminal emulator that uses platform-native UI and GPU acceleration
