@@ -17,8 +17,8 @@ adjust-cell-height = 3
 # theme = Synthwave Alpha
 # theme = Spacedust
 # theme = Rebecca
- theme = Purplepeter
-# theme = One Dark Two
+# theme = Purplepeter
+theme = One Dark Two
 window-padding-x = 5
 
 # Keybinds

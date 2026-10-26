@@ -1,5 +1,5 @@
 ---
-name: test-review
+name: audit-tests
 description: Review the tests added or changed on the current branch and judge whether they actually test the behaviour that matters — flagging useless, tautological, duplicated, and dead tests, plus untested paths the tests pretend to cover.
 ---
 

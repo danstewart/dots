@@ -57,7 +57,7 @@
   "skills": {
     "agents/skills/local-review": "$HOME/.agents/skills/local-review",
     "agents/skills/daily-summary": "$HOME/.agents/skills/daily-summary",
-    "agents/skills/test-audit": "$HOME/.agents/skills/test-audit"
+    "agents/skills/audit-tests": "$HOME/.agents/skills/audit-tests"
   },
   # Mac development machine
   "mac": {
