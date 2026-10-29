@@ -1,0 +1,6 @@
+{
+  "provider": "ollama",
+  "model": "qwen3-judge",
+  "timeoutMs": 8000,
+  "contextBudgetBytes": 8192
+}

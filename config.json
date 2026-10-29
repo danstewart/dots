@@ -48,6 +48,14 @@
   },
   "pi": {
     "pi/agent/extensions/pi-permission-system/config.json": "$HOME/.pi/agent/extensions/pi-permission-system/config.json",
+    "pi/agent/extensions/pi-permission-classifier/config.json": "$HOME/.pi/agent/extensions/pi-permission-classifier/config.json",
+    "pi/agent/extensions/pi-permission-classifier/Modelfile.judge": {
+      "target": "$HOME/.pi/agent/extensions/pi-permission-classifier/Modelfile.judge",
+      # Local judge model for the permission classifier. Needs `ollama pull qwen3:4b-instruct` first.
+      "cond": "-x $(command -v ollama)",
+      "andThen": "ollama create qwen3-judge -f $HOME/.pi/agent/extensions/pi-permission-classifier/Modelfile.judge",
+    },
+    "pi/agent/models.json": "$HOME/.pi/agent/models.json",
     "pi/agent/settings.json": "$HOME/.pi/agent/settings.json",
     "pi/agent/keybindings.json": "$HOME/.pi/agent/keybindings.json",
     "pi/agent/open-tui.json": "$HOME/.pi/agent/open-tui.json",
