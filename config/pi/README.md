@@ -5,6 +5,7 @@ Maps to `~/.pi`
 ```bash
 # Install extensions
 pi install npm:@gotgenes/pi-permission-system
+pi install npm:pi-permission-classifier
 pi install npm:pi-open-tui
 pi install npm:pi-hermes-memory
 pi install https://github.com/ayghri/i-have-adhd

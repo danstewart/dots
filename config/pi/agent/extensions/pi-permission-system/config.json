@@ -1,34 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
+  "debugLog": false,
+  "permissionReviewLog": true,
   "yoloMode": false,
-  "promptNotifications": ["osc777"],
+  "promptNotifications": [
+    "osc777"
+  ],
+  "authorizerChain": [
+    "classifier"
+  ],
   "permission": {
     "*": "ask",
-    "skill": {
-      "*": "ask",
-      "local-review": "allow",
-      "visual-explainer": "allow"
-    },
-    "mcp": {
-      "*": "ask",
-      "mcp_stat": "allow",
-      "mcp_list": "allow",
-      "rollbar:get-item-details": "allow",
-      "rollbar:get-deployments": "allow",
-      "rollbar:get-version": "allow",
-      "rollbar:list-items": "allow",
-      "rollbar:list-projects": "allow",
-      "rollbar:list-occurrences": "allow"
-    },
-    "third_party_tool": "ask",
-    "web_fetch": "allow",
-    "memory_search": "allow",
-    "grep": "allow",
-    "find": "allow",
-    "ls": "allow",
-    "write": "allow",
-    "edit": "allow",
-    "read": "allow",
     "path": {
       "*": "allow",
       "*.env": "deny",
@@ -55,7 +37,6 @@
       "~/dots/*": "allow",
       "~/Data/Notes/*": "allow"
     },
-    "plannotator_submit_plan": "allow",
     "bash": {
       "*": "ask",
       "true": "allow",
@@ -189,11 +170,62 @@
       "bundle exec rails test *": "allow",
       "bundle exec rails test:*": "allow",
       "bundle list": "allow",
-      "script/*": "allow",
-      "./script/*": "allow",
+      "script/test *": "allow",
+      "./script/test *": "allow",
+      "script/codegen *": "allow",
+      "./script/codegen *": "allow",
+      "script/lint *": "allow",
+      "./script/lint *": "allow",
       "make karma_ci": "allow",
       "mise ls *": "allow",
-      "mise which *": "allow"
-    }
+      "mise which *": "allow",
+      "export *": "allow",
+      "set *": "allow",
+      "unset *": "allow",
+      "local *": "allow",
+      "declare *": "allow",
+      "readonly *": "allow",
+      "./node_modules/.bin/*": "allow",
+      "*/.node_modules/.bin/*": "allow",
+      "./.venv/bin/*": "allow",
+      ".venv/bin/*": "allow",
+      "*/.venv/bin/*": "allow",
+      "./script/*": "allow",
+      "script/*": "allow",
+      "./script/migrate *": "ask",
+      "script/migrate *": "ask",
+      "./script/dbconsole *": "ask",
+      "script/dbconsole *": "ask",
+      "npx karma *": "allow",
+      "npx mocha *": "allow",
+      "zizmor *": "allow",
+      "git ls-remote *": "allow"
+    },
+    "mcp": {
+      "*": "ask",
+      "mcp_stat": "allow",
+      "mcp_list": "allow",
+      "rollbar:get-item-details": "allow",
+      "rollbar:get-deployments": "allow",
+      "rollbar:get-version": "allow",
+      "rollbar:list-items": "allow",
+      "rollbar:list-projects": "allow",
+      "rollbar:list-occurrences": "allow"
+    },
+    "skill": {
+      "*": "ask",
+      "local-review": "allow",
+      "visual-explainer": "allow"
+    },
+    "third_party_tool": "ask",
+    "web_fetch": "allow",
+    "memory_search": "allow",
+    "grep": "allow",
+    "find": "allow",
+    "ls": "allow",
+    "write": "allow",
+    "edit": "allow",
+    "read": "allow",
+    "plannotator_submit_plan": "allow"
   }
 }
