@@ -56,6 +56,7 @@
       "andThen": "ollama create qwen3-judge -f $HOME/.pi/agent/extensions/pi-permission-classifier/Modelfile.judge",
     },
     "pi/agent/models.json": "$HOME/.pi/agent/models.json",
+    "pi/agent/AGENTS.md": "$HOME/.pi/agent/AGENTS.md",
     "pi/agent/settings.json": "$HOME/.pi/agent/settings.json",
     "pi/agent/keybindings.json": "$HOME/.pi/agent/keybindings.json",
     "pi/agent/open-tui.json": "$HOME/.pi/agent/open-tui.json",
