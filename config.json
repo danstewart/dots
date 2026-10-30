@@ -78,7 +78,6 @@
     "prettierrc": "$HOME/.prettierrc",
     "vim/simplevimrc": "$HOME/.vimrc",
     "ghostty/config": "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty",
-    "mori/ghostty.config": "$HOME/.config/ghostty/config",
     "tuicr/config.toml": "$HOME/.config/tuicr/config.toml",
   },
   # Work mac machine
@@ -88,7 +87,6 @@
     "scripts": "$HOME/scripts",
     "vim/simplevimrc": "$HOME/.vimrc",
     "ghostty/config": "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty",
-    "mori/ghostty.config": "$HOME/.config/ghostty/config",
     "tuicr/config.toml": "$HOME/.config/tuicr/config.toml",
   },
   # Server includes only bash and vimrc
