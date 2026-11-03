@@ -63,6 +63,14 @@
     "pi/agent/.i-have-adhd-always": "$HOME/.pi/agent/.i-have-adhd-always",
     "pi/AGENT.md": "$HOME/.pi/AGENT.md",
   },
+  "herdr": {
+    # Per-file links on purpose: linking the whole dir would hide Herdr's own
+    # shipped mods, layouts, AGENTS.md, .d.ts and icons.
+    "herdr/keys.json": "$HOME/.config/herdr-app/keys.json",
+    "herdr/settings.json": "$HOME/.config/herdr-app/settings.json",
+    "herdr/layouts/main-plus.json": "$HOME/.config/herdr-app/layouts/main-plus.json",
+    "herdr/mods/tabs-plus": "$HOME/.config/herdr-app/mods/tabs-plus",
+  },
   "skills": {
     "agents/skills/local-review": "$HOME/.agents/skills/local-review",
     "agents/skills/daily-summary": "$HOME/.agents/skills/daily-summary",
@@ -70,7 +78,7 @@
   },
   # Mac development machine
   "mac": {
-    "&include": ["bash", "ssh", "pi", "skills"],
+    "&include": ["bash", "ssh", "pi", "skills", "herdr"],
     "gitconfig": "$HOME/.gitconfig",
     "litecli.ini": "$HOME/.config/litecli/config",
     "scripts": "$HOME/scripts",

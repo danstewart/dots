@@ -20,6 +20,9 @@
     "path_write": {
       "script/*": "ask"
     },
+    "path_read": {
+      "*localdev.env": "allow"
+    },
     "external_directory": {
       "*": "ask",
       "~/projects": "allow",
@@ -199,7 +202,32 @@
       "npx karma *": "allow",
       "npx mocha *": "allow",
       "zizmor *": "allow",
-      "git ls-remote *": "allow"
+      "git ls-remote *": "allow",
+      "python3 -m json.tool *": "allow",
+      "python3 -m pytest *": "allow",
+      "perl -ne *": "allow",
+      "perl -pe *": "allow",
+      "sleep *": "allow",
+      "chmod +x *": "allow",
+      "sips *": "allow",
+      "ollama list": "allow",
+      "ollama ps": "allow",
+      "ollama show *": "allow",
+      "launchctl getenv *": "allow",
+      "launchctl print *": "allow",
+      "git tag --list *": "allow",
+      "git tag -l *": "allow",
+      "docker inspect *": "allow",
+      "docker compose logs *": "allow",
+      "docker compose ps *": "allow",
+      "node_modules/.bin/*": "allow",
+      "./*/node_modules/.bin/*": "allow",
+      "**/node_modules/.bin/*": "allow",
+      "npm test *": "allow",
+      "pnpm test *": "allow",
+      "pnpm run test*": "allow",
+      "npx vitest *": "allow",
+      "npx playwright test *": "allow"
     },
     "mcp": {
       "*": "ask",
@@ -220,6 +248,7 @@
     "third_party_tool": "ask",
     "web_fetch": "allow",
     "memory_search": "allow",
+    "memory_add": "allow",
     "grep": "allow",
     "find": "allow",
     "ls": "allow",
