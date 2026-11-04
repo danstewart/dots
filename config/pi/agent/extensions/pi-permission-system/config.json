@@ -7,7 +7,7 @@
     "osc777"
   ],
   "authorizerChain": [
-    "classifier"
+    "permission-judge"
   ],
   "permission": {
     "*": "ask",

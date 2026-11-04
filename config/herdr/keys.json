@@ -20,7 +20,7 @@
     "cmd-p": "mod.open:picker",
     "cmd-shift-p": "app.palette",
     "cmd-,": "app.settings",
-    "cmd-d": "pane.close",
+    "cmd-d": "send:\u0004",
     "cmd-shift-d": "pane.split:down",
     "cmd-shift-w": "pane.close",
     "cmd-shift-enter": "pane.zoom",

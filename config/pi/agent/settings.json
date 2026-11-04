@@ -34,7 +34,8 @@
   "theme": "dark",
   "tuiMode": "fullscreen",
   "extensionChangelogVersions": {
-    "{\"source\":\"npm:pi-permission-classifier\",\"scope\":\"user\"}": "0.6.0",
-    "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.0.0"
+    "{\"source\":\"npm:pi-permission-classifier\",\"scope\":\"user\"}": "0.6.1",
+    "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.0.0",
+    "{\"source\":\"npm:pi-open-tui\",\"scope\":\"user\"}": "0.4.2"
   }
 }
