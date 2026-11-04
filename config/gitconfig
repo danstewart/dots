@@ -75,7 +75,7 @@
 	wipe = reset --hard
     difft = !GIT_EXTERNAL_DIFF=difft git diff
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	cleanup = ! "git remote prune origin"
+	cleanup = ! "git remote prune origin; git branch --merged | egrep -v '(^[*]|master|main|dev|trunk)' | xargs git branch -d"
 	# Rebase the current branch on top of the remote main branch
 	rbm = ! "git fetch origin $(git def-branch) && git rebase origin/$(git def-branch)"
 	up-trunk = ! "echo 'You mean: git rbm'"
