@@ -90,7 +90,7 @@
   },
   # Work mac machine
   "work-mac": {
-    "&include": ["pi", "skills"],
+    "&include": ["pi", "skills", "herdr"],
     "gitconfig": "$HOME/.gitconfig",
     "scripts": "$HOME/scripts",
     "vim/simplevimrc": "$HOME/.vimrc",
