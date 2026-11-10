@@ -15,6 +15,8 @@
     "alt-shift-left": "tab.prev",
     "cmd-alt-]": "space.next",
     "cmd-alt-[": "space.prev",
+    "cmd-shift-down": "space.next",
+    "cmd-shift-up": "space.prev",
     "cmd-]": "agent.next",
     "cmd-[": "agent.prev",
     "cmd-shift-l": "layout.switch",
